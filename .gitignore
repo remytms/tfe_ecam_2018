@@ -1,0 +1,10 @@
+# LaTeX files
+*.aux
+*.log
+*.toc
+*.tex
+!tfe.template.tex
+
+# Generated output that doesn't need versioning
+*.pdf
+*.odt
