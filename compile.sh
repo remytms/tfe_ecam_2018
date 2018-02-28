@@ -1,10 +1,10 @@
 #!/bin/sh
-pandoc content/* \
+pandoc content/*.md \
     --template=tfe.template.tex \
     --listings \
     -o tfe-TAYMANS-14291.pdf
 
-pandoc content/* \
+pandoc content/*.md \
     --template=tfe.template.tex \
     --listings \
     -o tfe-TAYMANS-14291.tex
