@@ -93,7 +93,7 @@ J'écris une **liste** numérotée:
 
 Ici j'essaie d'ajouter une image.
 
-![C'est le logo de l'ECAM](images/ecam_logo.jpg){width=10cm}
+![C'est le logo de l'ECAM](images/ecam_logo.png){width=10cm}
 
 
 
