@@ -1,0 +1,285 @@
+% -------- %
+% Preamble %
+% -------- %
+\documentclass[
+    a4paper,
+    11pt,
+    $for(classoption)$$classoption$,$endfor$
+    onecolumn,
+    % Draft mode will show Overfull Box Warning and figure are not loaded
+    % It also disable hyperref in TOC and elsewhere.
+    %draft,
+    titlepage,
+    % openany: chapter are not on a new page
+    % openright: chapter are always on a new page on the right
+    openany,
+]{$if(documentclass)$$documentclass$$else$report$endif$}
+
+
+% -------- %
+% Packages %
+% -------- %
+
+% Encoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Language
+\usepackage[frenchb]{babel}
+
+% Fonts
+\usepackage{fontspec}
+% To get the correct name of the font use :
+% `fc-list | grep "Linux Libertine" | grep ".otf"`
+\setmainfont[Ligatures=TeX]{Linux Libertine O}
+\setsansfont[Ligatures=TeX]{Linux Biolinum O}
+\setmonofont{Hack}
+\usepackage{sectsty}
+% Use sans-serif font for sections title
+\allsectionsfont{\sffamily\bfseries}
+
+% Colors
+\usepackage{xcolor}
+
+% Images
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+% Paragraph interspace
+\usepackage{parskip}
+\setlength{\parindent}{12pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+
+% Header and footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\definecolor{grey-header}{HTML}{777777}
+\renewcommand{\headrule}{\color{grey-header}\hrule}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[LE,RO]{\slshape\color{grey-header} \rightmark}
+\fancyhead[LO,RE]{\slshape\color{grey-header} \leftmark}
+\fancyfoot[C]{\color{grey-header}\thepage}
+\renewcommand{\chaptermark}[1]{%
+    \markboth{\MakeUppercase{\thechapter.\ #1}}{}
+}
+\renewcommand{\sectionmark}[1]{%
+    \markright{\MakeUppercase{\thesection.\ #1}}
+}
+
+% Title
+% Source: https://texblog.org/2012/07/03/fancy-latex-chapter-styles/
+\usepackage{titlesec}
+\definecolor{grey-title}{HTML}{777777}
+\titleformat{\chapter}[hang]{\Huge\sffamily\bfseries}{
+    \thechapter\hspace{20pt}\textcolor{grey-title}{|}\hspace{20pt}
+}{0pt}{\Huge\sffamily\bfseries}
+
+% Appendix
+\usepackage[title, titletoc]{appendix}
+\usepackage{pdfpages}
+
+% Math
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Code
+\usepackage{listings} % To show code
+\usepackage{listingsutf8} % To show code in utf8
+% Listing colors
+% From: https://github.com/Wandmalfarbe/pandoc-latex-template
+\definecolor{listing-background}{HTML}{F7F7F7}
+\definecolor{listing-rule}{HTML}{B3B2B3}
+\definecolor{listing-numbers}{HTML}{B3B2B3}
+\definecolor{listing-text-color}{HTML}{000000}
+\definecolor{listing-keyword}{HTML}{435489}
+\definecolor{listing-identifier}{HTML}{435489}
+\definecolor{listing-string}{HTML}{00999A}
+\definecolor{listing-comment}{HTML}{8E8E8E}
+\definecolor{listing-javadoc-comment}{HTML}{006CA9}
+\lstset{
+    language         = python,
+    numbers          = left,
+    backgroundcolor  = \color{listing-background},
+    basicstyle       = \color{listing-text-color}\small\ttfamily{}\linespread{1.15}, % print whole listing small
+    xleftmargin      = 2.7em,
+    breaklines       = true,
+    frame            = single,
+    framesep         = 0.6mm,
+    rulecolor        = \color{listing-rule},
+    frameround       = ffff,
+    framexleftmargin = 2.5em,
+    tabsize          = 4,
+    numberstyle      = \color{listing-numbers},
+    aboveskip        = 1.0em,
+    keywordstyle     = \color{listing-keyword}\bfseries,
+    classoffset      = 0,
+    sensitive        = true,
+    identifierstyle  = \color{listing-identifier},
+    commentstyle     = \color{listing-comment},
+    morecomment      = [s][\color{listing-javadoc-comment}]{/**}{*/},
+    stringstyle      = \color{listing-string},
+    showstringspaces = false,
+}
+
+% Link and references
+\usepackage{url}
+$if(colorizelink)$
+\definecolor{link-color}{HTML}{BC0000}
+$else$
+\definecolor{link-color}{HTML}{000000}
+$endif$
+\renewcommand\UrlFont{\color{link-color}\rmfamily\itshape}  % Color links
+\usepackage[bookmarks=true]{hyperref}  % Make the links clickable
+\hypersetup{
+    colorlinks,
+    linkcolor=link-color,
+    citecolor=link-color,
+    urlcolor=link-color,
+}
+\usepackage{hypcap} % The reference to an img link to the top of the img
+\usepackage{bookmark} % Allow possibility to have pdf bookmarks
+
+% ------------ %
+% New commands %
+% ------------ %
+
+% Blockquote
+% From: https://github.com/Wandmalfarbe/pandoc-latex-template
+\definecolor{blockquote-border}{RGB}{221,221,221}
+\definecolor{blockquote-text}{RGB}{119,119,119}
+\usepackage{mdframed}
+\newmdenv[
+    rightline=false,
+    bottomline=false,
+    topline=false,
+    linewidth=3pt,
+    linecolor=blockquote-border,
+    skipabove=\parskip,
+]{customblockquote}
+\renewenvironment{quote}
+{
+    \begin{customblockquote}
+    \list{}{\rightmargin=0em\leftmargin=0em}%
+    \item\relax\color{blockquote-text}\ignorespaces
+}
+{
+    \unskip\unskip\endlist
+    \end{customblockquote}
+}
+
+% Caption
+% From: https://github.com/Wandmalfarbe/pandoc-latex-template
+\definecolor{caption-color}{HTML}{777777}
+\usepackage{setspace}  % Allow to set interline spaces
+\usepackage[
+    font={stretch=1.2},
+    textfont={color=caption-color},
+    position=top,
+    skip=4mm,
+    labelfont=bf,
+    singlelinecheck=false,
+    justification=justified]{caption}
+\captionsetup[longtable]{position=above}
+
+
+% Command defined by pandoc
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+    \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+% ------------ %
+% The document %
+% ------------ %
+
+\begin{document}
+
+    % -------------------- %
+    % Title page variables %
+    % -------------------- %
+
+    \begin{titlepage}
+        \sffamily
+
+        \begin{center}
+            Haute École Léonard de Vinci \\
+            \centering
+            \includegraphics[
+                width=5cm,
+                keepaspectratio,
+            ]{images/ecam_logo.png} \\
+            \textsc{ECAM, Institut Supérieur Industriel ASBL} \\
+            {\small
+                Promenade de l'Almam 50 \\
+                1200 Bruxelles
+            }
+
+            \vspace{2cm}
+            {\large
+                Travail de fin d'étude \\
+                en vue de l'obtention du diplôme de \\
+                Master en Sciences de l'Ingénieur Industriel finalité
+                Informatique
+            }
+
+            \vspace{1cm}
+            {\huge\bfseries
+                CoopDesk \par
+            }
+            {\LARGE\bfseries
+                Guichet électronique basé sur Odoo et faisant
+                l'interface entre les coopérateurs et la coopérative
+            }
+
+            \vspace{1cm}
+            {\Large
+                Rémy~\textsc{Taymans}
+            }
+
+            \vspace{2cm}
+            {\large
+                \textit{Tuteur :} Clémence~\textsc{Flémal} \\
+                \textit{Promoteur :} Houssine~\textsc{Bakkali}
+            }
+
+            \vfill
+            {\large
+                Année académique 2017-2018
+            }
+        \end{center}
+
+        \normalfont
+
+    \end{titlepage}
+
+    \thispagestyle{empty}
+    \cleardoublepage
+
+    $if(abstract)$
+    \begin{abstract}
+        \input{abstract/abstract.tex}
+    \end{abstract}
+    \thispagestyle{empty}
+    \cleardoublepage
+    $endif$
+
+    \sffamily
+    \setcounter{tocdepth}{2}
+    \pdfbookmark{\contentsname}{Table des matières}  % To have pdf bookmarks
+    \tableofcontents
+    \normalfont
+
+    \cleardoublepage
+
+    $body$
+
+    \bibliographystyle{plain}
+    \bibliography{biblio}
+
+    \clearpage
+    \begin{appendices}
+
+    \end{appendices}
+
+\end{document}
