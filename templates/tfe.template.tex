@@ -246,6 +246,8 @@ $endif$
     \cleardoublepage
     $endif$
 
+    \pagenumbering{roman}  % Reset page number to roman style
+
     $if(abstract)$
     % Uncomment the 2 next lines and comment the last one if you don't
     % want the abstract to appear in the table of contents.
@@ -274,6 +276,8 @@ $endif$
     \normalfont
 
     \cleardoublepage
+
+    \pagenumbering{arabic}  % Reset page number to arabic style
 
     $body$
 
