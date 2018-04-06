@@ -38,6 +38,23 @@
 % Use sans-serif font for sections title
 \allsectionsfont{\sffamily\bfseries}
 
+% Margins
+$if(paperversion)$
+\usepackage[
+    %showframe, % Uncomment to debug page margin
+    marginpar=30mm,
+    inner=50mm,
+    outer=40mm
+]{geometry}
+$else$
+\usepackage[
+    %showframe, % Uncomment to debug page margin
+    marginpar=30mm,
+    inner=45mm,
+    outer=45mm
+]{geometry}
+$endif$
+
 % Colors
 \usepackage{xcolor}
 
