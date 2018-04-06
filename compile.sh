@@ -17,14 +17,14 @@ pandoc abstract/abstract.md \
     -o abstract/abstract.tex
 
 # Screen reading version
-pandoc content/*.md \
+pandoc $(cat content/toc.txt) \
     tfe-main.yml tfe-screen.yml \
     --template=templates/tfe.template.tex \
     --listings \
     --latex-engine=xelatex \
     -o tfe-TAYMANS-14291-screen.tex
 
-pandoc content/*.md \
+pandoc $(cat content/toc.txt) \
     tfe-main.yml tfe-screen.yml \
     --template=templates/tfe.template.tex \
     --listings \
@@ -32,14 +32,14 @@ pandoc content/*.md \
     -o tfe-TAYMANS-14291-screen.pdf
 
 # Paper reading version
-pandoc content/*.md \
+pandoc $(cat content/toc.txt) \
     tfe-main.yml tfe-paper.yml \
     --template=templates/tfe.template.tex \
     --listings \
     --latex-engine=xelatex \
     -o tfe-TAYMANS-14291-paper.tex
 
-pandoc content/*.md \
+pandoc $(cat content/toc.txt) \
     tfe-main.yml tfe-paper.yml \
     --template=templates/tfe.template.tex \
     --listings \
