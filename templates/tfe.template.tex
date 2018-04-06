@@ -258,9 +258,11 @@ $endif$
 
     $if(abstract)$
     \begin{abstract}
-        \input{abstract/abstract.tex}
+        % Abstract automaticaly call \thispagestyle{empty}
+        % To prenvent this comportement we add this:
+        \thispagestyle{plain}
+        \input{$abstract$}
     \end{abstract}
-    \thispagestyle{empty}
     \cleardoublepage
     $endif$
 
