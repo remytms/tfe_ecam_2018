@@ -69,13 +69,27 @@ $endif$
 
 % Header and footer
 \usepackage{fancyhdr}
-\pagestyle{fancy}
 \definecolor{grey-header}{HTML}{777777}
-\renewcommand{\headrule}{\color{grey-header}\hrule}
-\renewcommand{\headrulewidth}{0.4pt}
-\fancyhead[LE,RO]{\slshape\color{grey-header} \rightmark}
-\fancyhead[LO,RE]{\slshape\color{grey-header} \leftmark}
-\fancyfoot[C]{\color{grey-header}\thepage}
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \renewcommand{\headrule}{}
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyfoot[C]{\color{grey-header}\thepage}
+}
+\fancypagestyle{greyfancy}{
+    \renewcommand{\headrule}{\color{grey-header}\hrule}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \fancyhead[LE]{\slshape\color{grey-header} \leftmark}
+    \fancyhead[RO]{\slshape\color{grey-header} \rightmark}
+    \fancyhead[RE]{}
+    $if(paperversion)$
+        \fancyhead[LO]{}
+    $else$
+        \fancyhead[LO]{\slshape\color{grey-header} \leftmark}
+    $endif$
+    \fancyfoot[C]{\color{grey-header}\thepage}
+}
+\pagestyle{greyfancy}
 \renewcommand{\chaptermark}[1]{%
     \markboth{\MakeUppercase{\thechapter.\ #1}}{}
 }
