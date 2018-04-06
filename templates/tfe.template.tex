@@ -161,7 +161,13 @@ $else$
 \definecolor{link-color}{HTML}{000000}
 $endif$
 \renewcommand\UrlFont{\color{link-color}\rmfamily\itshape}  % Color links
-\usepackage[bookmarks=true]{hyperref}  % Make the links clickable
+\usepackage[
+    bookmarks=true,  % Make the links clickable
+    pdfauthor={Rémy Taymans},
+    pdftitle={CoopDesk},
+    pdfsubject={TFE - Master Ingénieur Industriel Informatique},
+    pdfkeywords={tfe,odoo,erp,cooperative,supermarché},
+]{hyperref}
 \hypersetup{
     colorlinks,
     linkcolor=link-color,
