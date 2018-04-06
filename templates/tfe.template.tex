@@ -217,11 +217,18 @@ $endif$
     % -------------------- %
 
     $if(titlepage)$
+    \label{titlepage}
+    \pdfbookmark{Title Page}{titlepage}  % To have pdf bookmarks
     \includepdf{$titlepage$}
     \cleardoublepage
     $endif$
 
     $if(abstract)$
+    % Uncomment the 2 next lines and comment the last one if you don't
+    % want the abstract to appear in the table of contents.
+    %\label{abstract}
+    %\pdfbookmark{\abstractname}{abstract}  % To have pdf bookmarks
+    \phantomsection\addcontentsline{toc}{chapter}{\abstractname}
     \begin{abstract}
         % Abstract automaticaly call \thispagestyle{empty}
         % To prenvent this comportement we add this:
@@ -232,8 +239,9 @@ $endif$
     $endif$
 
     \sffamily
+    \label{tableofcontents}
+    \pdfbookmark{\contentsname}{tableofcontents}  % To have pdf bookmarks
     \setcounter{tocdepth}{2}
-    \pdfbookmark{\contentsname}{Table des matières}  % To have pdf bookmarks
     \tableofcontents
     \normalfont
 
