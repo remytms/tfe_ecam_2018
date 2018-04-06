@@ -9,6 +9,8 @@
     % Draft mode will show Overfull Box Warning and figure are not loaded
     % It also disable hyperref in TOC and elsewhere.
     %draft,
+    % titlepage: There is a break after \maketitle
+    % notitlepage: There is no break after \maketitle
     titlepage,
     % openany: chapter are not on a new page
     % openright: chapter are always on a new page on the right
@@ -97,7 +99,7 @@ $endif$
     \markright{\MakeUppercase{\thesection.\ #1}}
 }
 
-% Title
+% Titles
 % Source: https://texblog.org/2012/07/03/fancy-latex-chapter-styles/
 \usepackage{titlesec}
 \definecolor{grey-title}{HTML}{777777}
@@ -257,6 +259,11 @@ $endif$
     \end{abstract}
     \cleardoublepage
     $endif$
+
+
+    % ----------------- %
+    % Table of Contents %
+    % ----------------- %
 
     \sffamily
     \label{tableofcontents}
