@@ -199,62 +199,10 @@ $endif$
     % Title page variables %
     % -------------------- %
 
-    \begin{titlepage}
-        \sffamily
-
-        \begin{center}
-            Haute École Léonard de Vinci \\
-            \centering
-            \includegraphics[
-                width=5cm,
-                keepaspectratio,
-            ]{images/ecam_logo.png} \\
-            \textsc{ECAM, Institut Supérieur Industriel ASBL} \\
-            {\small
-                Promenade de l'Almam 50 \\
-                1200 Bruxelles
-            }
-
-            \vspace{2cm}
-            {\large
-                Travail de fin d'étude \\
-                en vue de l'obtention du diplôme de \\
-                Master en Sciences de l'Ingénieur Industriel finalité
-                Informatique
-            }
-
-            \vspace{1cm}
-            {\huge\bfseries
-                CoopDesk \par
-            }
-            {\LARGE\bfseries
-                Guichet électronique basé sur Odoo et faisant
-                l'interface entre les coopérateurs et la coopérative
-            }
-
-            \vspace{1cm}
-            {\Large
-                Rémy~\textsc{Taymans}
-            }
-
-            \vspace{2cm}
-            {\large
-                \textit{Tuteur :} Clémence~\textsc{Flémal} \\
-                \textit{Promoteur :} Houssine~\textsc{Bakkali}
-            }
-
-            \vfill
-            {\large
-                Année académique 2017-2018
-            }
-        \end{center}
-
-        \normalfont
-
-    \end{titlepage}
-
-    \thispagestyle{empty}
+    $if(titlepage)$
+    \includepdf{$titlepage$}
     \cleardoublepage
+    $endif$
 
     $if(abstract)$
     \begin{abstract}

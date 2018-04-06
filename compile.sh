@@ -1,7 +1,15 @@
 #!/bin/sh
 
-# Abstract
+# Title Page
+if [ -f "titlepages/tfe-a4-titlepage.pdf" ]
+then
+    echo "Title Page already generated"
+else
+    xelatex titlepages/tfe-a4-titlepage.tex
+    mv tfe-a4-titlepage.pdf titlepages
+fi
 
+# Abstract
 pandoc abstract/abstract.md \
     --template=templates/tfe.empty.template.tex \
     --listings \
