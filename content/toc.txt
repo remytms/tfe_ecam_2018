@@ -1,2 +1,5 @@
+content/preface.md
+content/intro.md
 content/index.md
+content/conclusion.md
 content/example.md

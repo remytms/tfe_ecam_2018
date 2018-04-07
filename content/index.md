@@ -1,23 +1,3 @@
-# Préface {-}
-
-> Présentation de mes motivations
-> Présentation du promoteur
-> Présentation du client
-> Remerciements
-
-
-# Introduction
-
-> Qu'est-ce que cet ouvrage. Quel est son contenu.
-
-> Résumé du besoin général
-
-> Résumé générale de la solution, l'articulation des différents
-> modules.
-
-> Guide du lecteur avec focus sur certains points.
-
-
 # CoopDesk
 
 > Note: Le titre doit être plus précis indiquant que c'est l'overview du
@@ -128,10 +108,3 @@
 ## Problèmes rencontrés et les solutions
 
 > Réaction des parties prenantes aux problèmes rencontrés.
-
-
-# Conclusion
-
-> Présentation des résultats obtenus en comparaison du cahier des charges
-> et du besoin.
-
