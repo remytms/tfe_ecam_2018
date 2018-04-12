@@ -1,4 +1,4 @@
-# CoopDesk
+# CoopDesk : l'interface entre les coopérateurs et la coopérative {#sec:coopdesk}
 
 > Note: Le titre doit être plus précis indiquant que c'est l'overview du
 > reste.
@@ -44,7 +44,7 @@
 > production ? Ou alors dans le chapitre dédié.
 
 
-# CoopShift
+# CoopShift : la gestion des shifts {#sec:coopshift}
 
 ## Le besoin
 
@@ -66,7 +66,7 @@
 > solutions qui ont été choisies.
 
 
-# CoopInfo
+# CoopInfoPerso : la gestion des informations personnelles {#sec:coopinfoperso}
 
 ## Le besoin
 
@@ -77,7 +77,7 @@
 ## Difficultés et solutions
 
 
-# CoopDocument
+# CoopDocument : la gestion des documents {#sec:coopdocument}
 
 ## Le besoin
 
@@ -88,7 +88,7 @@
 ## Difficultés et solutions
 
 
-# CoopReceipt
+# CoopReceipt : la gestion des tickets de caisses {#sec:coopreceipt}
 
 ## Le besoin
 
@@ -99,7 +99,7 @@
 ## Difficultés et solutions
 
 
-# Gestion du projet
+# Gestion du projet {#sec:gestion}
 
 ## Réunion de présentation d'avancement du projet
 
