@@ -15,6 +15,8 @@
     % openany: chapter are not on a new page
     % openright: chapter are always on a new page on the right
     openany,
+    % Set language to have proper translation using varioref
+    french,
 ]{$if(documentclass)$$documentclass$$else$report$endif$}
 
 
@@ -157,6 +159,7 @@ $endif$
 }
 
 % Link and references
+\usepackage{varioref}
 \usepackage{url}
 $if(colorizelink)$
 \definecolor{link-color}{HTML}{BC0000}
