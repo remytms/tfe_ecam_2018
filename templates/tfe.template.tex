@@ -109,6 +109,11 @@ $endif$
 \titleformat{\chapter}[hang]{\Huge\sffamily\bfseries}{
     \thechapter\hspace{20pt}\textcolor{grey-title}{|}\hspace{20pt}
 }{0pt}{\Huge\sffamily\bfseries}
+% Setting level of numbering
+\setcounter{secnumdepth}{3}
+% Change numbering of sections
+\renewcommand{\thesubsection}{\roman{subsection}}
+\renewcommand{\thesubsubsection}{\alph{subsubsection})}
 
 % Appendix
 \usepackage[title, titletoc]{appendix}
