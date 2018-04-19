@@ -3,4 +3,3 @@ content/intro.md
 content/coopdesk.md
 content/index.md
 content/conclusion.md
-content/example.md
