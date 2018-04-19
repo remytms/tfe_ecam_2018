@@ -1,5 +1,6 @@
 content/preface.md
 content/intro.md
 content/coopdesk.md
+content/coopshift.md
 content/index.md
 content/conclusion.md
