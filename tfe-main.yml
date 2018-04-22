@@ -2,4 +2,8 @@
 documentclass: "report"
 titlepage: "titlepages/tfe-a4-titlepage.pdf"
 abstract: "abstract/abstract.tex"
+hyphenation:
+    - front-end
+    - back-end
+    - Odoo
 ...
