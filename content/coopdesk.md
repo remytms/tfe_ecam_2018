@@ -51,7 +51,7 @@ logiciel Odoo Community comme ERP *(Entreprise Resource Planning)*,
 CoopDesk doit donc être totalement intégré à Odoo.
 
 
-## Conception
+## Conception {#sec:coopdesk-conception}
 
 Odoo est un logiciel orienté web. Un serveur (en général dans le *cloud*)
 fait tourner une instance d'Odoo et un base de donnée (PostgreSQL). Les

@@ -1,14 +1,3 @@
-# CoopInfoPerso : la gestion des informations personnelles {#sec:coopinfoperso}
-
-## Le besoin
-
-## Conception
-
-## Réalisation
-
-## Difficultés et solutions
-
-
 # CoopDocument : la gestion des documents {#sec:coopdocument}
 
 ## Le besoin
