@@ -2,6 +2,7 @@
 documentclass: "report"
 titlepage: "titlepages/tfe-a4-titlepage.pdf"
 abstract: "abstract/abstract.tex"
+bibfile: "biblio"
 hyphenation:
     - front-end
     - back-end
