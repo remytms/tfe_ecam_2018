@@ -3,5 +3,6 @@ content/intro.md
 content/coopdesk.md
 content/coopshift.md
 content/coopinfoperso.md
+content/coopdocument.md
 content/index.md
 content/conclusion.md

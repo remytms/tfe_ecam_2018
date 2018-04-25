@@ -9,6 +9,9 @@ else
     mv tfe-a4-titlepage.pdf titlepages
 fi
 
+# Diagrams
+dot -Tpdf diagrams/document-tree.gv -o images/document-tree.pdf
+
 # Abstract
 pandoc abstract/abstract.md \
     --template=templates/tfe.empty.template.tex \

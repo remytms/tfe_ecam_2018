@@ -1,0 +1,43 @@
+digraph G {
+    node [fontname="Bitstream Vera Sans"];
+    node [shape=record];
+    // Categories
+    Root [
+        label = "{<cat> Category\nNone |<subcat> Sub-categories |<doc> Documents }"
+    ];
+    Report [
+        label = "{<cat> Report |<subcat> |<doc> }"
+    ];
+    AG [
+        label = "{<cat> AG |<subcat> None |<doc> }"
+    ];
+    Comity [
+        label = "{<cat> Comity |<subcat> None |<doc> }"
+    ];
+    Public [
+        label = "{<cat> Public |<subcat> None |<doc> }"
+    ];
+
+    node [shape="ellipse"];
+    // Documents
+    "PV AG 1";
+    "PV AG 2";
+    "PV comity 1";
+    Statuts;
+    ROI;
+    Readme;
+
+    // Links between cat and subcat
+    Root:subcat -> Report;
+    Root:subcat -> Public;
+    Report:subcat -> AG;
+    Report:subcat -> Comity;
+
+    // Links between cat and doc
+    Root:doc -> Readme;
+    AG:doc -> "PV AG 1";
+    AG:doc -> "PV AG 2";
+    Comity:doc -> "PV comity 1";
+    Public:doc -> Statuts;
+    Public:doc -> ROI;
+}
