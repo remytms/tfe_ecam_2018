@@ -17,32 +17,33 @@ pandoc abstract/abstract.md \
     -o abstract/abstract.tex
 
 # Screen reading version
+file='tfe-TAYMANS-14291-screen'
 pandoc $(cat content/toc.txt) \
     tfe-main.yml tfe-screen.yml \
     --template=templates/tfe.template.tex \
     --listings \
     --latex-engine=xelatex \
-    -o tfe-TAYMANS-14291-screen.tex
+    -o "$file.tex"
 
-pandoc $(cat content/toc.txt) \
-    tfe-main.yml tfe-screen.yml \
-    --template=templates/tfe.template.tex \
-    --listings \
-    --latex-engine=xelatex \
-    -o tfe-TAYMANS-14291-screen.pdf
+xelatex -halt-on-error "$file.tex"
+bibtex "$file"
+xelatex -halt-on-error "$file.tex"
+xelatex -halt-on-error "$file.tex"
+
+rm "$file.aux" "$file.bbl" "$file.blg" "$file.toc"
 
 # Paper reading version
+file='tfe-TAYMANS-14291-paper'
 pandoc $(cat content/toc.txt) \
     tfe-main.yml tfe-paper.yml \
     --template=templates/tfe.template.tex \
     --listings \
     --latex-engine=xelatex \
-    -o tfe-TAYMANS-14291-paper.tex
+    -o "$file.tex"
 
-pandoc $(cat content/toc.txt) \
-    tfe-main.yml tfe-paper.yml \
-    --template=templates/tfe.template.tex \
-    --listings \
-    --latex-engine=xelatex \
-    -o tfe-TAYMANS-14291-paper.pdf
+xelatex -halt-on-error "$file.tex"
+bibtex "$file"
+xelatex -halt-on-error "$file.tex"
+xelatex -halt-on-error "$file.tex"
 
+rm "$file.aux" "$file.bbl" "$file.blg" "$file.toc"

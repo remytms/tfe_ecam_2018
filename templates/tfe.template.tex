@@ -294,8 +294,10 @@ $endif$
 
     $body$
 
-    \bibliographystyle{plain}
-    \bibliography{biblio}
+    $if(bibfile)$
+        \bibliographystyle{plain}
+        \bibliography{$bibfile$}
+    $endif$
 
     \clearpage
     \begin{appendices}
