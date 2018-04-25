@@ -1,14 +1,3 @@
-# CoopDocument : la gestion des documents {#sec:coopdocument}
-
-## Le besoin
-
-## Conception
-
-## Réalisation
-
-## Difficultés et solutions
-
-
 # CoopReceipt : la gestion des tickets de caisses {#sec:coopreceipt}
 
 ## Le besoin

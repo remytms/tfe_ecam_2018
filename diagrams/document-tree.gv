@@ -1,0 +1,46 @@
+digraph G {
+    node [fontname="Linux Biolinum O"];
+    node [shape="record"];
+
+    // Root
+    Root [
+        label = "<cat> Category\nNone |<subcat> Sub-categories |<doc> Documents"
+    ];
+    Report [
+        label = "<cat> Rapport |<subcat> |<doc>"
+    ];
+    Readme [shape="note"];
+    Public [
+        label = "<cat> Public |<subcat> |<doc>"
+    ];
+
+    // First level
+    AG [
+        label = "<cat> AG |<subcat> |<doc>"
+    ];
+    Comity [
+        label = "<cat> Comité |<subcat> |<doc>"
+    ];
+    Statuts [shape="note"];
+    ROI [shape="note"];
+
+    // Second level
+    node [shape="note"];
+    "PV AG 1";
+    "PV AG 2";
+    "PV comité 1";
+
+    // Links between cat and subcat
+    Root:subcat -> Report:cat;
+    Root:subcat -> Public:cat;
+    Report:subcat -> AG:cat;
+    Report:subcat -> Comity:cat;
+
+    // Links between cat and doc
+    Root:doc -> Readme:n;
+    AG:doc -> "PV AG 1":n;
+    AG:doc -> "PV AG 2":n;
+    Comity:doc -> "PV comité 1":n;
+    Public:doc -> Statuts:n;
+    Public:doc -> ROI:n;
+}

@@ -9,6 +9,10 @@ else
     mv tfe-a4-titlepage.pdf titlepages
 fi
 
+# Diagrams
+dot -Tpng -Gdpi=600 diagrams/document-tree.gv \
+    -o images/document-tree.png
+
 # Abstract
 pandoc abstract/abstract.md \
     --template=templates/tfe.empty.template.tex \
