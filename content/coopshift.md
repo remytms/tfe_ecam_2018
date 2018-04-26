@@ -230,13 +230,13 @@ def my_shift_regular_worker(self):
     return template_context
 ```
 
-> Parler de la construction des shifts fictifs ?
+> **TODO** : Parler de la construction des shifts fictifs ?
 
 
 ## Réalisation
 
-> Présenter la réalisation en images et montrer qu'elle correspond bien au
-> besoin (ou pas).
+> **TODO** : Présenter la réalisation en images et montrer qu'elle
+> correspond bien au besoin (ou pas).
 
 
 ## Difficultés et solutions
