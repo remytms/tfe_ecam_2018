@@ -92,13 +92,14 @@ $endif$
 \fancypagestyle{greyfancy}{
     \renewcommand{\headrule}{\color{grey-header}\hrule}
     \renewcommand{\headrulewidth}{0.4pt}
-    \fancyhead[LE]{\slshape\color{grey-header} \leftmark}
-    \fancyhead[RO]{\slshape\color{grey-header} \rightmark}
-    \fancyhead[RE]{}
     $if(paperversion)$
+        \fancyhead[LE]{\slshape\color{grey-header} \leftmark}
+        \fancyhead[RO]{\slshape\color{grey-header} \rightmark}
+        \fancyhead[RE]{}
         \fancyhead[LO]{}
     $else$
         \fancyhead[LO]{\slshape\color{grey-header} \leftmark}
+        \fancyhead[RO]{}
     $endif$
     \fancyfoot[C]{\color{grey-header}\thepage}
 }
