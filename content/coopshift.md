@@ -100,7 +100,7 @@ L'application CoopShift est constituée d'un seul module nommé
 se base sur le patron de conception MVC (modèle-vue-contrôleur). Le
 module *beesdoo_shift* contient entre autre la définition des modèles.
 Les créneaux, les *shifts* et le statut des coopérateurs y sont définis.
-*beesdoo_website_shift* se concentre sur l'aspect vue « frontend » et
+*beesdoo_website_shift* se concentre sur l'aspect interface *website* et
 contrôleur. L'application n'est composée que d'un seul module à l'image de
 *beesdoo_shift* qui regroupe la gestion du travail des coopérateurs dans
 un seul module.
