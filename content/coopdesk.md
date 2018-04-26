@@ -65,19 +65,20 @@ cohérent. Dans sa version Community une série de modules est fournie et
 ajoute les fonctionnalités qui font d'Odoo Community un ERP.
 
 La principale manière pour un utilisateur d'interagir avec Odoo est via
-son interface dite de « backend ». Cette interface est très fournie en
+son interface d'administration. Cette interface est très fournie en
 fonctionnalités. Cette interface est normalisée afin de fournir à
-l'utilisateur une utilisation similaire quels que soitent les modules
+l'utilisateur une utilisation similaire quels que soient les modules
 qu'il utilise. Odoo fournit aussi une autre interface dite de
-« frontend », plus proche d'un site web et qui laisse une plus grande
+*website*, plus proche d'un site web et qui laisse une plus grande
 liberté de création dans l'interface. C'est cette dernière interface qui
 sera utilisé pour la réalisation de CoopDesk, car elle offre une liberté
 qui va permettre de concevoir une interface simple et efficace, proche
 de ce que l'utilisateur à l'habitude de rencontrer lorsqu'il navigue sur
-le web. Cependant l'interface de « backend » sera utilisée pour ce qui
+le web. Cependant l'interface d'administration sera utilisée pour ce qui
 concerne l'administration et la configuration de CoopDesk.
 
-> **TODO** : Ajouter deux images qui illustrent le backend et le frontend.
+> **TODO** : Ajouter deux images qui illustrent l'interface
+> d'administration et *website*.
 
 CoopDesk doit répondre aux besoins de la BEES coop. Cependant, il serait
 beaucoup plus utile qu'il puisse également être utilisé par d'autres
@@ -112,7 +113,7 @@ height=150%}
 ##### Website Portal v10
 
 Ce module est un *backport* du module standard d'Odoo qui se nomme
-*website_portal*. Ce dernier apporte une interface type « frontend » où
+*website_portal*. Ce dernier apporte une interface type *website* où
 l'utilisateur peut consulter ses informations personnelles de base (nom,
 prénom, adresse électronique, adresse postale) et modifier ses dernières
 via un formulaire. CoopDesk est réalisé sur la version 9 d'Odoo.
@@ -166,7 +167,7 @@ C'est aussi via ce module que l'on peut inscrire un coopérateur à un
 
 Cette application ne contient qu'un seul module :
 *beesdoo_website_shift*. Ce module vient apporter une interface
-« frontend » pour que chaque coopérateur-travailleur puisse avoir accès
+*website* pour que chaque coopérateur-travailleur puisse avoir accès
 à ses informations de travailleur tel que ses prochains *shifts*, ses
 *shifts* passés, son statut, s'il lui est possible de faire ses
 courses, etc.
@@ -200,7 +201,7 @@ l'administration de la coopérative.
 
 ##### Easy My Coop Website Portal
 
-Ce module apporte une interface « frontend » pour que le coopérateur
+Ce module apporte une interface *website* pour que le coopérateur
 puisse avoir accès à ses informations de coopérateur ainsi que son
 certificat de coopérateur et un accès à chacune des demandes de
 libération de capital qui lui ont été demandées.
@@ -226,20 +227,20 @@ voudrait publier.
 
 ##### Easy My Coop Document
 
-Ce module fournit une interface « backend » pour la gestion des documents
-de la coopérative. C'est via cette interface que les documents sont
-téléversés et que ses propriétés de publication sont définies.
+Ce module fournit une interface d'administration pour la gestion des
+documents de la coopérative. C'est via cette interface que les documents
+sont téléversés et que ses propriétés de publication sont définies.
 
 ##### Easy My Coop Website Document
 
-Ce module fournit une interface « frontend » pour que le coopérateur
+Ce module fournit une interface *website* pour que le coopérateur
 puisse facilement accéder aux documents publiés par la coopérative.
 
 
 #### CoopReceipt
 
 Cette application est composée d'un seul module qui vient compléter le
-module *website_portal_v10* pour y ajouter une interface « frontend »
+module *website_portal_v10* pour y ajouter une interface *website*
 pour que le coopérateur puisse accéder à ses tickets de caisse.
 
 
@@ -252,7 +253,7 @@ moins urgent.
 > **TODO** : Mettre à jour les dates dans ces paragraphes.
 
 La réalisation a débuté par un apprentissage de la programmation sous
-Odoo concernant la partie « frontend ». L'apprentissage d'Odoo est
+Odoo concernant l'interface *website*. L'apprentissage d'Odoo est
 vaste, c'est pourquoi, afin de mettre la théorie en pratique, la
 réalisation de CoopShift a débuté en parallèle. Par la suite,
 apprentissage et développement ont eu lieu de manière
