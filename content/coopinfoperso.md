@@ -42,20 +42,18 @@ La BEES coop souhaite que cette dernière soit disponible au coopérateur
 à tout moment, toujours dans le but d'alléger sa charge administrative
 daans le cas où des coopérateurs perdraient les documents reçus.
 
-> **TODO** : Mettre une référence explicative du Tax shelter. Vérifer
-> l'année de constitution de la BEES coop.
-
-Il est une particularité fiscale, en Belgique, nommée *tax shelter*. Ce
-nom désigne un avantage fiscal donné aux personnes qui investissent de
-l'argent dans des entreprises nouvelles afin de favoriser la création
-d'entreprise par une levée de capital plus facile car encouragée par
-cette réduction d'impôt. Cela jusqu'à ce que l'entreprise et levé un
-certain montant de capital. La BEES coop étant une nouvelle entreprise
-fondée en 2015, les premiers coopérateurs peuvent bénéficier d'une
-réduction d'impôt sur l'argent investi dans la coopérative. De ce fait
-la BEES coop souhaite que chaque coopérateur puisse avoir un accès
-permanent aux certificats qui leur permettront de justifier leur
-participation financière dans la coopérative auprès des autorités.
+Il est une particularité fiscale, en Belgique, nommée
+Tax Shelter. \cite{site:taxshelter} Ce nom désigne un avantage fiscal
+donné aux personnes qui investissent de l'argent dans des entreprises
+nouvelles afin de favoriser la création d'entreprise par une levée de
+capital plus facile car encouragée par cette réduction d'impôt. Cela
+jusqu'à ce que l'entreprise ai levé un certain montant de capital. La
+BEES coop étant une nouvelle entreprise fondée en 2016 \cite{site:bce},
+les premiers coopérateurs peuvent bénéficier d'une réduction d'impôt sur
+l'argent investi dans la coopérative. De ce fait la BEES coop souhaite
+que chaque coopérateur puisse avoir un accès permanent aux certificats
+qui leur permettront de justifier leur participation financière dans la
+coopérative auprès des autorités.
 
 > **TODO** : Parler de l'affichage des mangeurs.
 
@@ -74,7 +72,7 @@ les coopérateurs pourront consulter sans difficultés :
 - la date de chacune des demandes de libération de capital ;
 - une copie de chaque demande de libération de capital ;
 - le certificat de coopérateur ;
-- les certificats liés au *tax shelter* pour chaque année.
+- les certificats liés au Tax Shelter pour chaque année.
 
 CoopInfoPerso doit aussi fournir une interface pour permettre aux
 coopérateurs de modifier leur numéro de téléphone et leur adresse
