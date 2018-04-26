@@ -4,5 +4,6 @@ content/coopdesk.md
 content/coopshift.md
 content/coopinfoperso.md
 content/coopdocument.md
+content/coopreceipt.md
 content/index.md
 content/conclusion.md

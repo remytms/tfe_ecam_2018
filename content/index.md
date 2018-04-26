@@ -1,14 +1,3 @@
-# CoopReceipt : la gestion des tickets de caisses {#sec:coopreceipt}
-
-## Le besoin
-
-## Conception
-
-## Réalisation
-
-## Difficultés et solutions
-
-
 # Gestion du projet {#sec:gestion}
 
 ## Réunion de présentation d'avancement du projet
