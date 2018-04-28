@@ -1,43 +1,46 @@
 digraph G {
-    node [fontname="Bitstream Vera Sans"];
-    node [shape=record];
-    // Categories
+    node [fontname="Linux Biolinum O"];
+    node [shape="record"];
+
+    // Root
     Root [
-        label = "{<cat> Category\nNone |<subcat> Sub-categories |<doc> Documents }"
+        label = "<cat> Category\nNone |<subcat> Sub-categories |<doc> Documents"
     ];
     Report [
-        label = "{<cat> Report |<subcat> |<doc> }"
+        label = "<cat> Rapport |<subcat> |<doc>"
     ];
+    Readme [shape="note"];
+    Public [
+        label = "<cat> Public |<subcat> |<doc>"
+    ];
+
+    // First level
     AG [
-        label = "{<cat> AG |<subcat> None |<doc> }"
+        label = "<cat> AG |<subcat> |<doc>"
     ];
     Comity [
-        label = "{<cat> Comity |<subcat> None |<doc> }"
+        label = "<cat> Comité |<subcat> |<doc>"
     ];
-    Public [
-        label = "{<cat> Public |<subcat> None |<doc> }"
-    ];
+    Statuts [shape="note"];
+    ROI [shape="note"];
 
-    node [shape="ellipse"];
-    // Documents
+    // Second level
+    node [shape="note"];
     "PV AG 1";
     "PV AG 2";
-    "PV comity 1";
-    Statuts;
-    ROI;
-    Readme;
+    "PV comité 1";
 
     // Links between cat and subcat
-    Root:subcat -> Report;
-    Root:subcat -> Public;
-    Report:subcat -> AG;
-    Report:subcat -> Comity;
+    Root:subcat -> Report:cat;
+    Root:subcat -> Public:cat;
+    Report:subcat -> AG:cat;
+    Report:subcat -> Comity:cat;
 
     // Links between cat and doc
-    Root:doc -> Readme;
-    AG:doc -> "PV AG 1";
-    AG:doc -> "PV AG 2";
-    Comity:doc -> "PV comity 1";
-    Public:doc -> Statuts;
-    Public:doc -> ROI;
+    Root:doc -> Readme:n;
+    AG:doc -> "PV AG 1":n;
+    AG:doc -> "PV AG 2":n;
+    Comity:doc -> "PV comité 1":n;
+    Public:doc -> Statuts:n;
+    Public:doc -> ROI:n;
 }

@@ -10,7 +10,8 @@ else
 fi
 
 # Diagrams
-dot -Tpdf diagrams/document-tree.gv -o images/document-tree.pdf
+dot -Tpng -Gdpi=600 diagrams/document-tree.gv \
+    -o images/document-tree.png
 
 # Abstract
 pandoc abstract/abstract.md \

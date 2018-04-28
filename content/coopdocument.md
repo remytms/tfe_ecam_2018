@@ -152,7 +152,7 @@ chaque élément de la liste.
 
 ![Structure en arbre des catégories et documents utilisé pour
 transmission entre le contrôleur et la vue.](
-images/document-tree.pdf){#fig:document_tree width=100%}
+images/document-tree.png){#fig:document_tree width=100%}
 
 Le contrôleur doit aussi fournir une page qui permet de télécharger les
 documents. Pour ce faire la réponse HTTP doit être structurée d'une
