@@ -101,6 +101,9 @@ liste précédente s'ajoute :
 > **TODO** : Parler de la date de future alerte qui a du être développée
 > dans beesdoo_shift.
 
+> **TODO** : Une explication de ce qu'est une architecture MVC dans un
+> chapitre dédier.
+
 L'application CoopShift est constituée d'un seul module nommé
 *beesdoo_website_shift* qui se base sur le module *beesdoo_shift*. Elle
 se base sur le patron de conception MVC (modèle-vue-contrôleur). Le
@@ -165,9 +168,9 @@ Exemple d'une vue principale qui utilise la vue élémentaire ci-dessus :
 ```
 
 Du côté du contrôleur la même logique a été suivie. Une première méthode
-accessible via la page `/my/shift` va rendre la vue adéquate et appeler
-la méthode liée à cette vue. C'est cette dernière qui se chargera de
-préparer les valeurs qui seront affichées par la vue.
+accessible via la page \url{/my/shift} va rendre la vue adéquate et
+appeler la méthode liée à cette vue. C'est cette dernière qui se
+chargera de préparer les valeurs qui seront affichées par la vue.
 
 ```python
 @http.route('/my/shift', auth='user', website=True)
@@ -297,7 +300,7 @@ comme suit :
 1. Un *shift* existant appartenant au créneau horaire du travailleur est
    récupéré dans la base de données.
 1. Une copie de ce *shift* est réalisée et constitue un *shift* fictif.
-1. Un multiple de 24 jours (l'équivalent en jour de quatre semaines) est
+1. Un multiple de 28 jours (l'équivalent en jour de quatre semaines) est
    ajouté aux dates de début et de fin du *shift* fictif.
 
 Toutes les dates, enregistrées dans la base de données et stockées dans
@@ -306,26 +309,29 @@ coordonné). L'UTC ne connait pas le changement d'heure été/hiver.  Il
 permet d'être une référence commune pour toutes les heures du globe.
 C'est lors de l'affichage d'une date que celle-ci est transformée en
 heure locale en utilisant le fuseau horaire défini dans les paramètres
-d'Odoo ou de l'utilisateur. La première réalisation ajoutait simplement
-les jours en plus à l'heure UTC ce qui impliquait un décalage des heures
-de début et de fin de *shift* aux passages à l'heure d'été et à l'heure
-d'hiver. En effet, à l'heure d'hiver belge, un *shift* qui commence à
-12h, heure légale belge, se passe à en réalité à 11h, heure UTC. Le même
-*shift* réalisé, à l'heure d'été belge, qui commence toujours à 12h,
-heure légale belge, se passe à 10h, heure UTC. Cela est dû au fait qu'en
-hiver l'heure légale belge est UTC+1 et en été l'heure légale belge est
-UTC+2. Il faut donc que l'ajout des jours tienne compte de ce changement
-d'heure afin de le répercuter à l'heure UTC stockée dans le *shift*.
-L'ajout des jours se fait via la méthode `timedelta()` du module
-`datetime` de Python. Pour comprendre le problème, il faut comprendre
-comment Python gère les dates et les heures. Il y a deux types de date
-différentes : les dates brutes qui ne sont liées à aucun fuseau horaire
-appelées *naïves* et les dates qui sont liées à un fuseau horaire
-appelées *non-naïves*. Lorsqu'on ajoute un décalage de jours à une date
-non-naïve, le fuseau horaire est laissé intacte. Une date, avant le
-changement d'heure, qui est liée au fuseau horaire UTC+1, après l'ajout
-d'un nombre de jour qui la fait passer à une date après le changement
-d'heure, conserve le fuseau horaire UTC+1 là où elle devrait se voir
-attribué le fuseau horaire UTC+2. La solution est donc de corriger le
-fuseau horaire une fois la date modifiée afin que la conversion vers
-l'heure UTC répercute bien le changement d'heure. 
+d'Odoo ou de l'utilisateur. Afin de construire les *shifts* fictifs, la
+première réalisation ajoutait simplement les 28 jours en plus à la date
+à l'heure UTC du *shift* de départ. Ce qui impliquait un décalage des
+heures de début et de fin de *shift* aux passages à l'heure d'été et à
+l'heure d'hiver. En effet, à l'heure d'hiver belge, un *shift* qui
+commence à 12h, heure légale belge, se passe à en réalité à 11h, heure
+UTC. Le même *shift* réalisé, à l'heure d'été belge, qui commence
+toujours à 12h, heure légale belge, se passe à 10h, heure UTC. Cela est
+dû au fait qu'en hiver l'heure légale belge est UTC+1 et en été l'heure
+légale belge est UTC+2. Il faut donc que l'ajout des jours tienne compte
+de ce changement d'heure afin de le répercuter à l'heure UTC stockée
+dans le *shift*.  L'ajout des jours se fait via la méthode `timedelta()`
+du module `datetime` de Python.
+
+Pour comprendre le problème, il faut comprendre comment Python gère les
+dates et les heures. Il y a deux types de date différentes : les dates
+brutes qui ne sont liées à aucun fuseau horaire appelées *naïves* et les
+dates qui sont liées à un fuseau horaire appelées *non-naïves*.
+Lorsqu'on ajoute un nombre de jours à une date non-naïve, le fuseau
+horaire est laissé intacte. Une date, avant le changement d'heure, qui
+est liée au fuseau horaire UTC+1, après l'ajout d'un nombre de jour qui
+la fait passer à une date après le changement d'heure, conserve le
+fuseau horaire UTC+1 là où elle devrait se voir attribué le fuseau
+horaire UTC+2. La solution est donc de corriger le fuseau horaire une
+fois la date modifiée afin que la conversion vers l'heure UTC répercute
+bien le changement d'heure.
