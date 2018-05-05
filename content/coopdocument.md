@@ -24,12 +24,12 @@ aux coopérateurs. Quelques exemples de documents :
 
 Certain documents sont à destination de tout le monde, d'autres sont à
 destination exclusive des coopérateurs. Les statuts, par exemple,
-peuvent être exposés à tout public, cela permet aux personnes qui ne
+peuvent être exposés publiquement, cela permet aux personnes qui ne
 sont pas encore coopérateurs d'en prendre connaissance, car leur
 approbation est une obligation pour devenir coopérateur.  Les procès
 verbaux, quant à eux, sont réservés aux coopérateurs, car ils peuvent
 potentiellement contenir des informations que la coopérative ne souhaite
-pas partager avec le tout public.
+pas partager publiquement.
 
 Afin que les coopérateurs puissent retrouver facilement les documents
 qu'ils cherchent, la BEES coop souhaite que ces documents puissent être
@@ -75,10 +75,10 @@ possède une catégorie parente *(parent_id)*, sauf si cette dernière est
 une des catégories racines qui sont au sommet de la hiérarchie. L'ORM
 d'Odoo fournit aussi automatiquement la relation inverse à partir d'une
 catégorie, c'est-à-dire que les catégories enfants *(child_ids)* sont
-accessibles. Attention : la recherche des catégories enfants n'est pas
-récursive. Seuls, les enfants de la catégorie sont contenus dans
-*(child_ids)* et non les enfants des enfants. Chaque document est rangé
-dans une seule catégorie ou dans aucune catégorie.
+accessibles. Il est à noter que la recherche des catégories enfants
+n'est pas récursive. Seuls, les enfants de la catégorie sont contenus
+dans *(child_ids)* et non les enfants des enfants. Chaque document est
+rangé dans une seule catégorie ou dans aucune catégorie.
 
 Des informations, non demandées explicitement, ont été ajoutées lors de
 la conception, car nécessaires au bon fonctionnement de l'application ou
@@ -101,6 +101,9 @@ l'utilisateur.
 
 ![Diagramme de classes de *easy_my_coop_document*.](images/easy_my_coop_document.png){#fig:document_class_dia
 width=100%}
+
+> **TODO** : Ajouter des captures d'écran des différentes vue que
+> propose Odoo.
 
 La création d'interface d'administration dans Odoo se fait via des
 fichiers XML. Chaque classe (*Document* et *Category*) peut se
@@ -163,11 +166,6 @@ fichiers binaires stockés dans Odoo sont encodés suivant l'algorithme
 *base64* \cite{site:base64} qui permet de transformer un fichier binaire
 en caractère ASCII. Il faut donc bien penser à décoder le fichier
 binaire stocké dans Odoo avant de l'envoyer à l'utilisateur.
-
-> Parler des fonctionnalités supplémentaires que je juge nécessaire:
-> filtrer les documents par plage de dates, donner des descriptions aux
-> documents et fournir une date de valeur au document. Pas vraiment
-> nécessaire…
 
 
 ## Réalisation
