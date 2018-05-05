@@ -12,7 +12,7 @@ compris, l'accès aux divers certificats.
 La BEES coop, étant une coopérative, doit respecter certaines
 obligations légales, notamment tenir un registre des parts. Pour ce
 faire, elle a besoin de connaitre certaines informations personnelles
-des coopérateurs. De plus beaucoup de coopérateurs sont aussi
+des coopérateurs. De plus la majorité de coopérateurs sont aussi
 travailleurs dans le supermarché, la coopérative a aussi besoin
 d'informations personnelles pour organiser le travail dans le magasin.
 Toutes ces informations, à caractère personnel, sont soumises à des lois
@@ -29,27 +29,23 @@ soient modifiées ou supprimées par erreur.
 
 Chaque coopérateur possède des parts de la coopérative. Ces parts
 peuvent être acquises en une fois où en plusieurs fois. Elles peuvent
-aussi faire l'état de revente entre coopérateur où de revente à la
-coopérative. La BEES coop souhaite que chacun de ses coopérateurs puisse
-voir l'état de sa participation financière dans la coopérative ;
-c'est-à-dire, le nombre de parts possédées, depuis quand, pour quel
-montant total, etc. Aussi, la coopérative fournit au coopérateur un
-certificat de participation lorsque ce dernier achète des parts. La
-BEES coop souhaite que les coopérateurs puissent avoir un accès en
-permanence à ce certificat afin d'alléger la charge administrative de la
-coopérative. Enfin, lors d'une demande de prise de parts d'un citoyen,
-la BEES coop lui transmet une demande de libération de capital.  La
-BEES coop souhaite que cette dernière soit disponible au coopérateur à
-tout moment, toujours dans le but d'alléger sa charge administrative et
-dans le cas, par exemple, où des coopérateurs perdraient les documents
-reçus.
+être vendues entre coopérateur où revendue à la coopérative. La
+BEES coop souhaite que chacun de ses coopérateurs puisse voir l'état de
+sa participation financière dans la coopérative ; c'est-à-dire, le
+nombre de parts possédées, depuis quand, pour quel montant total, etc.
+Aussi, lors d'une demande de prise de parts d'un citoyen, la BEES coop
+lui transmet une demande de libération de capital.  Enfin, la
+coopérative fournit au coopérateur un certificat de participation
+lorsque ce dernier achète des parts.  La BEES coop souhaite que ces
+documents soient disponibles au coopérateur à tout moment, toujours dans
+le but d'alléger sa charge administrative et dans le cas, par exemple,
+où des coopérateurs perdraient les documents reçus.
 
 Il est une particularité fiscale, en Belgique, nommée
 Tax Shelter. \cite{site:taxshelter} Ce nom désigne un avantage fiscal
 donné aux personnes qui investissent de l'argent dans des entreprises
 nouvelles afin de favoriser la création d'entreprise par une levée de
-capital plus facile, encouragée par cette réduction d'impôt. Cela
-jusqu'à ce que l'entreprise ai levé un certain montant de capital. La
+capital plus facile, encouragée par cette réduction d'impôt. La
 BEES coop étant une nouvelle entreprise fondée en 2016 \cite{site:bce},
 les premiers coopérateurs peuvent bénéficier d'une réduction d'impôt sur
 l'argent investi dans la coopérative. De ce fait la BEES coop souhaite
@@ -83,15 +79,16 @@ postale.
 
 ## Conception
 
-> **TODO**: Ajouter la partie de l'image de conception du chapitre
-> coopdesk concernant CoopInfoPerso.
-
 CoopInfoPerso regroupe un ensemble de plusieurs modules, comme expliqué
 dans la section \nameref{sec:coopdesk-conception} du
 chapitre \ref{sec:coopdesk} \vpageref{sec:coopdesk-conception} où se
-trouve une explication du découpage de CoopInfoPerso en cinq modules.
+trouve une explication du découpage de CoopInfoPerso en cinq modules. Ce
+découpage est repris dans la figure \vref{fig:coopinfoperso}.
 
-> easy_my_coop_website_portal: expliquer où se trouve les informations à
+![Les différents modules qui compose l'application
+CoopInfoPerso.](images/coopinfoperso.png){#fig:coopinfoperso width=100%}
+
+> **TODO** : easy_my_coop_website_portal: expliquer où se trouve les informations à
 > aller chercher. Ou alors on s'en fout un peu, car ça ne change pas
 > vraiment la structure des modules.
 
@@ -112,23 +109,25 @@ Utiliser cette méthode nécessite de modifier les droits d'accès à chaque
 rapport que l'on veut fournir aux utilisateurs. En effet, par défaut,
 les droits d'afficher un rapport donné, sont donnés à un groupe
 d'utilisateurs, par exemple, les employés administratifs, qui seront
-amenés à consulter ces rapports. Dans notre cas, il serait nécessaire de
-donner un accès à tous les utilisateurs, mais uniquement sur les objets
-qui les concernent, c'est-à-dire, qui sont liés à l'utilisateur qui les
-consulte. Il est tout à fait possible de faire cela avec les *access
-rigths* et les *ir.rules* d'Odoo. Cependant, les coopérateurs auront
-accès à ces documents uniquement via une interface conçue pour cet usage
-et non dans les autres modules d'Odoo. C'est pourquoi, sous les
-conseils de Thibault \textsc{François}, ingénieur chez Odoo SA, il a été
-décidé de ne pas donner de droits particuliers à chaque rapport, mais
-d'utiliser les droits du super utilisateur d'Odoo pour accéder aux
-objets nécessaires au rendu du rapport. Cela signifie que la méthode qui
-se charge d'afficher les PDF devra au préalable vérifier que
-l'utilisateur est bien lié au rapport qu'il demande à voir et lui
-interdire l'accès le cas échéant. Cette méthode est considérée comme
-plus pragmatique, car elle évite les effets de bords qui peuvent
-apparaitre lorsque les droits d'accès d'Odoo sont modifiés, d'autant
-qu'aucun autre module ne bénéficiera de cette modification des droits.
+amenés à consulter ces rapports.
+
+Dans notre cas, il serait nécessaire de donner un accès à tous les
+utilisateurs, mais uniquement sur les objets qui les concernent,
+c'est-à-dire, qui sont liés à l'utilisateur qui les consulte. Il est
+tout à fait possible de faire cela avec les *access rigths* et les
+*ir.rules* d'Odoo. Cependant, les coopérateurs auront accès à ces
+documents uniquement via une interface conçue pour cet usage et non dans
+les autres modules d'Odoo. C'est pourquoi, sous les conseils de
+Thibault \textsc{François}, ingénieur chez Odoo SA, il a été décidé de
+ne pas donner de droits particuliers à chaque rapport, mais d'utiliser
+les droits du super utilisateur d'Odoo pour accéder aux objets
+nécessaires au rendu du rapport. Cela signifie que la méthode qui se
+charge d'afficher les PDF devra au préalable vérifier que l'utilisateur
+est bien lié au rapport qu'il demande à voir et lui interdire l'accès le
+cas échéant. Cette méthode est considérée comme plus pragmatique, car
+elle évite les effets de bords qui peuvent apparaitre lorsque les droits
+d'accès d'Odoo sont modifiés, d'autant qu'aucun autre module ne
+bénéficiera de cette modification des droits.
 
 Le module *website_portal_extend* améliore le module
 *website_portal_v10* en le rendant plus facilement extensible. Pour
@@ -160,7 +159,7 @@ optionnels.
 
 ## Difficultés et solutions
 
-Dans le cahier des charges original, il est indiqué que le module
+Dans le cahier des charges, il est indiqué que le module
 *easy_my_coop_website_portal* devrait fournir une interface de
 configuration où les administrateurs pourraient choisir quelles 
 informations personnelles peuvent être modifiées et lesquelles ne le
@@ -178,10 +177,17 @@ L'introspection de l'objet *res_partner* fonctionne bien, il est aisé de
 concevoir une interface pour sélectionner les champs qui doivent
 apparaitre dans le formulaire de modification des informations
 personnelles de l'utilisateur. Mais ce n'est pas tout, il faut
-maintenant afficher ce formulaire et pouvoir valider les données qui
+encore afficher ce formulaire et pouvoir valider les données qui
 sont entrées par l'utilisateur. Odoo ne fournit pas de solution toute
 faite pour ce genre de cas. Cependant, il est possible d'en développer
-une. Une proposition d'implémentation se trouve à la
+une.
+
+> **TODO**: mettre ce paragraphe dans une partie à part. Avec
+> éventuellement un diagramme d'activité pour expliquer sont
+> fonctionnement. Éventuellement ajouter une explication sur ce qui a
+> été réalisé à la place (peut-être dans la partie conception).
+
+Une proposition d'implémentation se trouve à la
 figure \vref{fig:website_portal_extend_class}. Dans cette implémentation
 la classe *WebsitePartnerFormController* est le contrôleur qui se charge
 de présenter le formulaire et de valider les informations
@@ -202,10 +208,10 @@ nécessaires au rendu et la validation des champs qu'il a ajouté au
 ![Structure de la solution permettant d'avoir un rendu et une validation
 pour tous les champs d'un *partner*.](images/website_portal_extend-class_diagram.png){#fig:website_portal_extend_class width=100%}
 
-Après discussion avec Houssine \textsc{Bakkali}, il a été décidé de ne
-pas mettre en œuvre cette solution pour se concentrer sur une solution
-plus simple. En effet, le temps de développement et de test qu'il
-faudrait pour réaliser cette solution dépasse le temps alloué à la
+Après discussion avec mon promoteur, Houssine \textsc{Bakkali}, il a été
+décidé de ne pas mettre en œuvre cette solution pour se concentrer sur
+une solution plus simple. En effet, le temps de développement et de test
+nécessaire pour réaliser cette solution dépasse le temps alloué à la
 réalisation du travail de fin d'étude. De plus, cette solution fait sens
 si beaucoup de clients souhaitent restreindre les champs modifiables par
 leurs utilisateurs et que les champs qui peuvent être modifiés changent
@@ -213,4 +219,5 @@ régulièrement. Dans notre cas, seul la BEES coop a fait cette demande et
 le choix des champs ne changera pas régulièrement. Une solution, où les
 champs, qui peuvent être modifiés, sont définis dans un module, est une
 solution tout à fait suffisante qui permet une certaine souplesse, sans
-nécessiter beaucoup de temps de développement.
+nécessiter beaucoup de temps de développement. C'est donc cette solution
+pragmatique qui a été implémentée.
