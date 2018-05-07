@@ -10,3 +10,6 @@
 *.pdf
 *.odt
 *.old
+
+# Include PDF from documents directory
+!/documents/*.pdf

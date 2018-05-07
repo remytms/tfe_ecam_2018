@@ -282,6 +282,21 @@ $endif$
     $endif$
 
 
+    % -------------- %
+    % Specifications %
+    % -------------- %
+
+    $if(specifications)$
+        \phantomsection\addcontentsline{toc}{chapter}{Cahier des charges}
+        \includepdf[
+            scale=1,
+            pages=-,
+            landscape=false,
+        ]{$specifications$}
+        \cleardoublepage
+    $endif$
+
+
     % ----------------- %
     % Table of Contents %
     % ----------------- %
