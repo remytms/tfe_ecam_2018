@@ -3,6 +3,7 @@ documentclass: "report"
 titlepage: "titlepages/tfe-a4-titlepage.pdf"
 abstract: "abstract/abstract.tex"
 bibfile: "biblio"
+endpage: "endpages/tfe-endpage-paper.tex"
 hyphenation:
     - front-end
     - back-end
