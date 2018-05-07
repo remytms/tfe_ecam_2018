@@ -1,0 +1,85 @@
+\documentclass[
+    a4paper,
+    11pt,
+    oneside
+]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX]{Linux Libertine O}
+\setsansfont[Ligatures=TeX]{Linux Biolinum O}
+
+\usepackage{graphicx}
+
+\begin{document}
+    \begin{titlepage}
+        \sffamily
+
+        \begin{center}
+            \large
+            \textsc{Haute École Léonard de Vinci} \\
+            \centering
+            \includegraphics[
+                width=0.3\textwidth,
+                keepaspectratio,
+            ]{images/ecam_logo.png} \\
+            \textsc{ECAM, Institut Supérieur Industriel ASBL} \\
+            {\small
+                Promenade de l'Alma 50 \\
+                1200 Bruxelles \\
+                Belgique
+            }
+        \end{center}
+
+        \vspace{\stretch{2}}
+
+        \begin{center}
+            \rule{\textwidth}{1pt}
+            {\huge\bfseries
+                CoopDesk \par
+            }
+            \vspace{\baselineskip}
+            {\LARGE\bfseries
+                Guichet électronique basé sur Odoo et faisant
+                l'interface entre les coopérateurs et la coopérative
+            }
+            \rule{\textwidth}{1pt}
+        \end{center}
+
+        \vspace{\stretch{1}}
+
+        \begin{center}
+            {\Large
+                Rémy~\textsc{Taymans}
+            }
+        \end{center}
+
+        \vspace{\stretch{2}}
+
+        \begin{center}
+            {\large
+                Travail de fin d'étude \\
+                en vue de l'obtention du diplôme de \\
+                \textbf{
+                    Master en sciences de l'ingénieur industriel
+                    finalité informatique
+                }
+            }
+        \end{center}
+
+        \vspace{\stretch{1}}
+
+        \vfill
+
+        \begin{center}
+            {\large
+                Année académique 2017-2018
+            }
+        \end{center}
+
+        \normalfont
+        \thispagestyle{empty}
+    \end{titlepage}
+\end{document}
