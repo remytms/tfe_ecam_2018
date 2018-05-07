@@ -1,16 +1,17 @@
-# CoopDesk : l'interface entre les coopérateurs et la coopérative {#sec:coopdesk}
+# Conception générale {#sec:conception}
 
-> **TODO** : Voir si le titre énonce clairement que ce chapitre donne
-> une vue globale sur le reste du document.
-
-Ce chapitre donne une vue globale sur le travail réalisé. Les éléments
-de détails se trouveront dans les chapitres suivants.
+Ce chapitre présente d'une manière globale le besoin exprimé par la
+BEES coop. Il donne les éléments techniques nécessaires à la
+compréhension de l'ouvrage et termine par exposer la conception de
+CoopDesk dans son ensemble. CoopDesk étant composée de plusieurs
+applications, chacune d'elle est détaillée dans un chapitre dédié.
 
 
 ## Le besoin
 
-BEES coop compte quelque 2000 coopérateurs. Ces derniers sont à la fois
-propriétaires, travailleurs et clients de la coopérative. Chaque
+BEES coop compte quelque 2000
+coopérateurs. \cite{site:inauguration-beescoop} Ces derniers sont à la
+fois propriétaires, travailleurs et clients de la coopérative. Chaque
 coopérateur a donc trois casquettes différentes.
 
 En sa qualité de propriétaire, le coopérateur veut pouvoir obtenir
@@ -50,18 +51,88 @@ logiciel Odoo Community comme ERP *(Entreprise Resource Planning)*,
 CoopDesk doit donc être totalement intégré à Odoo.
 
 
-## Conception {#sec:coopdesk-conception}
+## Les aspects techniques d'Odoo
 
-Odoo est un logiciel orienté web. Un serveur (en général dans le
-*cloud*) fait tourner une instance d'Odoo et une base de données
+Odoo est un logiciel orienté web. \cite{bk:odoo} Un serveur (en général
+dans le *cloud*) fait tourner une instance d'Odoo et une base de données
 (PostgreSQL). Les utilisateurs interagissent avec Odoo via le navigateur
-internet de leur poste de travail. Odoo est écrit en Python. Il est
-constitué d'un *framework*, qui fournit un ORM *(Object-Relational
-Mapping)*, et des fonctionnalités de base qui rendent possible la
-création de modules. Ces modules forment des applications qui
-interragissent les unes avec les autres pour fournir un tout cohérent.
-Dans sa version Community une série de modules est fournie et ajoute les
-fonctionnalités qui font d'Odoo Community un ERP.
+internet de leur poste de travail. Le cœur d'Odoo est écrit en Python.
+Il est constitué d'un *framework*, qui fournit un ORM
+*(Object-Relational Mapping)*, \cite{site:orm} et des fonctionnalités de
+base qui rendent possible la création de modules. Ces modules forment
+des applications qui interagissent les unes avec les autres pour fournir
+un tout cohérent. Dans sa version Community une série de modules est
+fournie et apporte les fonctionnalités qui font d'Odoo Community un ERP.
+Le caractère modulable d'Odoo fait de lui un logiciel très puissant car
+par l'ajout de modules, on peut adapter Odoo à tout type de structure
+d'entreprise et tout type de procédé.
+
+L'ORM s'occupe de faire la liaison entre les objets Python et la base de
+données PostgreSQL. Cet ORM gère la plupart des cas de relations entre
+objets : *One2One*, *Many2One*, *One2Many* et *Many2Many*.
+
+Odoo utilise Werkzeug \cite{site:werkzeug} comme serveur WSGI. WSGI est
+un protocole de discussion entre un serveur web (Nginx, Apache, etc.) et
+une application Python. Le serveur web transforme les requêtes HTTP en
+objet Python compatible WSGI. De même, il est capable de donner une
+réponse sous forme d'objet Python compatible WSGI en une réponse HTTP
+classique.
+
+Odoo étant une application web son *frontend* (interface utilisateur)
+est principalement du JavaScript, de l'HTML et du CSS. Ce dernier
+s'écrit à l'aide d'une série de vue *(templates)*. Ces vues sont écrites
+en QWeb, un moteur de génération de vues XML. \cite{site:odoo-qweb} QWeb
+permet de traiter les données par des boucles ou des conditions. Il
+permet aussi de traiter les différents type de champs et de données afin
+qu'elles s'affichent proprement. QWeb permet aussi l'utilisation de
+XPath afin d'aller modifier des vues déjà existantes.
+
+
+## Le patron de conception MVC
+
+Odoo fonctionne selon de patron de conception MVC
+(modèle-vue-contrôleur). Cette manière de programmer est très présente
+dans le domaine des sites internet. Trois acteurs sont présents dans
+cette manière de programmer : le modèle qui contient les données, la vue
+qui affiche les données et le contrôleur qui fait le pont entre les
+modèles et les vues.
+
+Tout d'abord, les modèles, qui sont des objets Python, suivent les
+règles de l'ORM afin d'être stockés automatiquement en base de données
+par ce dernier. Il y a un modèle pour chaque type d'information que l'on
+veut conserver en base de données. Les modèles sont décrits à l'aide de
+classe Python. Par exemple, le modèle *res.user* représente un
+utilisateur d'Odoo, le modèle *res.partner* représente un contact, le
+modèle *pos.order* représente une commande à un point de vente *(Point
+of Sale, POS)*, etc.
+
+Ensuite, il y a les vues *(templates)* qui sont écrite en QWeb et qui se
+charge d'afficher des données d'une manière plaisante pour
+l'utilisateur. Les vues ne sont pas censée travailler ou modifier les
+données qu'elles reçoivent du contrôleur. Par contre, elles vont gérer la
+manière d'afficher la donnée selon son contenu ou selon des paramètres
+donnés. Par exemple, une vue peut afficher la commande d'un point de
+vente *(pos.order)*. Dans cet affichage, par exemple, le
+nom du client qui sera affiché plus grand que le reste des informations,
+ou encore la TVA qui sera affichée en italique. 
+
+Enfin, il y a les contrôleurs qui sont des programmes qui viennent faire
+le lien entre les modèles et les vues. Dans du développement web, un
+contrôleur est en général lié à une URL. En effet chaque URL correspond
+à une page différente. Cette URL peut contenir des paramètres qui sont
+passé au contrôleur. Le contrôleur se charge d'observer les paramètres
+reçus afin d'afficher la page demandée. Il s'occupe d'aller chercher le
+modèle adéquat et de récupérer les informations qu'il contient. Il peut
+ensuite effectuer une série de traitement sur ces données, par exemple,
+les filtrer ou les trier. Il termine par préparer toutes les données
+afin qu'elles soient prêtes pour que la vue les affiche. Il va alors
+appeler la vue correspondante en lui donnant les données en question. La
+page sera alors affichée à l'utilisateur.
+
+> **TODO** : Un diagramme de séquence est le bienvenu pour représenter
+> l'échange entre le contrôleur, le modèle et la vue.
+
+## Conception {#sec:coopdesk-conception}
 
 La principale manière pour un utilisateur d'interagir avec Odoo est via
 son interface d'administration. Cette interface est très fournie en
@@ -91,8 +162,8 @@ s'encombrer des fonctionnalités dont elle n'a pas besoin. Il faut aussi
 que CoopDesk puisse facilement être complété par d'autres
 fonctionnalités. Le premier travail de conception consiste donc à
 découper CoopDesk en modules, chaque module faisant un ensemble de
-tâches indissociables. De manière à ce que les modules soient le plus
-possible découplés les uns des autres.
+tâches indissociables. De manière à ce que les modules soient, le plus
+possible, découplés les uns des autres.
 
 La figure \vref{fig:intranet_package} illustre les différents modules
 qui composent CoopDesk ainsi que la structure et les dépendances qu'ils
@@ -116,7 +187,7 @@ height=150%}
 ### Modules existants
 
 Cette section décrit les modules existants sur lesquelles CoopDesk a été
-construit. Ces modules sont représenté dans la
+construit. Ces modules sont représentés dans la
 figure \ref{fig:intranet_package}.
 
 
@@ -141,10 +212,10 @@ d'entrée dans la coopérative, le numéro de coopérateur, etc.
 
 ##### Easy My Coop Taxshelter Report
 
-Ce module apporte la gestion du « tax shelter ». Ce dernier est une
-attestation qui donne droit en Belgique à une réduction d'impôt pour le
-montant investi dans une nouvelle société. Les nouvelles coopératives
-peuvent faire profiter leurs coopérateurs de cet avantage.
+Ce module apporte la gestion du Tax Shelter. \cite{site:taxshelter} Ce
+dernier est une attestation qui donne droit en Belgique à une réduction
+d'impôt pour le montant investi dans une nouvelle société. Les nouvelles
+coopératives peuvent faire profiter leurs coopérateurs de cet avantage.
 
 ##### Beesdoo Base
 
@@ -164,14 +235,14 @@ coopérateur.
 
 Ce module apporte la gestion du travail des coopérateurs. C'est là que
 se trouve les *shifts*, les présences et le statut de chaque
-coopérateur.  C'est aussi via ce module que l'on peut inscrire un
+coopérateur. C'est aussi via ce module que l'on peut inscrire un
 coopérateur à un *shift*.
 
 
 ### Modules à développer
 
-Cette section parcours toutes les applications qui composent CoopDesk et
-décrit, pour chacune, les modules qui la compose. Ces applications sont
+Cette section parcourt toutes les applications qui composent CoopDesk et
+décrit, pour chacune, les modules qui la composent. Ces applications sont
 représentées par les encadrés en pointillé dans la
 figure \ref{fig:intranet_package}.
 
@@ -257,98 +328,12 @@ Cette application est composée d'un seul module qui vient compléter le
 module *website_portal_v10* pour y ajouter une interface *website*
 pour que le coopérateur puisse accéder à ses tickets de caisse.
 
-> **TODO** : Parler du module de thème.
 
+#### Charte graphique de la BEES coop
 
-## Réalisation
+La charte graphique de la BEES coop est implémentée dans le module
+*beesdoo_website_theme*. Il s'agit de mettre en œuvre dans ce module les
+principaux éléments graphique qui permettre de reconnaitre la BEES coop
+et de rendre la transition, pour l'utilisateur, entre le site internet
+de la BEES coop et l'interface d'Odoo agréable.
 
-Afin de savoir par quoi commencer, les différentes thématiques ont été
-priorisées. Cet ouvrage les présentent dans l'ordre du plus urgent au
-moins urgent.
-
-> **TODO** : Mettre à jour les dates dans ces paragraphes.
-
-La réalisation a débuté par un apprentissage de la programmation sous
-Odoo concernant l'interface *website*. L'apprentissage d'Odoo est
-vaste, c'est pourquoi, afin de mettre la théorie en pratique, la
-réalisation de CoopShift a débuté en parallèle. Par la suite,
-apprentissage et développement ont eu lieu de manière
-concomitante.
-
-La réalisation de :
-
-- CoopShift s'est déroulée de septembre à juin avec deux versions
-  principales publiées. La première en janvier et la deuxième en avril.
-  Plus de détails sont disponibles dans la
-  partie \nameref{sec:coopshift} \vpageref{sec:coopshift}.
-- CoopInfoPerso a débuté en janvier et s'est clôturée en XXXX.
-  Plus de détails sont disponibles dans la
-  partie \nameref{sec:coopinfoperso} \vpageref{sec:coopinfoperso}.
-- CoopDocument a commencé en mars et s'est terminée en XXXX.
-  Plus de détails sont disponibles dans la
-  partie \nameref{sec:coopdocument} \vpageref{sec:coopdocument}.
-- CoopReceipt a débuté en avril et s'est terminée en XXXX.
-  Plus de détails sont disponibles dans la
-  partie \nameref{sec:coopreceipt} \vpageref{sec:coopreceipt}.
-
-> **TODO** : Mettre à jour les informations concernant les réunions.
-
-Au total quatre réunions ont été organisées avec la BEES coop. La
-première a eu lieu en septembre afin de définir le cahier des charges
-et de prioriser les développements. La deuxième a eu lieu début
-décembre pour y présenter le travail fait sur CoopShift. La troisième
-a eu lieu fin janvier pour y présenter la première version fonctionnelle
-de CoopShift. La quatrième a eu lieu début avril pour y présenter
-l'avancement sur CoopInfoPerso, CoopDocument et la deuxième version de
-CoopShift.
-
-
-## Difficultés et solutions
-
-> **TODO** : L'expression « la raideur de la courbe d'apprentissage »
-> n'est pas appropriée.
-
-La première difficulté qui me vient à l'esprit est la raideur de la
-courbe d'apprentissage de la programmation sous Odoo. En effet, Odoo
-n'est pas aussi populaire que d'autres logiciels libres qui brassent des
-milliers de développeurs et pour lesquels la documentation foisonne à
-volonté sur le web. Pour Odoo les ressources en ligne sont les
-suivantes :
-
-- Le livre *Odoo essentials* qui fournit une vue globale de ce qui est
-  possible de faire avec Odoo à destination des débutants dans la
-  programmation avec Odoo.
-- Le livre *Odoo cookbook* qui fournit des exemples et des explications
-  concernant les cas de figure les plus récurants dans la programmation
-  avec Odoo. Il est à destination des personnes ayant déjà développé
-  sous Odoo.
-- La documentation de la nouvelle API d'Odoo qui n'est pas toujours
-  suffisamment détaillée, mais qui permet de voir ce qui existe. Il est
-  alors possible d'aller voir dans le code pour avoir plus de détails.
-- Le forum officiel d'Odoo SA.
-- Quelques questions sur *Stack Exchange* et autres tutoriels ou blog
-  sur des sujets précis.
-
-La solution la plus efficace reste de chercher un autre module dans Odoo
-qui fait quelque chose de similaire à notre but et de lire le code
-correspondant. Il va cependant sans dire qu'un contact humain avec un
-expert Odoo est toujours plus rapide et permet d'éviter de se lancer
-dans de fausses solutions, cela permet aussi de mettre de l'ordre dans
-ses idées par le fait de devoir expliquer notre but et la manière dont
-on compte y arriver.
-
-Une deuxième difficulté est d'arriver à se situer parmi la quantité de
-modules dont Odoo dispose. Il faut du temps pour trouver tous les
-modules qui interviennent dans une application donnée et comprendre ce
-que chacun d'eux apporte. C'est une fois qu'on a compris cela qu'on peut
-alors se mettre à développer juste ce qu'il faut pour ajouter la
-fonctionnalité souhaitée.
-
-Enfin Odoo est un logiciel modulable, cela lui permet de répondre à de
-nombreux cas d'utilisation. Il en va de même lorsqu'on construit une
-application pour Odoo. C'est pourquoi une même application peut être
-composée de plusieurs modules. C'est le cas par exemple pour
-CoopInfoPerso qui peut être composée avec plus ou moins de modules en
-fonction de ce que l'on a besoin. Ainsi une coopérative qui ne veut pas
-émettre de « tax shelter » peut très bien profiter de l'application
-CoopInfoPerso sans le module *easy_my_coop_website_taxshelter*.

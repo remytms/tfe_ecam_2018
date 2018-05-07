@@ -101,9 +101,6 @@ liste précédente s'ajoute :
 > **TODO** : Parler de la date de future alerte qui a du être développée
 > dans beesdoo_shift.
 
-> **TODO** : Une explication de ce qu'est une architecture MVC dans un
-> chapitre dédier.
-
 L'application CoopShift est constituée d'un seul module nommé
 *beesdoo_website_shift* qui se base sur le module *beesdoo_shift*. Elle
 se base sur le patron de conception MVC (modèle-vue-contrôleur). Le
