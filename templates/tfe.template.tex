@@ -282,6 +282,38 @@ $endif$
     $endif$
 
 
+    % ----------- %
+    % Certificate %
+    % ----------- %
+
+    $if(certificate)$
+        \phantomsection\addcontentsline{toc}{chapter}%
+        {Certificat de travail de fin d'études}
+        \includepdf[
+            scale=1,
+            angle=90,
+            pages=-,
+            landscape=false,
+        ]{$certificate$}
+        \cleardoublepage
+    $endif$
+
+
+    % -------------- %
+    % Specifications %
+    % -------------- %
+
+    $if(specifications)$
+        \phantomsection\addcontentsline{toc}{chapter}{Cahier des charges}
+        \includepdf[
+            scale=1,
+            pages=-,
+            landscape=false,
+        ]{$specifications$}
+        \cleardoublepage
+    $endif$
+
+
     % ----------------- %
     % Table of Contents %
     % ----------------- %
