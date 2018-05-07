@@ -2,4 +2,5 @@
 classoption: "twoside"
 paperversion: true
 colorizelink: false
+endpage: "endpages/tfe-endpage-paper.tex"
 ...

@@ -297,16 +297,42 @@ $endif$
 
     \pagenumbering{arabic}  % Reset page number to arabic style
 
+
+    % -------------------- %
+    % Core of the document %
+    % -------------------- %
+
     $body$
+
+
+    % ------------ %
+    % Bibliography %
+    % ------------ %
 
     $if(bibfile)$
         \bibliographystyle{plain}
         \bibliography{$bibfile$}
     $endif$
 
-    \clearpage
-    \begin{appendices}
 
-    \end{appendices}
+    % ---------- %
+    % Appendices %
+    % ---------- %
+    $if(appendices)$
+        \clearpage
+        \begin{appendices}
+        \end{appendices}
+    $endif$
+
+
+    % -------- %
+    % End page %
+    % -------- %
+    $if(endpage)$
+        \newpage
+        \thispagestyle{empty}
+        \input{$endpage$}
+        %\includepdf{$endpage$}
+    $endif$
 
 \end{document}
