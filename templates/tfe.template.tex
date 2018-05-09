@@ -90,21 +90,21 @@ $endif$
     \fancyhf{}
     \renewcommand{\headrule}{}
     \renewcommand{\headrulewidth}{0pt}
-    \fancyfoot[C]{\color{grey-header}\thepage}
+    \fancyfoot[C]{\footnotesize\color{grey-header}\thepage}
 }
 \fancypagestyle{greyfancy}{
     \renewcommand{\headrule}{\color{grey-header}\hrule}
     \renewcommand{\headrulewidth}{0.4pt}
     $if(paperversion)$
-        \fancyhead[LE]{\slshape\color{grey-header} \leftmark}
-        \fancyhead[RO]{\slshape\color{grey-header} \rightmark}
-        \fancyhead[RE]{}
-        \fancyhead[LO]{}
+        \fancyhead[LE]{\footnotesize\color{grey-header}\thepage}
+        \fancyhead[RO]{\footnotesize\color{grey-header}\thepage}
+        \fancyhead[RE]{\footnotesize\slshape\color{grey-header} \leftmark}
+        \fancyhead[LO]{\footnotesize\slshape\color{grey-header} \rightmark}
     $else$
-        \fancyhead[LO]{\slshape\color{grey-header} \leftmark}
-        \fancyhead[RO]{}
+        \fancyhead[LO]{\footnotesize\slshape\color{grey-header} \leftmark}
+        \fancyhead[RO]{\footnotesize\color{grey-header}\thepage}
     $endif$
-    \fancyfoot[C]{\color{grey-header}\thepage}
+    \fancyfoot[C]{}
 }
 \pagestyle{greyfancy}
 \renewcommand{\chaptermark}[1]{%
