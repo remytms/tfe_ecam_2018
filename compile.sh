@@ -51,3 +51,19 @@ xelatex -halt-on-error "$file.tex"
 xelatex -halt-on-error "$file.tex"
 
 rm "$file.aux" "$file.bbl" "$file.blg" "$file.toc"
+
+# Paper A5 reading version
+file='tfe-TAYMANS-14291-paper-a5'
+pandoc $(cat content/toc.txt) \
+    tfe-main.yml tfe-paper-a5.yml \
+    --template=templates/tfe.template.tex \
+    --listings \
+    --latex-engine=xelatex \
+    -o "$file.tex"
+
+xelatex -halt-on-error "$file.tex"
+bibtex "$file"
+xelatex -halt-on-error "$file.tex"
+xelatex -halt-on-error "$file.tex"
+
+rm "$file.aux" "$file.bbl" "$file.blg" "$file.toc"

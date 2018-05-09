@@ -181,7 +181,7 @@ petit et gris, les modules déjà existants. En grand, les modules à
 développer. Les encadrés regroupent les modules par thématiques. Les
 flèches indiquent les dépendances entre les
 modules.](images/intranet_package.png){#fig:intranet_package
-height=150%}
+height=14cm}
 
 
 ### Modules existants
