@@ -1,5 +1,7 @@
 ---
-classoption: "oneside"
+classoption:
+  - "oneside"
+  - "openany"
 paperversion: false
 colorizelink: true
 endpage: "endpages/tfe-endpage-screen.tex"

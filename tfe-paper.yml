@@ -1,5 +1,7 @@
 ---
-classoption: "twoside"
+classoption:
+  - "twoside"
+  - "openright"
 paperversion: true
 colorizelink: false
 endpage: "endpages/tfe-endpage-paper.tex"

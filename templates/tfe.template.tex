@@ -2,8 +2,16 @@
 % Preamble %
 % -------- %
 \documentclass[
-    a4paper,
-    11pt,
+    $if(papersize)$
+        $papersize$,
+    $else$
+        a4paper,
+    $endif$
+    $if(fontsize)$
+        $fontsize$,
+    $else$
+        11pt,
+    $endif$
     $for(classoption)$$classoption$,$endfor$
     onecolumn,
     % Draft mode will show Overfull Box Warning and figure are not loaded
@@ -14,7 +22,7 @@
     titlepage,
     % openany: chapter are not on a new page
     % openright: chapter are always on a new page on the right
-    openany,
+    %openany,
     % Set language to have proper translation using varioref
     french,
 ]{$if(documentclass)$$documentclass$$else$report$endif$}
