@@ -2,6 +2,10 @@
 classoption:
   - "twoside"
   - "openright"
+geometry:
+  - "marginpar=30mm"
+  - "inner=50mm"
+  - "outer=40mm"
 paperversion: true
 colorizelink: false
 endpage: "endpages/tfe-endpage-paper.tex"

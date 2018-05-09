@@ -2,6 +2,10 @@
 classoption:
   - "oneside"
   - "openany"
+geometry:
+  - "marginpar=30mm"
+  - "inner=45mm"
+  - "outer=45mm"
 paperversion: false
 colorizelink: true
 endpage: "endpages/tfe-endpage-screen.tex"

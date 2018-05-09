@@ -61,19 +61,12 @@ $endfor$
 \allsectionsfont{\sffamily\bfseries}
 
 % Margins
-$if(paperversion)$
+$if(geometry)$
 \usepackage[
     %showframe, % Uncomment to debug page margin
-    marginpar=30mm,
-    inner=50mm,
-    outer=40mm
-]{geometry}
-$else$
-\usepackage[
-    %showframe, % Uncomment to debug page margin
-    marginpar=30mm,
-    inner=45mm,
-    outer=45mm
+    $for(geometry)$
+        $geometry$$sep$,
+    $endfor$
 ]{geometry}
 $endif$
 
