@@ -1,0 +1,67 @@
+digraph WebsiteShiftController {
+    charset="utf-8";
+    rankdir=TB;
+    node [fontname="Hack"];
+
+    begin [
+        label="",
+        shape="circle",
+        style="filled",
+        color="black",
+        fixedsize="true",
+        width="0.4",
+    ];
+
+    node [shape="Mrecord"];
+    my_shift;
+    my_shift_exempted_worker;
+    my_shift_irregular_worker;
+    my_shift_regular_worker;
+    subgraph cluster_0 {
+        color="none";
+        my_shift_worker_status1 [label="my_shift_worker_status"];
+        my_shift_worker_status2 [label="my_shift_worker_status"];
+        my_shift_worker_status3 [label="my_shift_worker_status"];
+    }
+    my_shift_next_shifts1 [label="my_shift_next_shifts"];
+    my_shift_next_shifts2 [label="my_shift_next_shifts"];
+    my_shift_past_shifts1 [label="my_shift_past_shifts"];
+    my_shift_past_shifts2 [label="my_shift_past_shifts"];
+    subgraph cluster_1 {
+        color="none";
+        render_regular [label="Render my_shift_regular_worker"];
+        render_irregular [label="Render my_shift_irregular_worker"];
+        render_exempted [label="Render my_shift_exempted_worker"];
+    }
+
+    node [shape="diamond"];
+    type [label="worker type ?"];
+
+    end [
+        label="",
+        shape="doublecircle",
+        style="filled",
+        color="black",
+        fixedsize="true",
+        width="0.4",
+    ];
+
+    begin:s -> my_shift -> type:n;
+    type:e -> my_shift_exempted_worker:n [label="[ exempted ]"];
+    type:s -> my_shift_regular_worker:n [label="[ regular ]"];
+    type:w -> my_shift_irregular_worker:n [label="[ irregular ]"];
+
+    my_shift_irregular_worker -> my_shift_worker_status1;
+    my_shift_regular_worker -> my_shift_worker_status2;
+    my_shift_exempted_worker -> my_shift_worker_status3 -> render_exempted;
+
+    my_shift_worker_status1 -> my_shift_next_shifts1;
+    my_shift_worker_status2 -> my_shift_next_shifts2;
+
+    my_shift_next_shifts1 -> my_shift_past_shifts1 -> render_irregular;
+    my_shift_next_shifts2 -> my_shift_past_shifts2 -> render_regular;
+
+    render_exempted:s -> end;
+    render_irregular:s -> end;
+    render_regular:s -> end;
+}

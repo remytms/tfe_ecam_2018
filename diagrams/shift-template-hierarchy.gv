@@ -1,0 +1,44 @@
+digraph ShiftTemplate {
+    rankdir=LR;
+    ranksep=2;
+    fontname="Linux Biolinum O"
+    node [fontname="Linux Biolinum O"];
+    node [shape="note"];
+
+    subgraph cluster_0 {
+        label="Vues principales";
+        // Main template
+        my_shift_regular_worker [
+            label = "my_shift_regular_worker"
+        ];
+        my_shift_irregular_worker [
+            label = "my_shift_irregular_worker"
+        ];
+    }
+
+    subgraph cluster_1 {
+        label="Vues élémentaires";
+        // Reusable template
+        my_shift_title;
+        my_shift_worker_status_title;
+        my_shift_worker_status_common;
+        my_shift_next_shifts;
+        my_shift_past_shifts;
+        available_shift_irregular_worker;
+    }
+
+    // Links
+    my_shift_regular_worker:e -> my_shift_title:w;
+    my_shift_regular_worker:e -> my_shift_worker_status_title:w;
+    my_shift_regular_worker:e -> my_shift_worker_status_common:w;
+    my_shift_regular_worker:e -> my_shift_next_shifts:w;
+    my_shift_regular_worker:e -> my_shift_past_shifts:w;
+
+    edge [style="dotted"];
+    my_shift_irregular_worker:e -> my_shift_title:w;
+    my_shift_irregular_worker:e -> my_shift_worker_status_title:w;
+    my_shift_irregular_worker:e -> my_shift_worker_status_common:w;
+    my_shift_irregular_worker:e -> my_shift_next_shifts:w;
+    my_shift_irregular_worker:e -> my_shift_past_shifts:w;
+    my_shift_irregular_worker:e -> available_shift_irregular_worker:w;
+}

@@ -12,6 +12,18 @@ fi
 # Diagrams
 dot -Tpng -Gdpi=600 diagrams/document-tree.gv \
     -o images/document-tree.png
+dot -Tpng -Gpdi=600 diagrams/shift-template.gv \
+    -o images/shift-template.png
+dot -Tpng -Gpdi=600 diagrams/shift-timeline.gv \
+    -o images/shift-timeline.png
+dot -Tpng -Gpdi=600 diagrams/shift-planning.gv \
+    -o images/shift-planning.png
+dot -Tpng -Gpdi=600 diagrams/shift-template-hierarchy.gv \
+    -o images/shift-template-hierarchy.png
+dot -Tpng -Gpdi=600 diagrams/shift-controller.gv \
+    -o images/shift-controller.png
+dot -Tpng -Gpdi=600 diagrams/shift-activity.gv \
+    -o images/shift-activity.png
 
 # Abstract
 pandoc abstract/abstract.md \

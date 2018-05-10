@@ -1,0 +1,37 @@
+digraph WebsiteShiftController {
+    charset="utf-8";
+    node [fontname="Hack"];
+
+    WebsiteShiftController [
+        label="{
+WebsiteShiftController|\l|
+# Méthodes d'utilité générale\l
++ add_days()\l
++ is_user_exempted()\l
++ is_user_irregular()\l
++ is_user_regular()\l
+\l
+# Méthodes accessibles via URL\l
++ my_shift()\l
+---- /my/shift\l
++ subscribe_to_shift()\l
+---- /shift/:id:/subscribe\l
++ public_shift_irregular_worker()\l
+---- /shift_irregular_worker\l
++ public_shift_template_regular_worker()\l
+---- /shift_template_irregular_worker\l
+\l
+# Méthodes des vues principales\l
++ my_shift_exempted_worker()\l
++ my_shift_irregular_worker()\l
++ my_shift_regular_worker()\l
+\l
+# Méthode des vues élémentaires\l
++ my_shift_next_shifts()\l
++ my_shift_past_shifts()\l
++ my_shift_worker_status()\l
++ available_shift_irregular_worker()\l
+        }",
+        shape="record"
+    ];
+}

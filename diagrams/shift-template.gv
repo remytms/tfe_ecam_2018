@@ -1,0 +1,44 @@
+graph ShiftTemplateExplanation {
+    rankdir=LR;
+    fontname="Linux Biolinum O";
+
+    node [fontname="Linux Biolinum O"];
+    node [shape=record];
+
+    // ShiftTemplates
+    subgraph cluster0 {
+        label="Créneaux";
+        color="white";
+        MercrediA12hMagasin [
+            label = "Mercredi A\n12h - 15h\nMagasin"
+        ];
+        MercrediA15hFermeture [
+            label = "Mercredi A\n15h - 18h\nFermeture"
+        ];
+    }
+
+    // Shifts
+    subgraph cluster1 {
+        label="Shifts";
+        color="white";
+        node [style="filled"];
+        node [fillcolor="gray"];
+        ShiftMercrediA12hMagasinPierre [
+            label = "Mercredi 3 janvier 2018\n12h - 15h\nMagasin\nPierre"
+        ];
+        ShiftMercrediA12hMagasinSophie [
+            label = "Mercredi 3 janvier 2018\n12h - 15h\nMagasin\nSophie"
+        ];
+        ShiftMercrediA15hFermetureMartine [
+            label = "Mercredi 3 janvier 2018\n15h - 18h\nFermeture\nMartine"
+        ];
+    }
+
+    { MercrediA12hMagasin; ShiftMercrediA12hMagasinPierre;
+    ShiftMercrediA12hMagasinSophie;}
+
+    // Edges
+    MercrediA12hMagasin:e -- ShiftMercrediA12hMagasinPierre:w;
+    MercrediA12hMagasin:e -- ShiftMercrediA12hMagasinSophie:w;
+    MercrediA15hFermeture:e -- ShiftMercrediA15hFermetureMartine:w;
+}

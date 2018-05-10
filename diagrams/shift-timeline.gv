@@ -1,0 +1,48 @@
+graph ShiftTimeLine {
+    fontname="Linux Biolinum O";
+    ranksep="0";
+    rankdir="TB";
+
+    node [fontname="Linux Biolinum O"];
+    node [shape="record"];
+
+    {
+        rank="min";
+        node [style="filled"]
+        0 [label="", shape="point"];
+        A1 [label="A", fillcolor="white"];
+        B1 [label="B", fillcolor="whitesmoke"];
+        C1 [label="C", fillcolor="lightgray"];
+        D1 [label="D", fillcolor="gray"];
+
+        A2 [label="A", fillcolor="white"];
+        B2 [label="B", fillcolor="whitesmoke"];
+        C2 [label="C", fillcolor="lightgray"];
+        D2 [label="D", fillcolor="gray"];
+        end [label="", shape="point", color="white", fillcolor="white"];
+    }
+    {
+        node [shape="plaintext"]
+        0101 [label="01/01"];
+        0801 [label="08/01"];
+        1501 [label="15/01"];
+        2201 [label="22/01"];
+        2901 [label="29/01"];
+        0502 [label="05/02"];
+        1202 [label="12/02"];
+        1902 [label="19/02"];
+    }
+
+    0 -- A1;
+    A1 -- B1 -- C1 -- D1 -- A2 -- B2 -- C2 -- D2;
+    D2 -- end [dir="forward", arrowhead="normal"];
+    edge [style="invis"];
+    A1:sw -- 0101:nw;
+    B1:sw -- 0801:nw;
+    C1:sw -- 1501:nw;
+    D1:sw -- 2201:nw;
+    A2:sw -- 2901:nw;
+    B2:sw -- 0502:nw;
+    C2:sw -- 1202:nw;
+    D2:sw -- 1902:nw;
+}

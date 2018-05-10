@@ -1,0 +1,46 @@
+graph ShiftPlanning {
+    fontname="Linux Biolinum O";
+    nodesep=".8";
+
+    node [fontname="Linux Biolinum O"];
+    node [shape=record];
+    node [style="filled", color="white"];
+
+    // ShiftTemplates
+    subgraph cluster0 {
+        label="Semaine A";
+        style="filled";
+        fillcolor="lightgray";
+        node [style="filled", color="black", fillcolor="white"];
+        Mercredi09hOuverture [
+            label = "Mercredi\n9h - 12h\nOuverture"
+        ];
+        Mercredi12hMagasin [
+            label = "Mercredi\n12h - 15h\nMagasin"
+        ];
+        Mercredi15hFermeture [
+            label = "Mercredi\n15h - 18h\nFermeture"
+        ];
+        edge [style="invis"];
+        Mercredi09hOuverture -- Mercredi12hMagasin -- Mercredi15hFermeture;
+    }
+
+    // Shifts
+    subgraph cluster1 {
+        label="Semaine B";
+        style="filled";
+        fillcolor="lightgray";
+        node [style="filled", color="black", fillcolor="white"];
+        Jeudi09hOuverture [
+            label = "Jeudi\n9h - 12h\nOuverture"
+        ];
+        Jeudi12hMagasin [
+            label = "Jeudi\n12h - 15h\nMagasin"
+        ];
+        Jeudi15hFermeture [
+            label = "Jeudi\n15h - 18h\nFermeture"
+        ];
+        edge [style="invis"];
+        Jeudi09hOuverture -- Jeudi12hMagasin -- Jeudi15hFermeture;
+    }
+}

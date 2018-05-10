@@ -13,23 +13,40 @@ bénévolement 3 heures toutes les 4 semaines. Une série de règles
 organisent le travail des coopérateurs.
 
 Le travail est organisé par semaine : la semaine A, la semaine B, la
-semaine C et la semaine D. Ces quatre semaines se suivent dans
-l'ordre et périodiquement, c'est-à-dire, qu'une fois la semaine D
-terminée, on revient à la semaine A. Chaque semaine est découpée en
+semaine C et la semaine D. Ces quatre semaines se suivent dans l'ordre
+et périodiquement, c'est-à-dire, qu'une fois la semaine D terminée, on
+revient à la semaine A comme illustré dans la
+figure \vref{fig:shift-timeline}. Chaque semaine est découpée en
 créneaux. Un créneau représente une tranche horaire pendant laquelle un
 certain travail doit être réalisé par un ou plusieurs travailleurs. Par
-exemple, le jeudi de la semaine A de 12h à 15h, il y a un créneau
-pour le travail en magasin et un créneau pour du travail administratif.
-Les *shifts* représentent le travail d'un coopérateur un jour donné pour
-un créneau donné. Par exemple, le *shift* de Mme X, le jeudi 4 janvier
-2018 de 12h à 15h, dans le magasin, est lié au créneau du jeudi de 12h à
-15h de la semaine A. Plusieurs *shifts* existent pour le même créneau à
-la même date, car plusieurs travailleurs sont souvent nécessaires pour
-réaliser le travail prévu par le créneau. Chaque *shift* est donc
-identique si ce n'est le travailleur qui le réalise.
+exemple, comme sur la figure \vref{fig:shift-planning} le jeudi de la
+semaine B de 12h à 15h, il y a un créneau pour le travail en magasin.
+Il peut y avoir plusieurs créneaux en même temps pour autant que les
+tâches à effectuer soient différentes. Par exemple, un créneau en
+magasin et un créneau administratif.
 
-> **TODO**: Un petit schéma qui explique la différence entre les
-> créneaux et les shifts.
+Les *shifts* représentent le travail d'un coopérateur un jour donné pour
+un créneau donné. Par exemple, comme montré dans la
+figure \vref{fig:shift-template}, le *shift* de Sophie, le mercredi 3
+janvier 2018 de 12h à 15h, dans le magasin, est lié au créneau du
+mercredi de 12h à 15h de la semaine A de la
+figure \vref{fig:shift-planning}. Plusieurs *shifts* existent pour le
+même créneau à la même date, car plusieurs travailleurs sont souvent
+nécessaires pour réaliser le travail prévu par le créneau. Chaque
+*shift* assigné à un même créneau est donc identique si ce n'est le
+travailleur qui le réalise.
+
+![Les semaines se succèdent avec la date des lundis de chaque
+semaine.](images/shift-timeline.png){#fig:shift-timeline width=100%}
+
+![Simplification d'un ensemble de créneaux qui s'étalent sur deux
+semaines différentes. Les créneaux ont des tâches
+différentes.](images/shift-planning.png){#fig:shift-planning width=50%}
+
+![Un exemple de *shifts* et les créneaux auxquels ils sont liés. Les
+*shifts* sont fixés à une date précise et attribués à une personne
+précise.](images/shift-template.png){#fig:shift-template
+width=60%}
 
 Il existe trois régimes de travail différents : régulier *(regular)*,
 volant *(irregular)*, exempté *(exempted)*.  Chaque travailleur doit
@@ -89,7 +106,7 @@ liste précédente s'ajoute :
 - la consultation des *shifts* précédents avec leurs statuts (présent,
   absent, etc.) ;
 - l'affichage de la date à laquelle le travailleur change de statut de
-  « à jour » à « en alerte » (uniquement pour les travailleurs inscrits
+  « à jour » à « en alerte » (uniquement pour les travailleurs inscrits
   en régime volant) ;
 - l'affichage des dates de début et de fin de congé ;
 - l'affichage de texte explicatif sur la signification de chaque statut
@@ -97,9 +114,6 @@ liste précédente s'ajoute :
 
 
 ## Conception
-
-> **TODO** : Parler de la date de future alerte qui a du être développée
-> dans beesdoo_shift.
 
 L'application CoopShift est constituée d'un seul module nommé
 *beesdoo_website_shift* qui se base sur le module *beesdoo_shift*. Elle
@@ -117,125 +131,76 @@ l'utilisateur connecté.  Cependant, une bonne partie de ses vues a des
 parties en commun. C'est pourquoi il a été choisi de les segmenter en
 vues élémentaires s'occupant chacune de l'affichage d'une information en
 particulier. Par après, ces vues élémentaires sont mises ensemble pour
-former les trois vues principales. Cette manière de faire évite une
-duplication inutile de code et rend plus facile la recherche et la
-résolution de bogues.
+former les trois vues principales. La
+figure \vref{fig:shift-template-hierarchy} donne un exemple du lien
+entre quelques vues élémentaires et quelques vues principales. Cette
+manière de faire évite une duplication inutile de code et rend plus
+facile la recherche et la résolution de bogues mais aussi les
+modifications futures.
 
-Exemple de vue élémentaire pour l'affichage du titre de la page :
+![Les vues principales appellent les vues élémentaires pour les parties
+qu'elles ont en commun avec d'autres vues. Les appels des vues
+principales sont représentés par des
+flèches.](images/shift-template-hierarchy.png){#fig:shift-template-hierarchy
+width=100%}
 
-```xml
-<template
-  id="my_shift_title"
-  name="My Shift Title">
+Comme on peut le voir dans les figures \vref{fig:shift-controller} et
+\vref{fig:shift-template-hierarchy}, à chaque vue, élémentaire ou
+principale, correspond une méthode dans le contrôleur. Les méthodes pour
+les vues principales font appel aux méthodes des vues élémentaires comme
+on peut le voir dans la figure \vref{fig:shift-activity} qui illustre le
+déroulement de la génération des pages. La méthode `my_shift()` est
+toujours la première à être appelée lorsque l'URL \url{/my/shift} est
+demandée. Cette dernière, après avoir vérifié le régime de travail de
+l'utilisateur, va appeler la méthode de la vue principale qui correspond
+au bon régime de travail. Ensuite, cette méthode, de la vue principale,
+va appeler les méthodes, liées aux vues élémentaires qui sont utilisées
+par cette vue principale.
 
-  <div class="oe_structure"/>
+![Le contrôleur du module *beesdoo_website_shift*. Les lignes commançant
+par, *#*, regroupent les méthodes par utilité. Les lignes commançant
+par, *- - - -*, indiquent les URL auxquels répond la méthode
+précédente.](images/shift-controller.png){#fig:shift-controller
+width=7cm}
 
-  <section class="wrap">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1 class="text-center">
-            Your shifts
-          </h1>
-        </div>
-      </div>
-    </div>
-  </section>
+![Diagramme représentant la succession d'appel de méthodes du contrôleur
+générée lors de l'affichage de la page shift par un utilisateur. On y
+voit](images/shift-activity.png){#fig:shift-activity width=100%}
 
-  <div class="oe_structure"/>
+La plupart des informations qu'il faut afficher à l'utilisateur sont
+déjà définies dans le module *beesdoo_shift*. Cependant, ces
+informations sont dispersées dans différents objets et ne sont pas
+toujours dans des formats adéquats à une présentation simple et claire
+de l'information. Les contrôleurs s'arrangent pour agréger ces
+dernières.
 
-</template>
-```
+Il y a, cependant, une information qui n'est pas disponible dans
+*beesdoo_shift*. C'est la prochaine date à laquelle le travailleur
+passera du statut « à jour » au statut « en alerte »
+*(futur_alert_date)*. Cette information ne concerne que les travailleurs
+inscrits en régime volant. Pour calculer cette date, il faut comprendre
+comment fonctionne le changement de statut. Lorsque le travailleur
+s'inscrit au régime volant, sa date d'inscription est enregistrée. À
+partir de cette date, tous les 28 jours (4 semaines) son compteur de
+*shift* sera décrémenté de un. Le compteur de *shift* est incrémenté de
+un, à chaque fois que le travailleur réalise un *shift* dans le
+supermarché. Lorsque le compteur est à zéro, il reste 28 jours au
+travailleur pour faire un *shift* dans le supermarché avant de passer du
+statut « à jour » à « en alerte ». Le nombre de jour, qu'il reste à un
+travailleur pour faire un *shift* avant de passer au statut
+« en alerte », se calcule de la manière suivante :
 
-Exemple d'une vue principale qui utilise la vue élémentaire ci-dessus :
+$$ days\_before\_alert = (shift\_counter + 1) \cdot 28 - delta \bmod 28 $$
 
-```xml
-<template
-  id="my_shift_exempted_worker"
-  name="My Shifts for Exempted Workers"
-  page="True">
-  <t t-call="website.layout">
+Où $delta$ est le nombre de jour qui sépare la date d'inscription de la
+date d'aujourd'hui et $shift\_counter$ le compteur de *shift* du
+travailleur. L'expression, $\bmod$, représente la fonction modulo qui,
+ici, retourne le reste de la division entière de $delta$ par $28$.
 
-    <t t-call="beesdoo_website_shift.my_shift_title"/>
-
-    . . .
-
-  </t>
-</template>
-```
-
-Du côté du contrôleur la même logique a été suivie. Une première méthode
-accessible via la page \url{/my/shift} va rendre la vue adéquate et
-appeler la méthode liée à cette vue. C'est cette dernière qui se
-chargera de préparer les valeurs qui seront affichées par la vue.
-
-```python
-@http.route('/my/shift', auth='user', website=True)
-def my_shift(self, **kw):
-    """
-    Personal page for managing your shifts
-    """
-    if self.is_user_irregular():
-        return request.render(
-            'beesdoo_website_shift.my_shift_irregular_worker',
-            self.my_shift_irregular_worker(nexturl='/my/shift')
-        )
-    if self.is_user_regular():
-        return request.render(
-            'beesdoo_website_shift.my_shift_regular_worker',
-            self.my_shift_regular_worker()
-        )
-    if self.is_user_exempted():
-        return request.render(
-            'beesdoo_website_shift.my_shift_exempted_worker',
-            self.my_shift_exempted_worker()
-        )
-
-        return request.render(
-            'beesdoo_website_shift.my_shift_non_worker',
-            {}
-        )
-```
-
-À chaque vue, élémentaire ou principale, correspond une méthode dans le
-contrôleur. Les méthodes pour les vues principales font appel aux
-méthodes des vues élémentaires comme on peut le voir dans la méthode
-suivante avec les appels à `self.my_shift_worker_status()`,
-`self.my_shift_next_shifts()`, etc.
-
-```python
-def my_shift_regular_worker(self):
-    """
-    Return template variables for 
-    'beesdoo_website_shift.my_shift_regular_worker' template
-    """
-    # Create template context
-    template_context = {}
-
-    # Get all the task template
-    template = request.env['beesdoo.shift.template']
-    task_templates = template.sudo().search(
-        [], 
-        order="planning_id, day_nb_id, start_time"
-    )
-
-    template_context.update(
-        self.my_shift_worker_status()
-    )
-    template_context.update(
-        self.my_shift_next_shifts()
-    )
-    template_context.update(
-        self.my_shift_past_shifts()
-    )
-    template_context.update(
-        {
-            'task_templates': task_templates,
-            'float_to_time': float_to_time,
-        }
-    )
-    return template_context
-```
+Cette date n'étant pas seulement utile pour le module
+*beesdoo_website_shift*, elle a été placée dans le module
+*beesdoo_shift*. De cette manière, elle est disponible via toutes les
+interfaces d'Odoo.
 
 
 ## Réalisation
