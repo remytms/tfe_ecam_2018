@@ -51,23 +51,23 @@ CoopReceipt est utile à tout magasin coopératif. Tandis que CoopShift
 est plutôt réservé aux supermarchés coopératifs participatifs sur le
 modèle de la BEES coop.
 
-Cet ouvrage vous conduira au travers de la réalisation de CoopDesk. Le
-chapitre \nameref{sec:contexte} vous présentera les intervenant dans la
-réalisation de ce travail ainsi que les informations de l'environnement
-dans lequel ce travail a été réalisé.  Par la suite le
-chapitre \nameref{sec:conception} vous donnera toutes les informations
+Cet ouvrage conduira le lecteur au travers de la réalisation de
+CoopDesk. Le chapitre \nameref{sec:contexte} présentera les intervenant
+dans la réalisation de ce travail ainsi que les informations de
+l'environnement dans lequel ce travail a été réalisé. Par la suite le
+chapitre \nameref{sec:conception} donnera toutes les informations
 nécessaires à la compréhension du besoin exprimé par la BEES coop. Il
-vous exposera les concepts techniques nécessaires à la compréhension de
+exposera les concepts techniques nécessaires à la compréhension de
 l'ouvrage ainsi qu'une présentation de la conception générale de
 CoopDesk. Les chapitres \nameref{sec:coopshift},
 \nameref{sec:coopinfoperso}, \nameref{sec:coopdocument} et
 \nameref{sec:coopreceipt} rentreront dans le détail du besoin, de la
 conception, de la réalisation et des difficultés rencontrées lors de la
 réalisation. Cela pour chaque application qui composent CoopDesk.
-Ensuite le chapitre \nameref{sec:gestion} vous parlera du déroulement et
-de la gestion de la réalisation de CoopDesk.  Enfin, la conclusion
-résumera les objectifs atteint et vous présentera quelques pistes pour
-les améliorations futures de CoopDesk.
+Ensuite le chapitre \nameref{sec:gestion} parlera du déroulement et de
+la gestion de la réalisation de CoopDesk.  Enfin, la conclusion résumera
+les objectifs atteint et vous présentera quelques pistes pour les
+améliorations futures de CoopDesk.
 
 Pour les lecteurs pressés, le chapitre \nameref{sec:conception} est
 conseillé à leur lecture. Ainsi qu'un chapitre au choix parmi ceux qui
