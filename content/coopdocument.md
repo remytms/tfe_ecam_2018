@@ -102,26 +102,33 @@ l'utilisateur.
 ![Diagramme de classes de *easy_my_coop_document*.](images/easy_my_coop_document.png){#fig:document_class_dia
 width=100%}
 
-> **TODO** : Ajouter des captures d'écran des différentes vue que
-> propose Odoo.
-
 La création d'interface d'administration dans Odoo se fait via des
 fichiers XML. Chaque classe (*Document* et *Category*) peut se
 visualiser de différentes manières. La première est la manière
 formulaire *(form)* qui permet d'afficher les informations d'un seul
 objet (un document ou une classe précise) sur une seule page et qui
-permet aussi de modifier cet objet. La seconde est la manière sous forme
+permet aussi de modifier cet objet (voir
+figure \vref{fig:doc-form-view}). La seconde est la manière sous forme
 de liste *(tree)* qui permet d'afficher tous les objets dans une liste.
 Cette liste peut alors être filtrée et il est possible de rechercher un
-objet selon certains critères. Chaque manière est définie par une vue
-*(view)* dans laquelle il faut indiquer quels champs doivent apparaitre,
-comment et où. Ces vues sont définies dans des fichiers XML qui sont par
-la suite convertis en entrées dans la base de données. Enfin, il ne faut
-pas oublier d'ajouter des entrées dans les différents menus de
-l'interface d'administration afin de pouvoir accéder à ces vues. L'ajout
-des menus fonctionne d'une manière similaire à celle des vues.
-C'est-à-dire que chaque entrée est décrite dans un fichier XML qui est
-lu par Odoo et ajouté par la suite dans la base de données.
+objet selon certains critères (voir figure \vref{fig:doc-tree-view}).
+Chaque manière est définie par une vue *(view)* dans laquelle il faut
+indiquer quels champs doivent apparaitre, comment et où. Ces vues sont
+définies dans des fichiers XML qui sont par la suite convertis en
+entrées dans la base de données. Enfin, il ne faut pas oublier d'ajouter
+des entrées dans les différents menus de l'interface d'administration
+afin de pouvoir accéder à ces vues. L'ajout des menus fonctionne d'une
+manière similaire à celle des vues.  C'est-à-dire que chaque entrée est
+décrite dans un fichier XML qui est lu par Odoo et ajouté par la suite
+dans la base de données.
+
+![Exemple de vue formulaire. Le document est présenté comme une feuille
+de papier et un bouton « modifier » permet d'éditer le
+document.](images/doc_form_view.90.png){#fig:doc-form-view width=100%}
+
+![Exemple de vue en arbre. La barre de recherche en haut à droite permet
+de filtre la liste.](images/doc_tree_view.90.png){#fig:doc-tree-view
+width=100%}
 
 
 ### Easy My Coop Website Document : l'interface *website*
