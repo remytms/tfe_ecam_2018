@@ -97,6 +97,9 @@ cette manière de programmer : le modèle qui contient les données, la vue
 qui affiche les données et le contrôleur qui fait le pont entre les
 modèles et les vues.
 
+![Diagramme schématisant le rendu d'une page \url{/my/order/} par un
+système MVC.](images/mvc_sequence.png){#fig:mvc-sequence height=14cm}
+
 Tout d'abord, les modèles, qui sont des objets Python, suivent les
 règles de l'ORM afin d'être stockés automatiquement en base de données
 par ce dernier. Il y a un modèle pour chaque type d'information que l'on
@@ -129,8 +132,6 @@ afin qu'elles soient prêtes pour que la vue les affiche. Il va alors
 appeler la vue correspondante en lui donnant les données en question. La
 page sera alors affichée à l'utilisateur.
 
-> **TODO** : Un diagramme de séquence est le bienvenu pour représenter
-> l'échange entre le contrôleur, le modèle et la vue.
 
 ## Conception {#sec:coopdesk-conception}
 
