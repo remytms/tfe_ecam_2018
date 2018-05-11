@@ -136,10 +136,11 @@ page sera alors affichée à l'utilisateur.
 ## Conception {#sec:coopdesk-conception}
 
 La principale manière pour un utilisateur d'interagir avec Odoo est via
-son interface d'administration. Cette interface est très fournie en
-fonctionnalités. Cette interface est normalisée afin de fournir à
-l'utilisateur une utilisation similaire quels que soient les modules
-qu'il utilise. Odoo fournit aussi une autre interface dite de *website*,
+son interface d'administration (voir figure \vref{fig:admin-interface}.
+Cette interface est très fournie en fonctionnalités. Cette interface est
+normalisée afin de fournir à l'utilisateur une utilisation similaire
+quels que soient les modules qu'il utilise. Odoo fournit aussi une autre
+interface dite de *website* (voir figure \vref{fig:website-interface},
 plus proche d'un site web et qui laisse une plus grande liberté de
 création dans l'interface. C'est cette dernière interface qui sera
 utilisée pour la réalisation de CoopDesk, car elle offre une liberté qui
@@ -151,8 +152,16 @@ une interface *website* qui ne contient que les fonctionnalités qu'ils
 ont besoin. Cependant l'interface d'administration sera utilisée pour ce
 qui concerne l'administration et la configuration de CoopDesk.
 
-> **TODO** : Ajouter deux images qui illustrent l'interface
-> d'administration et *website*.
+![L'interface d'administration d'Odoo, aussi appelée l'interface du
+*backend* dans le jargon. Ici l'interface affiche la liste des
+modules Odoo qui peuvent être
+installés.](images/admin_interface.png){#fig:admin-interface width=100%}
+
+![L'interface *website* d'Odoo, aussi appelée l'interface *frontend*
+dans le jargon. Ici, la page « Contactez-nous » est affichée. Il est à
+noté que le graphisme de la BEES coop est
+installé.](images/website_interface.png){#fig:website-interface
+width=100%}
 
 CoopDesk doit répondre aux besoins de la BEES coop. Cependant, il serait
 beaucoup plus utile qu'il puisse également être utilisé par d'autres
