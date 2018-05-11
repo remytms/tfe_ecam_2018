@@ -1,10 +1,10 @@
 # CoopInfoPerso : la gestion des informations personnelles {#sec:coopinfoperso}
 
 Ce chapitre traite de l'application fournissant une interface pour que
-le coopérateur puisse consulter les informations personnelles, le
-concernant, possédées par la coopérative, et modifier certaines d'entre
-elles ou modifier l'ensemble de ses informations de coopérateur, y
-compris, l'accès aux divers certificats.
+le coopérateur puisse : consulter les informations personnelles le
+concernant qui sont possédées par la coopérative, modifier certaines
+d'entre elles et consulter l'ensemble de ses informations de
+coopérateur, y compris, les divers certificats.
 
 
 ## Le besoin
@@ -53,7 +53,12 @@ que chaque coopérateur puisse avoir un accès permanent aux certificats
 qui leur permettront de justifier leur participation financière dans la
 coopérative auprès des autorités.
 
-> **TODO** : Parler de l'affichage des mangeurs.
+Chaque travailleur peut autoriser jusqu'à deux personnes, qui vivent à
+son domicile, à venir faire les courses à sa place dans le supermarché.
+Ces personnes sont appelées des « mangeurs ». Il est important pour
+chaque travailleur de pouvoir, à tout moment, savoir qui a le droit de
+faire les courses en son nom dans le supermarché. C'est pourquoi cette
+information doit figurer dans l'espace personnel de chaque coopérateur.
 
 Donc pour résumer, CoopInfoPerso doit fournir une interface agréable ou
 les coopérateurs pourront consulter sans difficultés :
@@ -87,10 +92,6 @@ découpage est repris dans la figure \vref{fig:coopinfoperso}.
 
 ![Les différents modules qui compose l'application
 CoopInfoPerso.](images/coopinfoperso.png){#fig:coopinfoperso width=100%}
-
-> **TODO** : easy_my_coop_website_portal: expliquer où se trouve les
-> informations à aller chercher. Ou alors on s'en fout un peu, car ça ne
-> change pas vraiment la structure des modules.
 
 Dans les modules *easy_my_coop_website_portal* et
 *easy_my_coop_website_taxshelter*, il est question de permettre à
@@ -182,32 +183,6 @@ sont entrées par l'utilisateur. Odoo ne fournit pas de solution toute
 faite pour ce genre de cas. Cependant, il est possible d'en développer
 une.
 
-> **TODO**: mettre ce paragraphe dans une partie à part. Avec
-> éventuellement un diagramme d'activité pour expliquer sont
-> fonctionnement. Éventuellement ajouter une explication sur ce qui a
-> été réalisé à la place (peut-être dans la partie conception).
-
-Une proposition d'implémentation se trouve à la
-figure \vref{fig:website_portal_extend_class}. Dans cette implémentation
-la classe *WebsitePartnerFormController* est le contrôleur qui se charge
-de présenter le formulaire et de valider les informations
-entrées par l'utilisateur, pour chaque champ dans le formulaire. Pour
-présenter le formulaire, la méthode *render_form()* fait appel à toutes
-les méthodes *render_nom_du_champ()* où *nom_du_champ* est le nom d'un
-champ du *res_partner*. Chaque fonction *render_nom_du_champ()* se
-charge de générer l'HTML nécessaire au rendu du champ visé. La même
-logique est appliquée par la méthode *form_validate()*. Cette
-implémentation part du principe que : qui, mieux que le développeur qui
-ajoute un champ à l'objet *res_partner*, sait comment afficher ce champ
-et quelles sont les validations qui doivent être effectuées sur ce champ.
-C'est pourquoi, il est laissé à chaque développeur d'étendre la classe
-*WebsiteParnterFormController* afin d'y ajouter les fonctions
-nécessaires au rendu et la validation des champs qu'il a ajouté au
-*res_partner*.
-
-![Structure de la solution permettant d'avoir un rendu et une validation
-pour tous les champs d'un *partner*.](images/website_portal_extend-class_diagram.png){#fig:website_portal_extend_class width=100%}
-
 Après discussion avec mon promoteur, Houssine \textsc{Bakkali}, il a été
 décidé de ne pas mettre en œuvre cette solution pour se concentrer sur
 une solution plus simple. En effet, le temps de développement et de test
@@ -221,3 +196,74 @@ champs, qui peuvent être modifiés, sont définis dans un module, est une
 solution tout à fait suffisante qui permet une certaine souplesse, sans
 nécessiter beaucoup de temps de développement. C'est donc cette solution
 pragmatique qui a été implémentée.
+
+
+##### Solution proposée
+
+Une proposition d'implémentation se trouve à la
+figure \vref{fig:website_portal_extend_class} et la
+figure \vref{fig:introspection}. Dans cette implémentation la classe
+*WebsitePartnerFormController* est le contrôleur qui se charge de
+présenter le formulaire et de valider les informations entrées par
+l'utilisateur, pour chaque champ dans le formulaire. Pour présenter le
+formulaire, la méthode *render_form()* fait appel à toutes les méthodes
+*render_nom_du_champ()* où *nom_du_champ* est le nom d'un champ du
+*res_partner*. Chaque fonction *render_nom_du_champ()* se charge de
+générer l'HTML nécessaire au rendu du champ visé. La même logique est
+appliquée par la méthode *form_validate()*. Cette implémentation part du
+principe que : qui, mieux que le développeur qui ajoute un champ à
+l'objet *res_partner*, sait comment afficher ce champ et quelles sont
+les validations qui doivent être effectuées sur ce champ.  C'est
+pourquoi, il est laissé à chaque développeur d'étendre la classe
+*WebsiteParnterFormController* afin d'y ajouter les fonctions
+nécessaires au rendu et la validation des champs qu'il a ajouté au
+*res_partner*.
+
+![Structure de la solution permettant d'avoir un rendu et une validation
+pour tous les champs d'un *partner*.](images/website_portal_extend-class_diagram.png){#fig:website_portal_extend_class width=100%}
+
+![Diagramme représentant la présentation et la validation d'un
+formulaire pour les champs d'un
+*partner*.](images/introspection.png){#fig:introspection width=100%}
+
+
+##### Solution implémentée
+
+Dans le module *(website_portal_v10)*, la fonction `details()` se charge
+d'afficher un formulaire contenant les champs suivant :
+
+- *name* ;
+- *phone* ;
+- *email* ;
+- *city* ;
+- *contry_id* ;
+- *street* ;
+- *zipcode* ;
+- *vat*.
+
+Certain champs sont des champs obligatoires *(mandatory_billing_fields)*,
+d'autres sont des champs optionnels *(optional_billing_fields)*. Ces
+champs sont définis dans la méthode `details()`. Ils ont donc une portée
+locale à cette méthode.
+
+Afin de valider le formulaire, le module possède la méthode
+`details_form_validate()`. Cette fonction redéfinit les champs
+obligatoires et les champs optionnels. Les champs définis dans cette
+méthode sont donc complètement indépendants des champs définis dans la
+méthode `details()`.
+
+Afin de rendre ce module facilement extensible et de pouvoir configurer
+à un seul endroit les champs obligatoires et les champs optionnels, la
+définition des champs a été placée comme variable de classe dans le
+module *website_portal_extend*. Pour ce faire, il a fallu réécrire les
+méthodes `details()` et `details_form_validate()` afin qu'elles prennent
+en compte ce changement. Deux variables de classe définissent les champs.
+*mandatory_billing_fields* est une liste des champs obligatoires et
+*optional_billing_fields* est une liste de champs optionnels.
+
+De cette manière, pour cacher certain champs ou choisir ceux qui seront
+obligatoires ou optionnels, il suffit d'étendre le contrôleur du module
+*website_portal_extend* et d'écrire la liste des champs obligatoires
+et optionnels dans les deux variables de classes
+*mandatory_billing_fields* et *optional_billing_fields*. C'est ce qui a
+été fait dans le module *beesdoo_website_portal*.

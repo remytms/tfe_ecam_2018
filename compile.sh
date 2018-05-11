@@ -26,6 +26,8 @@ dot -Tpng -Gpdi=600 diagrams/shift-activity.gv \
     -o images/shift-activity.png
 dia diagrams/mvc_sequence.dia -t png -s 4000x -e /dev/stdout \
     | convert - -rotate 270 images/mvc_sequence.png
+dia diagrams/introspection.dia -t png -s 4000x \
+   -e images/introspection.png
 
 # Abstract
 pandoc abstract/abstract.md \
