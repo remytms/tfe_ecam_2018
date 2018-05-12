@@ -177,8 +177,25 @@ binaire stocké dans Odoo avant de l'envoyer à l'utilisateur.
 
 ## Réalisation
 
-> **TODO** : Prendre des captures d'écran et montrer que la réalisation
-> rencontre bien le besoin.
+![L'interface d'administration des
+catégories.](images/doc_cat_admin_tree_view.png){width=100%}
+
+![Création d'un document. Ce dernier est marqué comme étant publique. Il
+a comme date de validité le 3 mai 2018 mais n'est publié que le 12 mai
+2018.](images/doc_create_doc.png){width=100%}
+
+![Le liste des documents dans l'interface d'administration. Trois
+documents sont publié dont un qui n'est accessible qu'aux utilisateurs
+connectés.](images/doc_admin_tree_view.png){width=100%}
+
+![La liste des documents disponible pour un utilisateur connecté via
+l'interface *website*. Pour afficher le document qui se trouve dans la
+catégorie « PV des AG », il faut cliquer sur celle-ci. La zone archives
+permet de trier les documents par mois. Cela permet de facilement
+retrouver un document d'une date
+donné.](images/doc_website_view.png){width=100%}
+
+\clearpage
 
 ## Améliorations
 
