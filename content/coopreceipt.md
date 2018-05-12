@@ -46,4 +46,11 @@ format PDF à l'utilisateur.
 
 ## Réalisation
 
-> **TODO** : Les captures d'écran de CoopReceipt.
+![La liste des commandes d'un client coopérateur dans son espace
+personnel. Vue pour écran large.](images/pos_main_wide.png){width=100%}
+
+![Il est possible pour l'utilisateur de voir de plus anciennes commandes
+via le système de pagination. En cliquant sur le nom de la commande,
+l'utilisateur peut télécharger le ticket de caisse correspondant au
+format PDF. Sur ce ticket se trouve le détail de ses achats, le
+prix, etc.](images/pos_order_list.png){width=100%}
