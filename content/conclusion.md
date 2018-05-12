@@ -1,4 +1,4 @@
-# Conclusion et perspectives
+# Conclusion et perspectives {-}
 
 Cet ouvrage a présenté la réalisation de CoopDesk qui est une réussite.
 CoopDesk répond à tous les besoins exprimés dans le cahier de charges.
