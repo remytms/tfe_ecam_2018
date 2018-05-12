@@ -154,8 +154,37 @@ optionnels.
 
 ## Réalisation
 
-> **TODO** : Prendre des captures d'écran et montrer que la réalisation
-> rencontre bien le besoin.
+![L'espace personnel du coopérateur dans CoopDesk. La ligne « Your POS
+Order » fait partie de CoopReceipt. Les informations personnelles et de
+coopérateurs se trouvent à
+droite.](images/coop_personnal_page_wide.png){width=100%}
+
+![Le formulaire de modification des informations personnelles du
+coopérateur. Seul le numéro de téléphone et l'adresse postale sont
+modifiable par le
+coopérateur.](images/coop_personnal_info_form.png){width=100%}
+
+![La zone d'affichage des informations de coopérateur. Le coopérateur
+n'a pas de mangeurs *(eaters)* renseigné pour l'instant. Il a pris
+quatre part de 25 euros en une fois. Le coopérateur peut télécharger son
+certificate de coopérateur au format PDF en cliquant sur le bouton
+« Cooperator Certificate ».](images/coop_info.png){width=100%}
+
+![La page affichant la liste des demandes de libération de capital
+adressées au coopérateur. Il n'y a qu'une seule demande pour ce
+coopérateur. La demande est bien payée, ce qui lui a conféré le statut
+de coopérateur. En cliquant sur nom de la demande, le coopérateur peut
+télécharger une copie de cette demande au format
+PDF.](images/coop_capital_request.png){width=100%}
+
+![La page affichant la liste des certificats Tax Shelter. La coopérative
+génère un certificat par année. Le certificat est composé du
+l'attestation de souscription *(subscription certificate)* et du
+certificat de part *(share certificate)*. Les deux sont téléchargeable
+au format PDF en cliquant sur le lien
+adéquat.](images/coop_taxshelter.png){width=100%}
+
+\clearpage
 
 
 ## Difficultés et solutions
