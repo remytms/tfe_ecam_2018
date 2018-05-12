@@ -205,8 +205,74 @@ interfaces d'Odoo.
 
 ## Réalisation
 
-> **TODO** : Présenter la réalisation en images et montrer qu'elle
-> correspond bien au besoin (ou pas).
+
+### Travailleur inscrit au régime régulier
+
+![Page de gestion des shifts pour un travailleur en régime
+régulier.](images/regular_worker_main_wide.png){width=100%}
+
+![Travailleur régulier : la zone présentant le statut du
+travailleurs](images/regular_worker_status_holiday.png){width=100%}
+
+![Les 13 prochains *shifts* du travailleur régulier. Un clique sur le
+bouton « i » affiche les informations de contact du super-coopérateur du
+*shift*.](images/regular_worker_next_shift.png){width=100%}
+
+![L'affichage des shifts passés du travailleur
+régulier.](images/regular_worker_past_shift.png){width=100%}
+
+![Les textes d'aide pour le travailleur
+régulier](images/regular_worker_help.png){width=100%}
+
+\clearpage
+
+
+### Travailleur inscrit au régime volant
+
+![La zone d'affichage du statut du travailleur volant. Ici le
+travailleur est en retard de deux shifts et est en alerte. Le cadis vert
+indique qu'il peut cependant encore faire ses
+courses.](images/irregular_worker_status_alert.png){width=100%}
+
+![La zone d'affichage du statut d'un travailleur volant à jour. Les deux
+*shifts* d'avance du travailleur lui permettent d'être à jour pendant
+plusieurs semaines. La date avant laquelle le travailleur doit faire à
+nouveau un *shift* est
+indiquée.](images/irregular_worker_status_ok.png){width=100%}
+
+![Dans l'image, le travailleur volant est suspendu. Le cadis rouge en
+haut à droite indique qu'il ne peut plus faire ses courses dans le
+supermarché tant qu'il n'a pas régularisé sa
+situation.](images/irregular_worker_status_suspended.png){width=100%}
+
+![La liste des futurs *shifts* disponibles pour le travailleur
+volant. La mise en évidence des shifts et le nombre de shifts afficher
+sont configurable via l'interface
+d'administration.](images/irregular_worker_next_shift.png){width=100%}
+
+![La fenêtre de validation après avoir cliquer sur bouton
+« subscribe ».](images/irregular_worker_subscribe_validation.png){width=100%}
+
+![Après s'être inscrit, le *shift* apparait dans la liste des prochains
+*shifts*. Un retour est aussi donné à l'utilisateur en cas de réussite
+et d'échec de
+l'inscription.](images/irregular_worker_subscribe_feedback.png){width=100%}
+
+![Les shifts passés du travailleur
+volant.](images/irregular_worker_past_shift.png){width=100%}
+
+![Les textes d'aide pour le travailleur
+volant.](images/irregular_worker_help.png){width=100%}
+
+\clearpage
+
+
+### Travailleur exempté de travail
+
+![Page de gestion des *shifts* d'un travailleur exempter de
+travail.](images/exempted_worker.png){width=100%}
+
+\clearpage
 
 
 ## Difficultés et solutions
