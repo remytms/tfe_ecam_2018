@@ -8,14 +8,14 @@ coopérative. Ce guichet facilite la communication de la coopérative
 envers ses coopérateurs et permet aux coopératives de mobiliser leur
 personnel sur les autres tâches qui constituent leur métier.
 
-Comme exposé dans le chapitre \nameref{sec:coopshift}, CoopShift permet
+Comme exposé dans le chapitre \ref{sec:coopshift}, CoopShift permet
 aux travailleurs d'un supermarché coopératif de gérer leurs *shifts*
 dans la coopérative. Cette application est en production à la BEES coop
 et est prête à être utilisée par tous les travailleurs de celle-ci dès
 que les tutoriels d'utilisation auront été réalisés et que les accès
 auront été donnés aux coopérateurs.
 
-Le chapitre \nameref{sec:coopinfoperso} a montré la réalisation de
+Le chapitre \ref{sec:coopinfoperso} a montré la réalisation de
 CoopInfoPerso qui permet aux coopérateurs d'avoir accès à leurs
 informations personnelles détenues par la coopérative et aux
 informations et attestations concernant leur statut de coopérateur.
@@ -28,14 +28,14 @@ n'est que d'ordre technique, CoopInfoPerso répond bien au besoin exprimé
 par la BEES coop.
 
 CoopDocument a été présentée dans le
-chapitre \nameref{sec:coopdocument}. Elle permet à la coopérative de
+chapitre \ref{sec:coopdocument}. Elle permet à la coopérative de
 publier des documents à ses coopérateurs et aussi de rendre certains
 documents accessibles publiquement. La présentation de cette application
 a déjà fait émerger de nouveaux besoins tel que la possibilité de
 publier des documents stockés sur des espaces de stockage en ligne
 externes tel que Nextcloud. \cite{site:nextcloud}
 
-Enfin le chapitre \nameref{sec:coopreceipt} a présenté CoopReceipt qui
+Enfin le chapitre \ref{sec:coopreceipt} a présenté CoopReceipt qui
 permet aux clients d'un magasin d'accéder aux tickets de caisse de leurs
 achats passés. Actuellement, seul les tickets de caisse sont disponibles
 via l'interface comme demandé dans le cahier des charges. Cependant,
