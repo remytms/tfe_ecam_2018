@@ -64,15 +64,32 @@ d'une gestion démocratique unique \cite{site:fonctionnement-beescoop} :
   jour.
 - **Le comité sociétal** : Ces membres sont élus par l'assemblée
   générale. Il a un rôle d'observateur et s'assure que les finalités
-  sociales de BEES coop sont respectées.
+  sociales de la BEES coop sont respectées.
 
 Les comités de la BEES coop jouent un grand rôle dans les décisions
 journalières. Elles ont participé activement à l'élaboration du cahier
 des charges de ce travail.
 
-> **TODO**: Parler des finalités sociales. Mais il y en a beaucoup, il
-> faut les résumer…
+Par ailleurs, la BEES coop s'est fixée plusieurs finalités sociales. Le
+surplus générer par le supermarché sera investi dans le but de réaliser
+ces finalités sociales, ou ira consolider une réserve pour plus tard.
+Voici les principales finalités sociales de la
+BEES coop \cite{site:bce} :
 
+1. Faciliter l'accès des tous à une alimentation durable, saine et de
+   qualité, ayant un impact positif sur la santé et l'environnement.
+1. Donner priorité aux produits cultivés de manière respectueuse de
+   l'environnement et des personnes impliquées dans leur fabrication.
+1. Reconstruire des filières de production locales de biens et de
+   services, particulièrement via l'approvisionnement en circuits
+   courts.
+1. Lutter contre le gaspillage alimentaire à travers la transformation
+   et le reconditionnement des produits invendus.
+1. Réduire les emballages alimentaires notamment via la vente en vrac.
+1. Renforcer la mixité culturelle, économique et sociale dans le
+   quartier et créer des liens parmi les habitants.
+1. Transmettre et promouvoir ces finalités via de l'éducation, de la
+   formation et de l'information.
 
 ### Un supermarché coopératif et participatif
 
