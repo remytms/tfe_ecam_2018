@@ -1,10 +1,11 @@
 # Conception générale {#sec:conception}
 
-Ce chapitre présente d'une manière globale le besoin exprimé par la
+Ce chapitre présente de manière globale le besoin exprimé par la
 BEES coop. Il donne les éléments techniques nécessaires à la
 compréhension de l'ouvrage et termine par exposer la conception de
 CoopDesk dans son ensemble. CoopDesk étant composée de plusieurs
-applications, chacune d'elle est détaillée dans un chapitre dédié.
+applications, chacune d'elle est détaillée dans un chapitre qui lui est
+dédié.
 
 
 ## Le besoin
@@ -26,7 +27,7 @@ droit au coopérateur de participer aux processus démocratiques de la
 coopérative, c'est pourquoi il souhaite avoir accès aux rapports des
 différentes assemblées, ainsi qu'aux textes des règlements.
 
-En sa qualité de travailleur, le coopérateur veut faire un suivi de son
+En sa qualité de travailleur, le coopérateur veut avoir un suivi de son
 travail au sein de la coopérative. Ce travail conditionne le droit de
 faire ses courses dans le supermarché, c'est pourquoi il veut connaitre
 son statut à tout instant, les dates de ses prochains *shifts* de
@@ -90,7 +91,7 @@ XPath afin d'aller modifier des vues déjà existantes.
 
 ## Le patron de conception MVC
 
-Odoo fonctionne selon de patron de conception MVC
+Odoo fonctionne selon le patron de conception MVC
 (modèle-vue-contrôleur). Cette manière de programmer est très présente
 dans le domaine des sites internet. Trois acteurs sont présents dans
 cette manière de programmer : le modèle qui contient les données, la vue
@@ -109,28 +110,28 @@ utilisateur d'Odoo, le modèle *res.partner* représente un contact, le
 modèle *pos.order* représente une commande à un point de vente *(Point
 of Sale, POS)*, etc.
 
-Ensuite, il y a les vues *(templates)* qui sont écrite en QWeb et qui se
-charge d'afficher des données d'une manière plaisante pour
-l'utilisateur. Les vues ne sont pas censée travailler ou modifier les
-données qu'elles reçoivent du contrôleur. Par contre, elles vont gérer la
-manière d'afficher la donnée selon son contenu ou selon des paramètres
-donnés. Par exemple, une vue peut afficher la commande d'un point de
-vente *(pos.order)*. Dans cet affichage, par exemple, le
-nom du client qui sera affiché plus grand que le reste des informations,
-ou encore la TVA qui sera affichée en italique. 
+Ensuite, il y a les vues *(templates)* qui sont écrites en QWeb et qui
+se chargent d'afficher des données d'une manière conviviale pour
+l'utilisateur. Les vues ne sont pas censées travailler ou modifier les
+données qu'elles reçoivent du contrôleur. Par contre, elles vont gérer
+la manière d'afficher la donnée selon son contenu ou selon des
+paramètres donnés. Par exemple, une vue peut afficher la commande d'un
+point de vente *(pos.order)*. Dans cet affichage, par exemple, le nom du
+client, affiché plus grand que le reste des informations, ou encore la
+TVA, affichée en italique.
 
 Enfin, il y a les contrôleurs qui sont des programmes qui viennent faire
-le lien entre les modèles et les vues. Dans du développement web, un
-contrôleur est en général lié à une URL. En effet chaque URL correspond
+le lien entre les modèles et les vues. Dans un développement web, un
+contrôleur est en général lié à une URL. En effet, chaque URL correspond
 à une page différente. Cette URL peut contenir des paramètres qui sont
-passé au contrôleur. Le contrôleur se charge d'observer les paramètres
+passés au contrôleur. Le contrôleur se charge d'observer les paramètres
 reçus afin d'afficher la page demandée. Il s'occupe d'aller chercher le
 modèle adéquat et de récupérer les informations qu'il contient. Il peut
-ensuite effectuer une série de traitement sur ces données, par exemple,
-les filtrer ou les trier. Il termine par préparer toutes les données
-afin qu'elles soient prêtes pour que la vue les affiche. Il va alors
-appeler la vue correspondante en lui donnant les données en question. La
-page sera alors affichée à l'utilisateur.
+ensuite effectuer une série de traitements sur ces données : par
+exemple, les filtrer ou les trier. Il termine par préparer toutes les
+données afin qu'elles soient prêtes pour que la vue puisse les afficher.
+Il va alors appeler la vue correspondante en lui donnant les données en
+question. La page sera alors affichée à l'utilisateur.
 
 
 ## Conception {#sec:coopdesk-conception}
@@ -139,21 +140,21 @@ La principale manière pour un utilisateur d'interagir avec Odoo est via
 son interface d'administration (voir figure \vref{fig:admin-interface}.
 Cette interface est très fournie en fonctionnalités. Cette interface est
 normalisée afin de fournir à l'utilisateur une utilisation similaire
-quels que soient les modules qu'il utilise. Odoo fournit aussi une autre
-interface dite de *website* (voir figure \vref{fig:website-interface},
-plus proche d'un site web et qui laisse une plus grande liberté de
-création dans l'interface. C'est cette dernière interface qui sera
-utilisée pour la réalisation de CoopDesk, car elle offre une liberté qui
-va permettre de concevoir une interface simple et efficace, proche de ce
-que l'utilisateur a l'habitude de rencontrer lorsqu'il navigue sur le
-web. Mais aussi, afin de ne pas fournir un accès, à tous les
-utilisateurs, à l'interface d'administration et ainsi les cantonner dans
-une interface *website* qui ne contient que les fonctionnalités qu'ils
-ont besoin. Cependant l'interface d'administration sera utilisée pour ce
-qui concerne l'administration et la configuration de CoopDesk.
+quel que soit le module utilisé. Odoo fournit aussi une autre interface
+dite de *website* (voir figure \vref{fig:website-interface}, plus proche
+d'un site web et qui laisse une plus grande liberté de création dans
+l'interface. C'est cette dernière interface qui sera utilisée pour la
+réalisation de CoopDesk. Elle offre une liberté qui va permettre de
+concevoir une interface simple et efficace, proche de ce que
+l'utilisateur a l'habitude de rencontrer lorsqu'il navigue sur le web,
+mais aussi, de ne pas fournir un accès, à tous les utilisateurs, à
+l'interface d'administration et ainsi les limiter à une interface
+*website* qui ne contient que les fonctionnalités dont ils ont besoin.
+Cependant, l'interface d'administration sera utilisée pour ce qui
+concerne l'administration et la configuration de CoopDesk.
 
 ![L'interface d'administration d'Odoo, aussi appelée l'interface du
-*backend* dans le jargon. Ici l'interface affiche la liste des
+*backend* dans le jargon. Ici, l'interface affiche la liste des
 modules Odoo qui peuvent être
 installés.](images/admin_interface.png){#fig:admin-interface width=100%}
 
@@ -208,8 +209,8 @@ Ce module est un *backport* du module standard d'Odoo qui se nomme
 l'utilisateur peut consulter ses informations personnelles de base (nom,
 prénom, adresse électronique, adresse postale) et modifier ces dernières
 via un formulaire. CoopDesk est réalisé sur la version 9 d'Odoo.
-Cependant la version 10 apporte une amélioration quant au design de
-ce module. C'est pourquoi il a été choisi de travailler avec ce
+Cependant, la version 10 apporte une amélioration quant au design de
+ce module. C'est pourquoi, il a été choisi de travailler avec ce
 *backport* de manière à profiter de l'interface améliorée et de pouvoir
 plus facilement migrer plus tard vers la version 10.
 
@@ -252,8 +253,8 @@ coopérateur à un *shift*.
 ### Modules à développer
 
 Cette section parcourt toutes les applications qui composent CoopDesk et
-décrit, pour chacune, les modules qui la composent. Ces applications sont
-représentées par les encadrés en pointillé dans la
+décrit, pour chacune, les modules qui la composent. Ces applications
+sont représentées par les encadrés en pointillé dans la
 figure \ref{fig:intranet_package}.
 
 
@@ -343,7 +344,7 @@ pour que le coopérateur puisse accéder à ses tickets de caisse.
 
 La charte graphique de la BEES coop est implémentée dans le module
 *beesdoo_website_theme*. Il s'agit de mettre en œuvre dans ce module les
-principaux éléments graphique qui permettre de reconnaitre la BEES coop
-et de rendre la transition, pour l'utilisateur, entre le site internet
-de la BEES coop et l'interface d'Odoo agréable.
+principaux éléments graphiques qui permettent de reconnaitre la
+BEES coop et de rendre la transition, entre le site internet de la
+BEES coop et l'interface d'Odoo, agréable pour l'utilisateur.
 

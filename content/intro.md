@@ -21,18 +21,18 @@ Le défit environnemental remet aussi en question notre manière de
 nous nourrir. C'est ce constat qui, entre autres, a fait naitre la
 BEES coop, un supermarché coopératif dont le but est de fournir une
 alternative à la grande distribution en fournissant des produits locaux,
-bio et accessible financièrement. \cite{site:valeurs-beescoop}
+bio et accessibles financièrement. \cite{site:valeurs-beescoop}
 
 Du fait de leur modèle unique, les coopératives ont des besoins qui
-leur sont propres. Notamment le fait de devoir interagir avec un grand
+leur sont propres. Notamment, le fait de devoir interagir avec un grand
 nombre de coopérateurs. La BEES coop, pour sa part, a la particularité
 de fonctionner principalement grâce au travail bénévole de ses membres.
-Actuellement c'est plus d'un millier de personnes qui se relaient dans
+Actuellement, c'est plus d'un millier de personnes qui se relaient dans
 le magasin. \cite{site:inauguration-beescoop}
 
-CoopDesk répond à ces besoins en utilisant l'outil informatique afin de
-fournir un guichet électronique faisant l'interface entre les
-coopérateurs et la coopérative. CoopDesk est logiciel *open source*,
+CoopDesk répond à ces besoins en utilisant l'outil informatique qui
+fournit un guichet électronique faisant l'interface entre les
+coopérateurs et la coopérative. CoopDesk est un logiciel *open source*,
 basé lui-même sur le logiciel de gestion d'entreprise *open source*
 Odoo. CoopDesk est actuellement composé de quatres applications.
 
@@ -52,21 +52,21 @@ est plutôt réservé aux supermarchés coopératifs participatifs sur le
 modèle de la BEES coop.
 
 Cet ouvrage conduira le lecteur au travers de la réalisation de
-CoopDesk. Le chapitre \nameref{sec:contexte} présentera les intervenant
+CoopDesk. Le chapitre \nameref{sec:contexte} présentera les intervenants
 dans la réalisation de ce travail ainsi que les informations de
-l'environnement dans lequel ce travail a été réalisé. Par la suite le
+l'environnement dans lequel ce travail a été réalisé. Par la suite, le
 chapitre \nameref{sec:conception} donnera toutes les informations
 nécessaires à la compréhension du besoin exprimé par la BEES coop. Il
 exposera les concepts techniques nécessaires à la compréhension de
 l'ouvrage ainsi qu'une présentation de la conception générale de
 CoopDesk. Les chapitres \nameref{sec:coopshift},
 \nameref{sec:coopinfoperso}, \nameref{sec:coopdocument} et
-\nameref{sec:coopreceipt} rentreront dans le détail du besoin, de la
+\nameref{sec:coopreceipt} entreront dans le détail du besoin, de la
 conception, de la réalisation et des difficultés rencontrées lors de la
-réalisation. Cela pour chaque application qui composent CoopDesk.
-Ensuite le chapitre \nameref{sec:gestion} parlera du déroulement et de
+réalisation. Cela pour chaque application qui compose CoopDesk.
+Ensuite, le chapitre \nameref{sec:gestion} parlera du déroulement et de
 la gestion de la réalisation de CoopDesk.  Enfin, la conclusion résumera
-les objectifs atteint et vous présentera quelques pistes pour les
+les objectifs atteints et vous présentera quelques pistes pour les
 améliorations futures de CoopDesk.
 
 Pour les lecteurs pressés, le chapitre \nameref{sec:conception} est

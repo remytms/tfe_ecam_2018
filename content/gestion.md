@@ -39,9 +39,6 @@ chapitre \vref{sec:coopshift}) notamment le besoin d'afficher des textes
 d'aide concernant les statuts du travailleur à la BEES coop. Le bureau
 des membres souhaitait lancer l'application fin janvier.
 
-> **TODO**: Être un peu plus précis sur ces bogues (faire référence aux
-> endroits où on en parle.
-
 Le 21 janvier 2018 la version 1 de CoopShift a bien évolué. Tous les
 nouveaux besoins sont comblés. Il reste un bogue dans l'affichage des
 dates et des heures et il manque les textes d'aide qui doivent être
@@ -51,7 +48,7 @@ mi-février dans le planning n'aura pas lieu. L'application CoopShift a
 donc été mise de côté afin de se concentrer sur la conception et le
 développement de CoopInfoPerso.
 
-Ayant dû traiter d'autres sujets plus urgent pendant les mois de
+Ayant dû traiter d'autres sujets plus urgents pendant les mois de
 janvier et février, les acteurs de la BEES coop ont demandé un état des
 lieux afin de pouvoir reprendre le train en marche. Ils ont donc reçu de
 ma part, le 19 février 2018, un petit récapitulatif de ce qui avait été
@@ -60,11 +57,11 @@ l'application CoopShift.  La finalisation de CoopShift a pu se faire à
 partir de mi-mars. Entretemps, les autres applications formant CoopDesk
 ont bien avancé, sauf CoopReceipt qui avait une faible priorité.
 
-Le mercredi 4 avril 2018 s'est tenu une réunion avec le bureau
-des membres pour présenter la version 2 de CoopShift qui incluait tous
-les nouveaux besoins exprimés lors de la réunion de décembre, y compris
-les textes d'aide reçus mi-mars. De plus l'application CoopInfoPerso et
-CoopDocument ont été présentées. CoopDocument est fonctionnel, mais
+Le mercredi 4 avril 2018 s'est tenu une réunion avec le bureau des
+membres pour présenter la version 2 de CoopShift qui incluait tous les
+nouveaux besoins exprimés lors de la réunion de décembre, y compris les
+textes d'aide reçus mi-mars. De plus, les applications CoopInfoPerso et
+CoopDocument ont été présentées. CoopDocument est fonctionnelle, mais
 l'interface d'administration doit être légèrement améliorée afin d'être
 similaire aux autres applications. CoopInfoPerso est très convaincante,
 mais un bogue quant aux téléchargements des PDF a été remarqué sur le
@@ -73,8 +70,8 @@ développeurs, puis mise en production début mai.
 
 La dernière réunion prévue dans le planning se déroulera finalement en
 juin. Le mois de mai a permis de résoudre tous les bogues blocants qui
-restaient. Les autres application composant CoopDesk pourront être
-présentée et mise en production après leur validation lors de la
+restaient. Les autres applications composant CoopDesk pourront être
+présentées et mises en production après leur validation lors de cette
 réunion.
 
 
@@ -82,7 +79,7 @@ réunion.
 
 Tout au long du développement, il a fallu gérer la mise en place sur le
 serveur de test et la mise en place sur le serveur de production. Le
-serveur de test est une réplication de la base de donnée du serveur de
+serveur de test est une réplication de la base de données du serveur de
 production à un instant donné. Il faut de temps en temps le mettre à
 niveau par rapport au serveur de production en important les données
 provenant de ce dernier. La seule contrainte, lors de la mise en place
@@ -110,11 +107,11 @@ suivants:
    valident si le développement correspond bien aux fonctionnalités
    attendues.
 1. **Revue technique** : Cette étape correspond à une relecture et une
-   correction par un pair du code écrit.
+   correction du code écrit par un pair.
 1. **Validation utilisateur** : L'utilisateur teste le développement
    dans l'environnement de test.
 1. **Déployé** : Cette étape correspond à la mise en production du
-   développement
+   développement.
 
 Un autre outil est utilisé, notamment lors de l'étape de validation
 technique, afin de pouvoir tester les développements : le *runbot*.

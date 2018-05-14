@@ -19,7 +19,7 @@ revient à la semaine A comme illustré dans la
 figure \vref{fig:shift-timeline}. Chaque semaine est découpée en
 créneaux. Un créneau représente une tranche horaire pendant laquelle un
 certain travail doit être réalisé par un ou plusieurs travailleurs. Par
-exemple, comme sur la figure \vref{fig:shift-planning} le jeudi de la
+exemple, comme sur la figure \vref{fig:shift-planning}, le jeudi de la
 semaine B de 12h à 15h, il y a un créneau pour le travail en magasin.
 Il peut y avoir plusieurs créneaux en même temps pour autant que les
 tâches à effectuer soient différentes. Par exemple, un créneau en
@@ -54,7 +54,7 @@ volant *(irregular)*, exempté *(exempted)*.  Chaque travailleur doit
 régulier choisit de faire ses *shifts* de manière régulière,
 c'est-à-dire au même créneau toutes les 4 semaines. Ce travailleur est
 alors automatiquement inscrit à un *shift* pendant ce créneau toutes les
-4 semaines. Le travailleur inscrit en régime volant choisi librement le
+4 semaines. Le travailleur inscrit en régime volant choisit librement le
 *shift* auquel il s'inscrit. Il doit cependant veiller à faire au moins
 l'équivalent d'un *shift* toutes les 4 semaines.  Cependant, il lui est
 possible d'anticiper des *shifts* pour prévoir une période
@@ -84,13 +84,13 @@ l'état de leur travail dans le supermarché.
 ### Le besoin initial
 
 CoopShift doit fournir une interface conviviale dans le but de permettre
-aux travailleurs et de manière personnelle et sécurisée :
+aux travailleurs, de manière personnelle et sécurisée :
 
 - de consulter leur régime de travail ;
 - d'avoir accès aux dates de leurs prochains *shifts* ;
 - de consulter leur statut et leurs compteurs de *shifts* ;
 - de consulter les créneaux disponibles (utile pour les
-  travailleurs inscrit en régime régulier) ;
+  travailleurs inscrits en régime régulier) ;
 - de consulter la liste des *shifts* où il reste des places disponibles
   (utile pour les travailleurs inscrits en régime volants) ;
 - de s'inscrire à un *shift* (uniquement pour les travailleurs inscrits
@@ -119,16 +119,16 @@ L'application CoopShift est constituée d'un seul module nommé
 *beesdoo_website_shift* qui se base sur le module *beesdoo_shift*. Elle
 se base sur le patron de conception MVC (modèle-vue-contrôleur). Le
 module *beesdoo_shift* contient entre autre la définition des modèles.
-Les créneaux, les *shifts* et le statut des coopérateurs y sont définis.
-*beesdoo_website_shift* se concentre sur l'aspect interface *website* et
-contrôleur. L'application n'est composée que d'un seul module à l'image
-de *beesdoo_shift* qui regroupe la gestion du travail des coopérateurs
-dans un seul module.
+Les créneaux, les *shifts* et le statut des coopérateurs y sont
+également définis.  *beesdoo_website_shift* se concentre sur l'aspect
+interface *website* et contrôleur. L'application n'est composée que d'un
+seul module à l'image de *beesdoo_shift* qui regroupe la gestion du
+travail des coopérateurs dans un seul module.
 
 Le module apporte une page web, accessible via l'URL \url{/my/shift},
 qui affiche trois vues différentes en fonction du régime de travail de
 l'utilisateur connecté.  Cependant, une bonne partie de ses vues a des
-parties en commun. C'est pourquoi il a été choisi de les segmenter en
+parties en commun. C'est pourquoi, il a été choisi de les segmenter en
 vues élémentaires s'occupant chacune de l'affichage d'une information en
 particulier. Par après, ces vues élémentaires sont mises ensemble pour
 former les trois vues principales. La
@@ -157,8 +157,8 @@ au bon régime de travail. Ensuite, cette méthode, de la vue principale,
 va appeler les méthodes, liées aux vues élémentaires qui sont utilisées
 par cette vue principale.
 
-![Le contrôleur du module *beesdoo_website_shift*. Les lignes commançant
-par, *#*, regroupent les méthodes par utilité. Les lignes commançant
+![Le contrôleur du module *beesdoo_website_shift*. Les lignes commençant
+par, *#*, regroupent les méthodes par utilité. Les lignes commençant
 par, *- - - -*, indiquent les URL auxquels répond la méthode
 précédente.](images/shift-controller.png){#fig:shift-controller
 width=7cm}
@@ -174,14 +174,14 @@ toujours dans des formats adéquats à une présentation simple et claire
 de l'information. Les contrôleurs s'arrangent pour agréger ces
 dernières.
 
-Il y a, cependant, une information qui n'est pas disponible dans
+Il y a cependant une information qui n'est pas disponible dans
 *beesdoo_shift*. C'est la prochaine date à laquelle le travailleur
 passera du statut « à jour » au statut « en alerte »
 *(futur_alert_date)*. Cette information ne concerne que les travailleurs
 inscrits en régime volant. Pour calculer cette date, il faut comprendre
 comment fonctionne le changement de statut. Lorsque le travailleur
 s'inscrit au régime volant, sa date d'inscription est enregistrée. À
-partir de cette date, tous les 28 jours (4 semaines) son compteur de
+partir de cette date, tous les 28 jours (4 semaines), son compteur de
 *shift* sera décrémenté de un. Le compteur de *shift* est incrémenté de
 un, à chaque fois que le travailleur réalise un *shift* dans le
 supermarché. Lorsque le compteur est à zéro, il reste 28 jours au
@@ -192,7 +192,7 @@ travailleur pour faire un *shift* avant de passer au statut
 
 $$ days\_before\_alert = (shift\_counter + 1) \cdot 28 - delta \bmod 28 $$
 
-Où $delta$ est le nombre de jour qui sépare la date d'inscription de la
+Où $delta$ est le nombre de jours qui sépare la date d'inscription de la
 date d'aujourd'hui et $shift\_counter$ le compteur de *shift* du
 travailleur. L'expression, $\bmod$, représente la fonction modulo qui,
 ici, retourne le reste de la division entière de $delta$ par $28$.
@@ -208,17 +208,17 @@ interfaces d'Odoo.
 
 ### Travailleur inscrit au régime régulier
 
-![Page de gestion des shifts pour un travailleur en régime
+![Page de gestion des *shifts* pour un travailleur en régime
 régulier.](images/regular_worker_main_wide.png){width=100%}
 
 ![Travailleur régulier : la zone présentant le statut du
-travailleurs](images/regular_worker_status_holiday.png){width=100%}
+travailleur](images/regular_worker_status_holiday.png){width=100%}
 
 ![Les 13 prochains *shifts* du travailleur régulier. Un clique sur le
 bouton « i » affiche les informations de contact du super-coopérateur du
 *shift*.](images/regular_worker_next_shift.png){width=100%}
 
-![L'affichage des shifts passés du travailleur
+![L'affichage des *shifts* passés du travailleur
 régulier.](images/regular_worker_past_shift.png){width=100%}
 
 ![Les textes d'aide pour le travailleur
@@ -230,8 +230,8 @@ régulier](images/regular_worker_help.png){width=100%}
 ### Travailleur inscrit au régime volant
 
 ![La zone d'affichage du statut du travailleur volant. Ici le
-travailleur est en retard de deux shifts et est en alerte. Le cadis vert
-indique qu'il peut cependant encore faire ses
+travailleur est en retard de deux *shifts* et est en alerte. Le cadis
+vert indique qu'il peut cependant encore faire ses
 courses.](images/irregular_worker_status_alert.png){width=100%}
 
 ![La zone d'affichage du statut d'un travailleur volant à jour. Les deux
@@ -245,12 +245,12 @@ haut à droite indique qu'il ne peut plus faire ses courses dans le
 supermarché tant qu'il n'a pas régularisé sa
 situation.](images/irregular_worker_status_suspended.png){width=100%}
 
-![La liste des futurs *shifts* disponibles pour le travailleur
-volant. La mise en évidence des shifts et le nombre de shifts afficher
-sont configurable via l'interface
+![La liste des futurs *shifts* disponibles pour le travailleur volant.
+La mise en évidence des *shifts* et le nombre de *shifts* affichés sont
+configurables via l'interface
 d'administration.](images/irregular_worker_next_shift.png){width=100%}
 
-![La fenêtre de validation après avoir cliquer sur bouton
+![La fenêtre de validation après avoir cliqué sur bouton
 « subscribe ».](images/irregular_worker_subscribe_validation.png){width=100%}
 
 ![Après s'être inscrit, le *shift* apparait dans la liste des prochains
@@ -258,7 +258,7 @@ d'administration.](images/irregular_worker_next_shift.png){width=100%}
 et d'échec de
 l'inscription.](images/irregular_worker_subscribe_feedback.png){width=100%}
 
-![Les shifts passés du travailleur
+![Les *shifts* passés du travailleur
 volant.](images/irregular_worker_past_shift.png){width=100%}
 
 ![Les textes d'aide pour le travailleur
@@ -269,7 +269,7 @@ volant.](images/irregular_worker_help.png){width=100%}
 
 ### Travailleur exempté de travail
 
-![Page de gestion des *shifts* d'un travailleur exempter de
+![Page de gestion des *shifts* d'un travailleur exempté de
 travail.](images/exempted_worker.png){width=100%}
 
 \clearpage
@@ -288,14 +288,14 @@ qu'une semaine se termine, la même semaine (A, B, C ou D) est à nouveau
 générée. Par exemple, si la semaine A commence le 1 janvier et se
 termine le 7 janvier, alors le 7 janvier le système génèrera la
 prochaine semaine A qui se tiendra trois semaines plus tard, donc du 29
-janvier au 4 février. Généré une semaine signifie que le système va
+janvier au 4 février. Générer une semaine signifie que le système va
 convertir les créneaux de la semaine concernée en *shifts*. Ce sont
 ces *shifts* qui sont utiles pour l'affichage des informations dans
 CoopShift.
 
 La solution initiale pour afficher la liste des *shifts* futurs d'un
 travailleur était de simplement lister les *shifts* futurs auxquels le
-travailleur est inscrit et qui existent en base de donnée. Cela
+travailleur est inscrit et qui existent en base de données. Cela
 fonctionne très bien pour les travailleurs en régime volant, mais pas
 pour les travailleurs en régime régulier. En effet ces derniers ne
 voyaient qu'un seul prochain *shift*, voir aucun juste après avoir

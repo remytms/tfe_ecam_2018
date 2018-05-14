@@ -1,12 +1,13 @@
 # Conclusion et perspectives {-}
 
-Cet ouvrage a présenté la réalisation de CoopDesk qui est une réussite.
-CoopDesk répond à tous les besoins exprimés dans le cahier de charges.
-Les coopératives, qui utilisent Odoo, bénéficient maintenant d'un
-guichet électronique faisant l'interface entre les coopérateurs et la
-coopérative. Ce guichet facilite la communication de la coopérative
-envers ses coopérateurs et permet aux coopératives de mobiliser leur
-personnel sur les autres tâches qui constituent leur métier.
+Cet ouvrage a présenté la réalisation de CoopDesk qui a été
+particulièrement bien appréciée par les utilisateurs.  CoopDesk répond à
+tous les besoins exprimés dans le cahier de charges.  Les coopératives,
+qui utilisent Odoo, bénéficient désormais d'un guichet électronique
+faisant l'interface entre les coopérateurs et la coopérative. Ce guichet
+facilite la communication de la coopérative envers ses coopérateurs et
+permet aux coopératives de mobiliser leur personnel sur les autres
+tâches qui constituent leur métier.
 
 Comme exposé dans le chapitre \ref{sec:coopshift}, CoopShift permet
 aux travailleurs d'un supermarché coopératif de gérer leurs *shifts*
@@ -32,13 +33,13 @@ chapitre \ref{sec:coopdocument}. Elle permet à la coopérative de
 publier des documents à ses coopérateurs et aussi de rendre certains
 documents accessibles publiquement. La présentation de cette application
 a déjà fait émerger de nouveaux besoins tel que la possibilité de
-publier des documents stockés sur des espaces de stockage en ligne
-externes tel que Nextcloud. \cite{site:nextcloud}
+publier des documents stockés sur des espaces de stockage en ligne,
+externes, tels que Nextcloud. \cite{site:nextcloud}
 
-Enfin le chapitre \ref{sec:coopreceipt} a présenté CoopReceipt qui
+Enfin, le chapitre \ref{sec:coopreceipt} a présenté CoopReceipt qui
 permet aux clients d'un magasin d'accéder aux tickets de caisse de leurs
 achats passés. Actuellement, seul les tickets de caisse sont disponibles
-via l'interface comme demandé dans le cahier des charges. Cependant,
+via l'interface, comme demandé dans le cahier des charges. Cependant,
 certains clients ont besoin de factures à la place des tickets de
 caisse. C'est une fonctionnalité qui pourrait être développée dans le
 futur.

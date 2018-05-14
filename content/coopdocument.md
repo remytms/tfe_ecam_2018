@@ -127,7 +127,7 @@ de papier et un bouton « modifier » permet d'éditer le
 document.](images/doc_form_view.90.png){#fig:doc-form-view width=100%}
 
 ![Exemple de vue en arbre. La barre de recherche en haut à droite permet
-de filtre la liste.](images/doc_tree_view.90.png){#fig:doc-tree-view
+de filtrer la liste.](images/doc_tree_view.90.png){#fig:doc-tree-view
 width=100%}
 
 
@@ -184,16 +184,16 @@ catégories.](images/doc_cat_admin_tree_view.png){width=100%}
 a comme date de validité le 3 mai 2018 mais n'est publié que le 12 mai
 2018.](images/doc_create_doc.png){width=100%}
 
-![Le liste des documents dans l'interface d'administration. Trois
-documents sont publié dont un qui n'est accessible qu'aux utilisateurs
+![La liste des documents dans l'interface d'administration. Trois
+documents sont publiés dont un qui n'est accessible qu'aux utilisateurs
 connectés.](images/doc_admin_tree_view.png){width=100%}
 
-![La liste des documents disponible pour un utilisateur connecté via
+![La liste des documents disponibles pour un utilisateur connecté via
 l'interface *website*. Pour afficher le document qui se trouve dans la
-catégorie « PV des AG », il faut cliquer sur celle-ci. La zone archives
-permet de trier les documents par mois. Cela permet de facilement
-retrouver un document d'une date
-donné.](images/doc_website_view.png){width=100%}
+catégorie « PV des AG », il faut cliquer sur celle-ci. La zone
+« archives » permet de trier les documents par mois. Cela permet de
+facilement retrouver un document d'une date
+donnée.](images/doc_website_view.png){width=100%}
 
 \clearpage
 

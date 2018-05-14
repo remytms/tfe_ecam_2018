@@ -2,7 +2,7 @@
 
 Ce chapitre traite de l'application fournissant une interface pour que
 le coopérateur puisse : consulter les informations personnelles le
-concernant qui sont possédées par la coopérative, modifier certaines
+concernant, possédées par la coopérative, modifier certaines
 d'entre elles et consulter l'ensemble de ses informations de
 coopérateur, y compris, les divers certificats.
 
@@ -12,7 +12,7 @@ coopérateur, y compris, les divers certificats.
 La BEES coop, étant une coopérative, doit respecter certaines
 obligations légales, notamment tenir un registre des parts. Pour ce
 faire, elle a besoin de connaitre certaines informations personnelles
-des coopérateurs. De plus la majorité de coopérateurs sont aussi
+des coopérateurs. De plus, la majorité de coopérateurs sont aussi
 travailleurs dans le supermarché, la coopérative a aussi besoin
 d'informations personnelles pour organiser le travail dans le magasin.
 Toutes ces informations, à caractère personnel, sont soumises à des lois
@@ -24,7 +24,7 @@ informations puissent être corrigées directement par le coopérateur.
 Cependant, la modification des informations qui font l'objet
 d'obligations légales pour la coopérative elle-même ne seront modifiées
 que par un responsable de la coopérative après une demande écrite du
-coopérateur. Ceci afin d'éviter que des informations importantes ne
+coopérateur, ceci afin d'éviter que des informations importantes ne
 soient modifiées ou supprimées par erreur.
 
 Chaque coopérateur possède des parts de la coopérative. Ces parts
@@ -90,12 +90,12 @@ chapitre \ref{sec:coopdesk} \vpageref{sec:coopdesk-conception} où se
 trouve une explication du découpage de CoopInfoPerso en cinq modules. Ce
 découpage est repris dans la figure \vref{fig:coopinfoperso}.
 
-![Les différents modules qui compose l'application
+![Les différents modules qui composent l'application
 CoopInfoPerso.](images/coopinfoperso.png){#fig:coopinfoperso width=100%}
 
 Dans les modules *easy_my_coop_website_portal* et
 *easy_my_coop_website_taxshelter*, il est question de permettre à
-l'utilisateur de télécharger des PDF des différentes attestations et
+l'utilisateur de télécharger les PDF des différentes attestations et
 certificats. Ces PDF sont décrits respectivement dans les modules
 *easy_my_coop* et *easy_my_coop_taxshelter_report*. Dans Odoo ces PDF
 sont appelés des *reports* (rapport en français). Un rapport est défini
@@ -123,12 +123,12 @@ Thibault \textsc{François}, ingénieur chez Odoo SA, il a été décidé de
 ne pas donner de droits particuliers à chaque rapport, mais d'utiliser
 les droits du super utilisateur d'Odoo pour accéder aux objets
 nécessaires au rendu du rapport. Cela signifie que la méthode qui se
-charge d'afficher les PDF devra au préalable vérifier que l'utilisateur
-est bien lié au rapport qu'il demande à voir et lui interdire l'accès le
-cas échéant. Cette méthode est considérée comme plus pragmatique, car
-elle évite les effets de bords qui peuvent apparaitre lorsque les droits
-d'accès d'Odoo sont modifiés, d'autant qu'aucun autre module ne
-bénéficiera de cette modification des droits.
+charge d'afficher les PDF devra, au préalable, vérifier que
+l'utilisateur est bien lié au rapport qu'il demande à voir et lui
+interdire l'accès le cas échéant. Cette méthode est considérée comme
+plus pragmatique car elle évite les effets de bords qui peuvent
+apparaitre lorsque les droits d'accès d'Odoo sont modifiés, d'autant
+qu'aucun autre module ne bénéficiera de cette modification des droits.
 
 Le module *website_portal_extend* améliore le module
 *website_portal_v10* en le rendant plus facilement extensible. Pour
@@ -161,13 +161,13 @@ droite.](images/coop_personnal_page_wide.png){width=100%}
 
 ![Le formulaire de modification des informations personnelles du
 coopérateur. Seul le numéro de téléphone et l'adresse postale sont
-modifiable par le
+modifiables par le
 coopérateur.](images/coop_personnal_info_form.png){width=100%}
 
 ![La zone d'affichage des informations de coopérateur. Le coopérateur
-n'a pas de mangeurs *(eaters)* renseigné pour l'instant. Il a pris
+n'a pas de mangeurs *(eaters)* renseignés pour l'instant. Il a pris
 quatre part de 25 euros en une fois. Le coopérateur peut télécharger son
-certificate de coopérateur au format PDF en cliquant sur le bouton
+certificat de coopérateur au format PDF en cliquant sur le bouton
 « Cooperator Certificate ».](images/coop_info.png){width=100%}
 
 ![La page affichant la liste des demandes de libération de capital
@@ -178,9 +178,9 @@ télécharger une copie de cette demande au format
 PDF.](images/coop_capital_request.png){width=100%}
 
 ![La page affichant la liste des certificats Tax Shelter. La coopérative
-génère un certificat par année. Le certificat est composé du
+génère un certificat par année. Le certificat est composé de
 l'attestation de souscription *(subscription certificate)* et du
-certificat de part *(share certificate)*. Les deux sont téléchargeable
+certificat de part *(share certificate)*. Les deux sont téléchargeables
 au format PDF en cliquant sur le lien
 adéquat.](images/coop_taxshelter.png){width=100%}
 
@@ -191,7 +191,7 @@ adéquat.](images/coop_taxshelter.png){width=100%}
 
 Dans le cahier des charges, il est indiqué que le module
 *easy_my_coop_website_portal* devrait fournir une interface de
-configuration où les administrateurs pourraient choisir quelles 
+configuration où les administrateurs pourraient choisir quelles
 informations personnelles peuvent être modifiées et lesquelles ne le
 peuvent pas. Pour réaliser cela, il était question de faire une
 introspection sur l'objet *res_partner* (objet qui représente un
@@ -206,11 +206,10 @@ l'interface de configuration.
 L'introspection de l'objet *res_partner* fonctionne bien, il est aisé de
 concevoir une interface pour sélectionner les champs qui doivent
 apparaitre dans le formulaire de modification des informations
-personnelles de l'utilisateur. Mais ce n'est pas tout, il faut
-encore afficher ce formulaire et pouvoir valider les données qui
-sont entrées par l'utilisateur. Odoo ne fournit pas de solution toute
-faite pour ce genre de cas. Cependant, il est possible d'en développer
-une.
+personnelles de l'utilisateur. Mais ce n'est pas tout, il faut encore
+afficher ce formulaire et pouvoir valider les données qui sont entrées
+par l'utilisateur. Odoo ne fournit pas de solution toute faite pour ce
+genre de cas. Cependant, il est possible d'en développer une.
 
 Après discussion avec mon promoteur, Houssine \textsc{Bakkali}, il a été
 décidé de ne pas mettre en œuvre cette solution pour se concentrer sur
@@ -224,14 +223,14 @@ le choix des champs ne changera pas régulièrement. Une solution, où les
 champs, qui peuvent être modifiés, sont définis dans un module, est une
 solution tout à fait suffisante qui permet une certaine souplesse, sans
 nécessiter beaucoup de temps de développement. C'est donc cette solution
-pragmatique qui a été implémentée.
+pragmatique qui a été retenue et implémentée.
 
 
 ##### Solution proposée
 
 Une proposition d'implémentation se trouve à la
 figure \vref{fig:website_portal_extend_class} et la
-figure \vref{fig:introspection}. Dans cette implémentation la classe
+figure \vref{fig:introspection}. Dans cette implémentation, la classe
 *WebsitePartnerFormController* est le contrôleur qui se charge de
 présenter le formulaire et de valider les informations entrées par
 l'utilisateur, pour chaque champ dans le formulaire. Pour présenter le
@@ -249,7 +248,9 @@ nécessaires au rendu et la validation des champs qu'il a ajouté au
 *res_partner*.
 
 ![Structure de la solution permettant d'avoir un rendu et une validation
-pour tous les champs d'un *partner*.](images/website_portal_extend-class_diagram.png){#fig:website_portal_extend_class width=100%}
+pour tous les champs d'un
+*partner*.](images/website_portal_extend-class_diagram.png){#fig:website_portal_extend_class
+width=100%}
 
 ![Diagramme représentant la présentation et la validation d'un
 formulaire pour les champs d'un
@@ -259,7 +260,7 @@ formulaire pour les champs d'un
 ##### Solution implémentée
 
 Dans le module *(website_portal_v10)*, la fonction `details()` se charge
-d'afficher un formulaire contenant les champs suivant :
+d'afficher un formulaire contenant les champs suivants :
 
 - *name* ;
 - *phone* ;
@@ -270,10 +271,10 @@ d'afficher un formulaire contenant les champs suivant :
 - *zipcode* ;
 - *vat*.
 
-Certain champs sont des champs obligatoires *(mandatory_billing_fields)*,
-d'autres sont des champs optionnels *(optional_billing_fields)*. Ces
-champs sont définis dans la méthode `details()`. Ils ont donc une portée
-locale à cette méthode.
+Certain champs sont des champs obligatoires
+*(mandatory_billing_fields)*, d'autres sont des champs optionnels
+*(optional_billing_fields)*. Ces champs sont définis dans la méthode
+`details()`. Ils ont donc une portée locale à cette méthode.
 
 Afin de valider le formulaire, le module possède la méthode
 `details_form_validate()`. Cette fonction redéfinit les champs
@@ -286,9 +287,10 @@ Afin de rendre ce module facilement extensible et de pouvoir configurer
 définition des champs a été placée comme variable de classe dans le
 module *website_portal_extend*. Pour ce faire, il a fallu réécrire les
 méthodes `details()` et `details_form_validate()` afin qu'elles prennent
-en compte ce changement. Deux variables de classe définissent les champs.
-*mandatory_billing_fields* est une liste des champs obligatoires et
-*optional_billing_fields* est une liste de champs optionnels.
+en compte ce changement. Deux variables de classe définissent les
+champs : *mandatory_billing_fields* est une liste des champs
+obligatoires et *optional_billing_fields* est une liste de champs
+optionnels.
 
 De cette manière, pour cacher certain champs ou choisir ceux qui seront
 obligatoires ou optionnels, il suffit d'étendre le contrôleur du module

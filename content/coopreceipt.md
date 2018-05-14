@@ -2,7 +2,7 @@
 
 Ce chapitre traite de l'application CoopReceipt qui se charge de mettre
 à disposition du coopérateur, dans son espace personnel, les tickets de
-caisses des achats qu'il a effectués dans le supermarché.
+caisses des achats qu'il a effectué dans le supermarché.
 
 
 ## Le besoin
@@ -29,10 +29,10 @@ pouvoir consulter chacun d'eux.
 
 ## Conception
 
-Les commandes d'un point de vente sont stockée dans Odoo via l'objet
+Les commandes d'un point de vente sont stockées dans Odoo via l'objet
 *pos.order*. Cet objet contient toutes les informations liées à la
 commande : le numéro de la commande, le client, le détail des achats,
-la caisse qui a servi à la vente, la méthode de payement, etc. Le ticket
+la caisse qui a servi à la vente, le mode de payement, etc. Le ticket
 de caisse doit quant à lui être généré à la volée à l'instar de ce qui
 se fait dans CoopInfoPerso. C'est donc la même logique qui va être
 suivie. À savoir, une vérification des autorisations de l'utilisateur à
