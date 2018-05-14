@@ -1,0 +1,15 @@
+---
+geometry:
+  - "headsep=2em"
+  - "marginpar=30mm"
+  - "inner=45mm"
+  - "outer=45mm"
+side_notes:
+  - "headsep=2em"
+  - "marginpar=50mm"
+  - "inner=30mm"
+  - "outer=60mm"
+paperversion: true
+colorizelink: false
+endpage: "endpages/tfe-endpage-paper.tex"
+...

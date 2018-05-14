@@ -69,6 +69,7 @@ $if(geometry)$
     $endfor$
 ]{geometry}
 $endif$
+\usepackage{marginnote}
 
 % Colors
 \usepackage{xcolor}
@@ -92,21 +93,65 @@ $endif$
     \renewcommand{\headrulewidth}{0pt}
     \fancyfoot[C]{\footnotesize\color{grey-header}\thepage}
 }
-\fancypagestyle{greyfancy}{
+\fancypagestyle{greytwoside}{
     \renewcommand{\headrule}{\color{grey-header}\hrule}
     \renewcommand{\headrulewidth}{0.4pt}
-    $if(paperversion)$
-        \fancyhead[LE]{\footnotesize\color{grey-header}\thepage}
-        \fancyhead[RO]{\footnotesize\color{grey-header}\thepage}
-        \fancyhead[RE]{\footnotesize\slshape\color{grey-header} \leftmark}
-        \fancyhead[LO]{\footnotesize\slshape\color{grey-header} \rightmark}
-    $else$
-        \fancyhead[LO]{\footnotesize\slshape\color{grey-header} \leftmark}
-        \fancyhead[RO]{\footnotesize\color{grey-header}\thepage}
-    $endif$
+    \fancyhead[LE]{
+        \footnotesize\color{grey-header}\thepage
+    }
+    \fancyhead[RO]{
+        \footnotesize\color{grey-header}\thepage
+    }
+    \fancyhead[RE]{\footnotesize\slshape\color{grey-header} \leftmark}
+    \fancyhead[LO]{\footnotesize\slshape\color{grey-header} \rightmark}
     \fancyfoot[C]{}
 }
-\pagestyle{greyfancy}
+\fancypagestyle{greytwosidenotes}{
+    \renewcommand{\headrule}{\color{grey-header}\hrule}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \fancyhead[LE]{
+        \footnotesize\color{grey-header}\thepage
+        \marginnote{
+            \footnotesize\centering\color{grey-header}%
+            \MakeUppercase{Notes du lecteur}
+        }
+    }
+    \fancyhead[RO]{
+        \footnotesize\color{grey-header}\thepage
+        \marginnote{
+            \footnotesize\centering\color{grey-header}%
+            \MakeUppercase{Notes du lecteur}
+        }
+    }
+    \fancyhead[RE]{\footnotesize\slshape\color{grey-header} \leftmark}
+    \fancyhead[LO]{\footnotesize\slshape\color{grey-header} \rightmark}
+    \fancyfoot[C]{}
+}
+\fancypagestyle{greyoneside}{
+    \renewcommand{\headrule}{\color{grey-header}\hrule}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \fancyhead[LO]{\footnotesize\slshape\color{grey-header} \leftmark}
+    \fancyhead[RO]{\footnotesize\color{grey-header}\thepage}
+    \fancyfoot[C]{}
+}
+\fancypagestyle{greyonesidenotes}{
+    \renewcommand{\headrule}{\color{grey-header}\hrule}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \fancyhead[LO]{\footnotesize\slshape\color{grey-header} \leftmark}
+    \fancyhead[RO]{
+        \footnotesize\color{grey-header}\thepage
+        \marginnote{
+            \footnotesize\centering\color{grey-header}%
+            \MakeUppercase{Notes du lecteur}
+        }
+    }
+    \fancyfoot[C]{}
+}
+$if(twoside)$
+    \pagestyle{greytwoside}
+$else$
+    \pagestyle{greyoneside}
+$endif$
 \renewcommand{\chaptermark}[1]{%
     \markboth{\MakeUppercase{\thechapter.\ #1}}{}
 }
@@ -320,7 +365,46 @@ $endif$
     % Core of the document %
     % -------------------- %
 
+    $if(side_notes)$
+        \newgeometry{
+            $for(side_notes)$
+                $side_notes$,
+            $endfor$
+        }
+        $if(twoside)$
+        \pagestyle{greytwosidenotes}
+        $else$
+        \pagestyle{greyonesidenotes}
+        $endif$
+        \fancypagestyle{plain}{
+            \renewcommand{\headrule}{}
+            \renewcommand{\headrulewidth}{0pt}
+            \fancyhead{
+                \marginnote{
+                    \footnotesize\normalfont\centering\color{grey-header}%
+                    \MakeUppercase{Notes du lecteur}
+                }[115pt]
+            }
+            \fancyfoot[C]{\footnotesize\color{grey-header}\thepage}
+        }
+    $endif$
+
     $body$
+
+    $if(side_notes)$
+    \restoregeometry
+        $if(twoside)$
+            \pagestyle{greytwoside}
+        $else$
+            \pagestyle{greyoneside}
+        $endif$
+        \fancypagestyle{plain}{
+            \fancyhead{}
+            \renewcommand{\headrule}{}
+            \renewcommand{\headrulewidth}{0pt}
+            \fancyfoot[C]{\footnotesize\color{grey-header}\thepage}
+        }
+    $endif$
 
 
     % ------------ %
