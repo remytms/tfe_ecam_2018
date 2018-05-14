@@ -80,7 +80,7 @@ $endif$
 
 % Paragraph interspace
 \usepackage{parskip}
-\setlength{\parindent}{12pt}
+\setlength{\parindent}{1em}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \usepackage[all]{nowidow}
 
@@ -320,12 +320,9 @@ $endif$
     %\label{abstract}
     %\pdfbookmark{\abstractname}{abstract}  % To have pdf bookmarks
     \phantomsection\addcontentsline{toc}{chapter}{\abstractname}
-    \begin{abstract}
-        % Abstract automaticaly call \thispagestyle{empty}
-        % To prenvent this comportement we add this:
-        \thispagestyle{plain}
-        \input{$abstract$}
-    \end{abstract}
+    \thispagestyle{plain}
+    \section*{\abstractname}
+    \input{$abstract$}
     \cleardoublepage
     $endif$
 
