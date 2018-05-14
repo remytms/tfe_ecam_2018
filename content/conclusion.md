@@ -1,5 +1,7 @@
 # Conclusion et perspectives {-}
 
+\markboth{\MakeUppercase{Conclusion et perspectives}}{}
+
 Cet ouvrage a présenté la réalisation de CoopDesk qui a été
 particulièrement bien appréciée par les utilisateurs.  CoopDesk répond à
 tous les besoins exprimés dans le cahier de charges.  Les coopératives,

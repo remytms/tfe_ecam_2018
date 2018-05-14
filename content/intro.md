@@ -1,5 +1,7 @@
 # Introduction {-}
 
+\markboth{\MakeUppercase{Introduction}}{}
+
 Il n'échappe à personne que la société dans laquelle nous vivons
 comporte quelques défauts. Le mouvement coopératif cherche, depuis
 plus de 150 ans, \cite{site:histoire-cooperative} à améliorer notre

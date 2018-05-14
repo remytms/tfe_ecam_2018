@@ -1,5 +1,7 @@
 # Avant-propos {-}
 
+\markboth{\MakeUppercase{Avant-propos}}{}
+
 Les études, et l'apprentissage en général, ont quelque chose de
 frustrant. Elles sont jalonnées de réalisations -- certes intéressantes
 pour être confrontées à des cas concrets, faire des erreurs et apprendre
