@@ -48,7 +48,7 @@ réalisation de son objet social et de ses finalités sociales. CoopDesk
 doit donc être un outil qui, en plus de fournir les services énoncés
 ci-dessus, devra permettre de réduire le nombre de personnes mises à
 disposition pour réaliser ces services. La coopérative utilise le
-logiciel Odoo Community comme ERP *(Entreprise Resource Planning)*,
+logiciel Odoo Community comme ERP *(Enterprise Resource Planning)*,
 CoopDesk doit donc être totalement intégré à Odoo.
 
 

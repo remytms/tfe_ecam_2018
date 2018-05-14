@@ -125,7 +125,7 @@ gestion pour la coopérative.
 
 ## Qu'est-ce qu'Odoo
 
-Odoo est le nom d'un logiciel libre de gestion d'entreprise (*Entreprise
+Odoo est le nom d'un logiciel libre de gestion d'entreprise (*Enterprise
 Ressource Planning*, ERP). C'est aussi le nom de la société anonyme du
 même nom : Odoo SA. C'est une société belge fondée par
 Fabien \textsc{Pinckaers}. \cite{site:odoo-about}
@@ -147,19 +147,19 @@ applications phares :
 - etc.
 
 Odoo SA s'occupe de maintenir et de développer deux versions d'Odoo :
-Odoo Community et Odoo Entreprise.
+Odoo Community et Odoo Enterprise.
 
 - **Odoo Community** est un logiciel libre sous licence LGPL *(GNU
   Lesser General Public Licence)*. C'est le cœur d'Odoo. Il contient les
   fonctionnalités vitales et basiques d'Odoo.
-- **Odoo Entreprise** est une couche logicielle propriétaire qui
+- **Odoo Enterprise** est une couche logicielle propriétaire qui
   s'ajoute à Odoo Community. Cette couche propriétaire apporte des
   fonctionnalités supplémentaires.
 
 Bien souvent, les processus de production d'une entreprise ne sont pas
 les mêmes. C'est pourquoi, il faut adapter Odoo à ces processus. Odoo SA
 fournit, avec ses partenaires, ce service de personnalisation d'Odoo
-Entreprise. De même, pour Odoo Community, d'autres sociétés fournissent
+Enterprise. De même, pour Odoo Community, d'autres sociétés fournissent
 des services de personnalisation, similaire à ceux d'Odoo SA. C'est
 dans ce cadre qu'Open Architects Consulting travaille.
 

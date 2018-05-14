@@ -19,7 +19,7 @@ périodes de travail dans le supermarché, consulter ses documents, être
 informé des décisions et de la vie des instances de la coopérative.
 
 D'un point de vue technique le travail est réalisé sur Odoo, un ERP
-*(Entreprise Resource Planning)* *open source*. Le TFE consiste en la
+*(Enterprise Resource Planning)* *open source*. Le TFE consiste en la
 réalisation d'applications web basées sur Odoo qui permettront d'offrir
 à chaque coopérateur, de manière individuelle et sécurisée, un accès :
 
