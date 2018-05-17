@@ -52,3 +52,14 @@ plusieurs coopératives. C'est l'utilisation de CoopDesk par des
 utilisateurs qui va faire émerger de nouveaux besoins. CoopDesk a des
 bases solides qui permettront de réaliser les développements nécessaires
 pour satisfaire ces nouveaux besoins.
+
+Un exemple d'amélioration possible pour CoopDesk serait de permettre aux
+travailleurs de la BEES coop de s'échanger des *shifts*. En effet,
+lorsqu'un travailleur est dans l'impossibilité de réaliser son *shift*,
+il lui incombe de trouver un remplaçant. Ce remplaçant doit être un
+autre travailleur. Dès lors, les deux travailleurs s'échangent leurs
+*shifts* respectifs de manière à ce que les deux *shifts* soient
+réalisés. CoopDesk pourrait servir d'une sorte de « bourse aux
+*shifts* » où les travailleurs pourraient déposer des *shift* à
+échanger.  Ce serait un complément efficace au tableau en liège qui se
+trouve actuellement à l'entrée de la BEES coop.

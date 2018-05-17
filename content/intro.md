@@ -32,11 +32,12 @@ de fonctionner principalement grâce au travail bénévole de ses membres.
 Actuellement, c'est plus d'un millier de personnes qui se relaient dans
 le magasin. \cite{site:inauguration-beescoop}
 
-CoopDesk répond à ces besoins en utilisant l'outil informatique qui
-fournit un guichet électronique faisant l'interface entre les
-coopérateurs et la coopérative. CoopDesk est un logiciel *open source*,
-basé lui-même sur le logiciel de gestion d'entreprise *open source*
-Odoo. CoopDesk est actuellement composé de quatres applications.
+CoopDesk répond à ces besoins particuliers des coopératives en utilisant
+l'outil informatique qui fournit un guichet électronique faisant
+l'interface entre les coopérateurs et la coopérative. CoopDesk est un
+logiciel *open source*, basé lui-même sur le logiciel de gestion
+d'entreprise *open source* Odoo. CoopDesk est actuellement composé de
+quatres applications.
 
 - **CoopShift** fournit la gestion du travail bénévole dans un
   supermarché coopératif.
