@@ -14,7 +14,6 @@ tags:
   - ecam
   - ingénieur
 documentclass: "report"
-titlepage: "titlepages/tfe-a4-titlepage.pdf"
 abstract: "abstract/abstract.tex"
 specifications: "documents/cahier-des-charges.pdf"
 bibfile: "biblio"

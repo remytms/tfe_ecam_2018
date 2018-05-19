@@ -8,5 +8,6 @@ geometry:
   - "outer=45mm"
 paperversion: false
 colorizelink: true
+titlepage: "titlepages/tfe-a4-titlepage.pdf"
 endpage: "endpages/tfe-endpage-screen.tex"
 ...

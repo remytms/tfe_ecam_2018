@@ -11,5 +11,6 @@ side_notes:
   - "outer=60mm"
 paperversion: true
 colorizelink: false
+titlepage: "titlepages/tfe-a4-titlepage.pdf"
 endpage: "endpages/tfe-endpage-paper.tex"
 ...

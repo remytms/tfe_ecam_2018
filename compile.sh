@@ -1,13 +1,18 @@
 #!/bin/sh
 
-# Title Page
-if [ -f "titlepages/tfe-a4-titlepage.pdf" ]
-then
-    echo "Title Page already generated"
-else
-    xelatex titlepages/tfe-a4-titlepage.tex
-    mv tfe-a4-titlepage.pdf titlepages
-fi
+# Title Pages
+pandoc tfe-main.yml tfe-paper-a4.yml \
+    --template=templates/titlepage.template.tex \
+    --latex-engine=xelatex \
+-o titlepages/tfe-a4-titlepage.pdf
+pandoc tfe-main.yml tfe-paper-a5-binding.yml \
+    --template=templates/titlepage.template.tex \
+    --latex-engine=xelatex \
+-o titlepages/tfe-a5-binding-titlepage.pdf
+pandoc tfe-main.yml tfe-paper-a5.yml \
+    --template=templates/titlepage.template.tex \
+    --latex-engine=xelatex \
+-o titlepages/tfe-a5-titlepage.pdf
 
 
 # Diagrams

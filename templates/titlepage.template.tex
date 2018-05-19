@@ -1,15 +1,32 @@
 \documentclass[
-    a4paper,
-    11pt,
+    $if(papersize)$
+        $papersize$,
+    $else$
+        a4paper,
+    $endif$
+    $if(fontsize)$
+        $fontsize$,
+    $else$
+        11pt,
+    $endif$
     oneside
 ]{report}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
-\usepackage{fontspec}
-\setmainfont[Ligatures=TeX]{Linux Libertine O}
-\setsansfont[Ligatures=TeX]{Linux Biolinum O}
+\usepackage{libertine}
+\usepackage{libertinust1math}
+
+% Margins
+$if(geometry)$
+\usepackage[
+    %showframe, % Uncomment to debug page margin
+    $for(geometry)$
+        $geometry$$sep$,
+    $endfor$
+]{geometry}
+$endif$
 
 \usepackage{graphicx}
 
@@ -22,7 +39,7 @@
             \textsc{Haute École Léonard de Vinci} \\
             \centering
             \includegraphics[
-                width=0.3\textwidth,
+                height=0.12\textheight,
                 keepaspectratio,
             ]{images/ecam_logo.png} \\
             \textsc{ECAM, Institut Supérieur Industriel ASBL} \\
@@ -38,12 +55,11 @@
         \begin{center}
             \rule{\textwidth}{1pt}
             {\huge\bfseries
-                CoopDesk \par
+                $title$ \par
             }
             \vspace{\baselineskip}
             {\LARGE\bfseries
-                Guichet électronique basé sur Odoo et faisant
-                l'interface entre les coopérateurs et la coopérative
+                $subtitle$
             }
             \rule{\textwidth}{1pt}
         \end{center}
@@ -52,7 +68,7 @@
 
         \begin{center}
             {\Large
-                Rémy~\textsc{Taymans}
+                $author_tex$
             }
         \end{center}
 
@@ -63,7 +79,7 @@
                 Travail de fin d'étude \\
                 en vue de l'obtention du diplôme de \\
                 \textbf{
-                    Master en sciences de l'ingénieur industriel
+                    Master en sciences de l'ingénieur industriel \\
                     finalité informatique
                 }
             }
