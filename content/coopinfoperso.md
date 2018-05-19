@@ -86,7 +86,7 @@ postale.
 
 CoopInfoPerso regroupe un ensemble de plusieurs modules, comme expliqué
 dans la section \nameref{sec:coopdesk-conception} du
-chapitre \ref{sec:coopdesk} \vpageref{sec:coopdesk-conception} où se
+chapitre \ref{sec:conception} \vpageref{sec:coopdesk-conception} où se
 trouve une explication du découpage de CoopInfoPerso en cinq modules. Ce
 découpage est repris dans la figure \vref{fig:coopinfoperso}.
 
