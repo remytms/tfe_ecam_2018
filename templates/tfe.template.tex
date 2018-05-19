@@ -305,6 +305,32 @@ $endif$
 
 \begin{document}
 
+    % --------- %
+    % Half page %
+    % --------- %
+
+    $if(paperversion)$
+    \begin{titlepage}
+        \label{halfpage}
+        \pdfbookmark{Half Page}{halfpage}  % To have pdf bookmarks
+        \mbox{}
+        \sffamily
+        \vspace{\stretch{1}}
+        \begin{center}
+            {\Large
+                $title$ \par
+            }
+            \vspace{\baselineskip}
+            {\normalsize
+                $subtitle$
+            }
+        \end{center}
+        \vspace{\stretch{1}}
+    \end{titlepage}
+    \cleardoublepage
+    $endif$
+
+
     % -------------------- %
     % Title page variables %
     % -------------------- %
