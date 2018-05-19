@@ -18,7 +18,6 @@ abstract: "abstract/abstract.tex"
 specifications: "documents/cahier-des-charges.pdf"
 licence: "frontmatter/licence.tex"
 bibfile: "biblio"
-endpage: "endpages/tfe-endpage-paper.tex"
 hyphenation:
     - front-end
     - back-end
