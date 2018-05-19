@@ -149,7 +149,7 @@ Comme on peut le voir dans les figures \vref{fig:shift-controller} et
 principale, correspond une méthode dans le contrôleur. Les méthodes pour
 les vues principales font appel aux méthodes des vues élémentaires comme
 on peut le voir dans la figure \vref{fig:shift-activity} qui illustre le
-déroulement de la génération des pages. La méthode `my_shift()` est
+déroulement de la génération des pages. La méthode *my_shift()* est
 toujours la première à être appelée lorsque l'URL \url{/my/shift} est
 demandée. Cette dernière, après avoir vérifié le régime de travail de
 l'utilisateur, va appeler la méthode de la vue principale qui correspond
@@ -348,8 +348,8 @@ toujours à 12h, heure légale belge, se passe à 10h, heure UTC. Cela est
 dû au fait qu'en hiver l'heure légale belge est UTC+1 et en été l'heure
 légale belge est UTC+2. Il faut donc que l'ajout des jours tienne compte
 de ce changement d'heure afin de le répercuter à l'heure UTC stockée
-dans le *shift*.  L'ajout des jours se fait via la méthode `timedelta()`
-du module `datetime` de Python.
+dans le *shift*.  L'ajout des jours se fait via la méthode *timedelta()*
+du module *datetime* de Python.
 
 Pour comprendre le problème, il faut comprendre comment Python gère les
 dates et les heures. Il y a deux types de date différentes : les dates

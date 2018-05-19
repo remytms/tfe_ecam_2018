@@ -259,7 +259,7 @@ formulaire pour les champs d'un
 
 ##### Solution implémentée
 
-Dans le module *(website_portal_v10)*, la fonction `details()` se charge
+Dans le module *(website_portal_v10)*, la fonction *details()* se charge
 d'afficher un formulaire contenant les champs suivants :
 
 - *name* ;
@@ -274,19 +274,19 @@ d'afficher un formulaire contenant les champs suivants :
 Certain champs sont des champs obligatoires
 *(mandatory_billing_fields)*, d'autres sont des champs optionnels
 *(optional_billing_fields)*. Ces champs sont définis dans la méthode
-`details()`. Ils ont donc une portée locale à cette méthode.
+*details()*. Ils ont donc une portée locale à cette méthode.
 
 Afin de valider le formulaire, le module possède la méthode
-`details_form_validate()`. Cette fonction redéfinit les champs
+*details_form_validate()*. Cette fonction redéfinit les champs
 obligatoires et les champs optionnels. Les champs définis dans cette
 méthode sont donc complètement indépendants des champs définis dans la
-méthode `details()`.
+méthode *details()*.
 
 Afin de rendre ce module facilement extensible et de pouvoir configurer
 à un seul endroit les champs obligatoires et les champs optionnels, la
 définition des champs a été placée comme variable de classe dans le
 module *website_portal_extend*. Pour ce faire, il a fallu réécrire les
-méthodes `details()` et `details_form_validate()` afin qu'elles prennent
+méthodes *details()* et *details_form_validate()* afin qu'elles prennent
 en compte ce changement. Deux variables de classe définissent les
 champs : *mandatory_billing_fields* est une liste des champs
 obligatoires et *optional_billing_fields* est une liste de champs
