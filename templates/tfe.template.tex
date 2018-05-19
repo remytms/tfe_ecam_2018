@@ -232,10 +232,14 @@ $endif$
 \renewcommand\UrlFont{\color{link-color}\rmfamily\itshape}  % Color links
 \usepackage[
     bookmarks=true,  % Make the links clickable
-    pdfauthor={Rémy Taymans},
-    pdftitle={CoopDesk},
-    pdfsubject={TFE - Master Ingénieur Industriel Informatique},
-    pdfkeywords={tfe,odoo,erp,cooperative,supermarché},
+    pdfauthor={$author$},
+    pdftitle={$title$},
+    pdfsubject={$subtitle$},
+    pdfkeywords={
+        $for(tags)$
+            $tags$$sep$,
+        $endfor$
+    },
 ]{hyperref}
 \hypersetup{
     colorlinks,

@@ -1,4 +1,18 @@
 ---
+title: CoopDesk
+subtitle: "Guichet électronique basé sur Odoo faisant l'interface entre les coopérateurs et la coopérative"
+author: Rémy Taymans
+author_tex: Rémy \textsc{Taymans}
+tags:
+  - tfe
+  - odoo
+  - erp
+  - cooperative
+  - supermarché
+  - open sources
+  - économie sociale
+  - ecam
+  - ingénieur
 documentclass: "report"
 titlepage: "titlepages/tfe-a4-titlepage.pdf"
 abstract: "abstract/abstract.tex"
