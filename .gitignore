@@ -13,3 +13,6 @@
 
 # Include PDF from documents directory
 !/documents/*.pdf
+
+# Vim files
+*.vim
