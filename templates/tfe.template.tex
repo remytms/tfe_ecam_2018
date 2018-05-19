@@ -336,10 +336,26 @@ $endif$
     % -------------------- %
 
     $if(titlepage)$
-    \label{titlepage}
-    \pdfbookmark{Title Page}{titlepage}  % To have pdf bookmarks
-    \includepdf{$titlepage$}
-    \cleardoublepage
+        \label{titlepage}
+        \pdfbookmark{Title Page}{titlepage}  % To have pdf bookmarks
+        \includepdf{$titlepage$}
+        $if(licence)$
+        $else$
+            \cleardoublepage
+        $endif$
+    $endif$
+
+
+    % ------- %
+    % Licence %
+    % ------- %
+
+    $if(licence)$
+        \label{licence}
+        \pdfbookmark{Licence}{licence}  % To have pdf bookmarks
+        \thispagestyle{empty}
+        \input{$licence$}
+        \newpage
     $endif$
 
     \pagenumbering{roman}  % Reset page number to roman style
