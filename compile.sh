@@ -55,7 +55,7 @@ pandoc $(cat appendices/toc.txt) \
     -o appendices/appendices.tex
 
 
-# Screen reading version
+# A4 Screen reading version
 file='tfe-TAYMANS-14291-screen'
 pandoc $(cat content/toc.txt) \
     tfe-main.yml tfe-screen.yml \
@@ -70,6 +70,10 @@ xelatex -halt-on-error "$file.tex"
 xelatex -halt-on-error "$file.tex"
 
 rm "$file.aux" "$file.bbl" "$file.blg" "$file.toc"
+
+
+# Compressed version of A4 screen reading version
+ps2pdf -dPDFSETTINGS=/ebook "$file.pdf" "$file.compressed.pdf"
 
 
 # Paper A4 two side
