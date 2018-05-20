@@ -1,0 +1,23 @@
+---
+papersize: "a5paper"
+classoption:
+  - "twoside"
+  - "openright"
+twoside: true
+# About margin
+# Width in A5 14,8 cm
+# A textwidth about 12 cm is good for 11pt font.
+# A textwidth about 10 cm is good for a 10pt font.
+geometry:
+  - "marginpar=10mm"
+  - "headsep=1em"
+  - "top=20mm"
+  - "bottom=30mm"
+  - "inner=12mm"
+  - "outer=16mm"
+fontsize: "11pt"
+paperversion: true
+colorizelink: false
+titlepage: "titlepages/tfe-a5-binding-titlepage.pdf"
+endpage: "endpages/tfe-endpage-paper.tex"
+...

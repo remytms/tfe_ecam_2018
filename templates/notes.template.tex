@@ -1,0 +1,50 @@
+\documentclass[
+    $if(papersize)$
+        $papersize$,
+    $else$
+        a4paper,
+    $endif$
+    $if(fontsize)$
+        $fontsize$,
+    $else$
+        11pt,
+    $endif$
+    oneside
+]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{libertine}
+\usepackage{libertinust1math}
+
+% Margins
+$if(geometry)$
+\usepackage[
+    %showframe, % Uncomment to debug page margin
+    $for(geometry)$
+        $geometry$$sep$,
+    $endfor$
+]{geometry}
+$endif$
+
+% Colors
+\usepackage{xcolor}
+
+\usepackage{fancyhdr}
+\definecolor{grey-header}{HTML}{777777}
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \renewcommand{\headrule}{}
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyhead[C]{
+        \footnotesize\color{grey-header}\MakeUppercase{Notes du lecteur}
+    }
+    \fancyfoot{}
+}
+\pagestyle{plain}
+
+\begin{document}
+\null
+$body$
+\end{document}
