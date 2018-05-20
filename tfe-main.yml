@@ -18,6 +18,7 @@ abstract: "abstract/abstract.tex"
 specifications: "documents/cahier-des-charges.pdf"
 licence: "frontmatter/licence.tex"
 bibfile: "biblio"
+appendices: "appendices/appendices.tex"
 hyphenation:
     - front-end
     - back-end

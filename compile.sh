@@ -46,6 +46,15 @@ pandoc abstract/abstract.md \
     -o abstract/abstract.tex
 
 
+# Appendices
+pandoc $(cat appendices/toc.txt) \
+    --template=templates/tfe.empty.template.tex \
+    --top-level-division=chapter \
+    --listings \
+    --latex-engine=xelatex \
+    -o appendices/appendices.tex
+
+
 # Screen reading version
 file='tfe-TAYMANS-14291-screen'
 pandoc $(cat content/toc.txt) \

@@ -4,6 +4,7 @@
 /*.toc
 /*.tex
 /abstract/*.tex
+/appendices/*.tex
 /templates/eisvogel.template.tex
 
 # Generated output that doesn't need versioning
