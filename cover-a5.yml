@@ -1,0 +1,8 @@
+---
+papersize: a5paper
+geometry:
+  - "inner=16mm"
+  - "outer=12mm"
+  - "top=15mm"
+  - "bottom=15mm"
+...

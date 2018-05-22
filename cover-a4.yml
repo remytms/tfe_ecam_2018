@@ -1,0 +1,8 @@
+---
+papersize: a4paper
+geometry:
+  - "inner=55mm"
+  - "outer=35mm"
+  - "top=20mm"
+  - "bottom=20mm"
+...

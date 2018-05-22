@@ -4,15 +4,27 @@
 pandoc tfe-main.yml tfe-paper-a4.yml \
     --template=templates/titlepage.template.tex \
     --latex-engine=xelatex \
--o titlepages/tfe-a4-titlepage.pdf
+    -o titlepages/tfe-a4-titlepage.pdf
 pandoc tfe-main.yml tfe-paper-a5-binding.yml \
     --template=templates/titlepage.template.tex \
     --latex-engine=xelatex \
--o titlepages/tfe-a5-binding-titlepage.pdf
+    -o titlepages/tfe-a5-binding-titlepage.pdf
 pandoc tfe-main.yml tfe-paper-a5.yml \
     --template=templates/titlepage.template.tex \
     --latex-engine=xelatex \
--o titlepages/tfe-a5-titlepage.pdf
+    -o titlepages/tfe-a5-titlepage.pdf
+
+
+# Covers
+
+pandoc tfe-main.yml cover-a4.yml \
+    --template=templates/titlepage.template.tex \
+    --latex-engine=xelatex \
+    -o covers/cover-a4.pdf
+pandoc tfe-main.yml cover-a5.yml \
+    --template=templates/titlepage.template.tex \
+    --latex-engine=xelatex \
+    -o covers/cover-a5.pdf
 
 
 # Diagrams
