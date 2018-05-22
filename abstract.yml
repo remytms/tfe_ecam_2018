@@ -1,0 +1,10 @@
+---
+classoption:
+  - "article"
+papersize: a4paper
+geometry:
+  - "inner=45mm"
+  - "outer=45mm"
+  - "top=30mm"
+  - "bottom=30mm"
+...

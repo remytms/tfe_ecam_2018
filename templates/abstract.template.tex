@@ -1,0 +1,83 @@
+\documentclass[
+    $if(papersize)$
+        $papersize$,
+    $else$
+        a4paper,
+    $endif$
+    $if(fontsize)$
+        $fontsize$,
+    $else$
+        11pt,
+    $endif$
+    french,
+    oneside
+]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{libertine}
+\usepackage{libertinust1math}
+
+% Language
+\usepackage[frenchb]{babel}
+
+% Margins
+$if(geometry)$
+\usepackage[
+    %showframe, % Uncomment to debug page margin
+    $for(geometry)$
+        $geometry$$sep$,
+    $endfor$
+]{geometry}
+$endif$
+
+\pagestyle{empty}
+
+
+% Command defined by pandoc
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+    \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+\begin{document}
+    \sffamily
+
+    \begin{center}
+        \rule{\textwidth}{1pt}
+        {\LARGE\bfseries
+            $title$ \par
+        }
+        \vspace{\baselineskip}
+        {\Large\bfseries
+            $subtitle$
+        }
+        \rule{\textwidth}{1pt}
+    \end{center}
+
+    \vspace{1em}
+
+    \begin{center}
+        {\Large
+            $author_tex$
+        }
+    \end{center}
+
+    \vspace{1em}
+
+    \begin{center}
+        {\large
+            \textbf{
+                Master en sciences de l'ingénieur industriel \\
+                finalité informatique
+            }
+        }
+    \end{center}
+
+    \vspace{2em}
+
+    \section*{\sffamily\abstractname}
+
+    $body$
+\end{document}

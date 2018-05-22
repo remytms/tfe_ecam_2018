@@ -56,6 +56,11 @@ pandoc abstract/abstract.md \
     --listings \
     --latex-engine=xelatex \
     -o abstract/abstract.tex
+pandoc abstract/abstract.md \
+    tfe-main.yml abstract.yml \
+    --template=templates/abstract.template.tex \
+    --latex-engine=xelatex \
+    -o abstract-TAYMANS-14291.pdf
 
 
 # Appendices
